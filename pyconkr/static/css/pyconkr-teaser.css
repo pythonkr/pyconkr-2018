@@ -52,20 +52,15 @@ h3 {
 }
 
 nav a {
-  color: #333;
+  color: white;
 }
 
 #header {
   position: relative;
-  z-index: -2;
-
   margin-bottom: 60px;
   padding: 60px 0;
   width: 100%;
-
-  background-color: #073581;
-
-  color: #FDDA24;
+  color: white;
   text-align: center;
 }
 
