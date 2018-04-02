@@ -9,15 +9,23 @@
   <meta property="og:url" content="https://www.pycon.kr/2017/">
   <meta property="og:image" content="https://www.pycon.kr/2017/static/image/pyconkr-2017-cover.png">
   <meta property="og:description" content="파이콘 한국 2017: 8월 12~15일 코엑스">
-  <link rel="icon" type="image/png" href="{% static "image/favicon2017.ico" %}">
-  <link href="{% static "css/pyconkr-teaser.css" %}" rel="stylesheet" type="text/css">
+
+  <link rel="icon" type="image/png" href="{% static 'image/favicon2017.ico' %}">
+
+  <link href="{% static 'components/slick-carousel/slick/slick.css' %}" rel="stylesheet">
+  <link href="{% static 'components/slick-carousel/slick/slick-theme.css' %}" rel="stylesheet">
+  <link href="{% static 'css/pyconkr-teaser.css' %}" rel="stylesheet" type="text/css">
+
+  <script src="{% static 'components/jquery/dist/jquery.min.js' %}"></script>
+  <script src="{% static 'components/slick-carousel/slick/slick.min.js' %}"></script>
+  <script src="{% static 'js/teaser.js' %}"></script>
 </head>
 <body>
   <div style="background: linear-gradient(90deg, #491faf, #771592, #a20a77); height: 550px;">
     <nav id="navbar">
       <ul class="nav">
         <li style="display: inline-block;">
-          <a href="#summary" class="navbar_link">개요</a>
+          <a href="#" class="navbar_link">개요</a>
         </li>
         <li style="display: inline-block;">
           <a href="#slogan" class="navbar_link">슬로건</a>
@@ -34,13 +42,27 @@
       <img style="width: 620px;" src="{% static "image/pyconkr-2018-slogan.png" %}"></img>
       <h3>
         <span>파이콘 한국 2018</span>
-        <div>서울, 코엑스</div>
+        <span>서울, 코엑스</span>
       </h3>
     </header>
 
     <div>
-      <div style="height: 400px; width: 700px; background-color: white; margin: 0 auto; box-shadow: 0 4px 30px 3px rgba(0,0,0,0.12)">
-        발표자 모집
+      <div class="box notice-box">
+        <div>
+          <div class="title-text title-underline">발표자모집</div>
+          <p>다양한 분야의 파이썬 관련 발표를 모집받고 있습니다.</p>
+          <p>시빅해킹 (생활, 환경, 정치, 언론)</p>
+          <p>홈 IoT 구</p>
+        </div>
+        <div>헤헤</div>
+      </div>
+    <div>
+
+    <div>
+      <div class="title-text title-underline">발표자모집</div>
+      <p class="title-text">서울 코엑스 그랜드볼륨</p>
+      <div class="box">
+        지도
       </div>
     <div>
   </div>

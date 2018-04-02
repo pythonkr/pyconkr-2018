@@ -73,29 +73,6 @@ nav a {
   font-weight: 700;
 }
 
-.header-slogan {
-  margin: 0 3rem;
-  line-height: 3.6rem;
-}
-
-.header-title {
-  display: inline-block;
-  margin-top: -.11rem;
-  margin-right: 0.3rem;
-  font-size: 1.13rem;
-  font-weight: 700;
-}
-
-.header-logo {
-  margin-top: 40px;
-  width: 120px;
-}
-
-.bracket_fill, .bracket_line {
-  position: absolute;
-  z-index: -1;
-}
-
 #navbar {
   float: left;
   margin-left: 30px;
@@ -138,22 +115,19 @@ section a {
   padding-bottom: 3px;
 }
 
-.topic-list {
-  padding: 25px;
-  border: 1px solid #eee;
-  background-color: rgba(255, 255, 255, 0.7);
+.box {
+  height: 400px;
+  width: 700px;
+  background-color: black;
+  margin: 0 auto;
 }
 
-#summary div, #contact div, #sns div {
-  display: inline-block;
-  margin-right: -5px;
-  width: 50%;
-  box-sizing: border-box;
+.notice-box {
+  background-color: white;
+  box-shadow: 0 4px 30px 3px rgba(0,0,0,0.12);
 }
 
-#summary h2 + div, #contact h2 + div, #sns h2 + div {
-  padding-right: 30px;
-}
+/** footer **/
 
 footer {
   margin-top: 150px;
@@ -177,6 +151,14 @@ footer {
   padding: 0;
   font-size: 1rem;
 }
+
+/** slick customize **/
+
+.slick-dots {
+  bottom: 15px;
+}
+
+/** media query **/
 
 @media (max-width: 640px) {
   #summary div, #contact div, #sns div {

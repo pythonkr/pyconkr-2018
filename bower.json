@@ -19,6 +19,7 @@
     "datatables.net-rowreorder": "^1.2.0",
     "datatables.net-rowreorder-bs": "^1.2.0",
     "handlebars": "^4.0.10",
-    "js-cookie": "^2.1.4"
+    "js-cookie": "^2.1.4",
+    "slick-carousel": "^1.8.1"
   }
 }
