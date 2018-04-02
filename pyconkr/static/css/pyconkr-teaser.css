@@ -116,13 +116,24 @@ section a {
 }
 
 .box {
-  height: 400px;
+  height: 350px;
   width: 700px;
   background-color: black;
   margin: 0 auto;
+  margin-bottom: 150px;
+}
+
+.box-container {
+  text-align: center;
+}
+
+.box-top-margin {
+  margin-top: 400px;
 }
 
 .notice-box {
+  height: 400px;
+  padding: 40px 20px;
   background-color: white;
   box-shadow: 0 4px 30px 3px rgba(0,0,0,0.12);
 }
