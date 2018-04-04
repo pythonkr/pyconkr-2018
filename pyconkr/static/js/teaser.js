@@ -1,5 +1,5 @@
 
 $(document).ready(function(){
-  var config = {dots: true};
-  $('.notice-box').slick(config);
+  var config = {dots: true, prevArrow: false, nextArrow: false};
+  $('.js_slick').slick(config);
 });

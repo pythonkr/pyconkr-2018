@@ -17,8 +17,8 @@ strong{
 body {
   margin: 0;
   padding: 0;
+  font-size: 14px;
   color: #282828;
-  font-size: 1rem;
   overflow-x: hidden;
 }
 
@@ -55,43 +55,6 @@ nav a {
   color: white;
 }
 
-#header {
-  position: relative;
-  margin-bottom: 60px;
-  padding: 60px 0;
-  width: 100%;
-  color: white;
-  text-align: center;
-}
-
-#header h3 div, #header h3 span {
-  font-family: 'Montserrat', sans-serif;
-}
-
-#header h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-}
-
-#navbar {
-  float: left;
-  margin-left: 30px;
-}
-
-#navbar li a {
-  display: block;
-  padding: 3px 16px;
-  font-size: 0.8rem;
-}
-
-#navbar li a:hover {
-  font-weight: 700;
-}
-
-.main-grid {
-  margin: 0 auto;
-  width: 720px;
-}
 
 section {
   margin-bottom: 5rem;
@@ -115,29 +78,165 @@ section a {
   padding-bottom: 3px;
 }
 
-.box {
-  height: 350px;
-  width: 700px;
-  background-color: black;
+/** nav **/
+
+#navbar {
+  float: left;
+  margin-left: 30px;
+}
+
+#navbar li a {
+  display: block;
+  padding: 3px 16px;
+}
+
+#navbar li a:hover {
+  font-weight: 700;
+}
+
+
+/** header **/
+
+.header-bg {
+  height: 550px;
+}
+
+.teaser-bg {
+  background: linear-gradient(90deg, #491faf, #771592, #a20a77);
+}
+
+.teaser-header {
+  padding: 60px 0 0 0;
+  width: 100%;
+  text-align: center;
+}
+
+/** text **/
+
+.title-text {
+  color: #303030;
+  font-weight: 500;
+}
+
+.desc-text {
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+.sub-title-text {
+  color: #4921b0;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+
+.title-underline {
+  margin-bottom: 25px;
+}
+
+.title-underline:after {
+    border-style: solid;
+    border-image: linear-gradient(to right, #3b4ec7 20%, #771592 30%, #f21e87 100%);
+    border-image-slice: 1;
+    border-width: 0 0 2px 0;
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 35px;
+    padding-top: 3px;
+}
+
+.slogan-text {
+  margin: 50px 0;
+  font-size: 1.6em;
+  font-weight: 500;
+  line-height: 1.5em;
+}
+
+.slogan-desc-text {
+  font-weight: 400;
+}
+
+/** text - white **/
+
+.white-text {
+  color: white;
+}
+
+.white-underline:after {
+  border-color: white;
+  border-image: none;
+}
+
+/** box / container **/
+
+.main-grid {
   margin: 0 auto;
-  margin-bottom: 150px;
+  width: 720px;
 }
 
 .box-container {
+  padding: 40px 0;
   text-align: center;
+}
+
+.box {
+  width: 700px;
+  margin: 0 auto;
+  margin-bottom: 150px;
 }
 
 .box-top-margin {
   margin-top: 400px;
 }
 
-.notice-box {
-  height: 400px;
-  padding: 40px 20px;
-  background-color: white;
-  box-shadow: 0 4px 30px 3px rgba(0,0,0,0.12);
+.margin-right-20 {
+  margin-right: 20px;
 }
 
+.slogan-bg {
+  position: relative;
+}
+
+.mask-black {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.mask-content {
+  position: relative;
+  z-index: 1;
+}
+
+.header-box {
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.map-box {
+  height: 350px;
+  background-color: black;
+}
+
+.notice-box {
+  height: 400px;
+  padding: 40px 20px 0;
+  background-color: white;
+  box-shadow: 0 4px 30px 3px rgba(0,0,0,0.12);
+  position: relative;
+}
+
+
+.slogan-box {
+  text-align: left;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
 /** footer **/
 
 footer {
@@ -166,7 +265,7 @@ footer {
 /** slick customize **/
 
 .slick-dots {
-  bottom: 15px;
+  bottom: -75px;
 }
 
 /** media query **/
