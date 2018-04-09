@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <title>파이콘 한국 2017 - Teaser</title>
-  <meta property="og:site_name" content="파이콘 한국 2017">
-  <meta property="og:title" content="파이콘 한국 2017">
-  <meta property="og:url" content="https://www.pycon.kr/2017/">
-  <meta property="og:image" content="https://www.pycon.kr/2017/static/image/pyconkr-2017-cover.png">
-  <meta property="og:description" content="파이콘 한국 2017: 8월 12~15일 코엑스">
+  <meta property="og:site_name" content="파이콘 한국 2018">
+  <meta property="og:title" content="파이콘 한국 2018">
+  <meta property="og:url" content="https://www.pycon.kr/2018/">
+  <meta property="og:image" content="https://www.pycon.kr/2018/static/image/pyconkr-2018-cover.png">
+  <meta property="og:description" content="파이콘 한국 2018: 8월 15, 17~19일 코엑스">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
 
   <link rel="icon" type="image/png" href="{% static 'image/favicon2017.ico' %}">
 
@@ -21,25 +22,26 @@
   <script src="{% static 'js/teaser.js' %}"></script>
 </head>
 <body>
-<div class="teaser-bg header-bg">
-  <nav id="navbar">
-    <ul class="nav">
-      <li style="display: inline-block;">
-        <a href="#" class="navbar_link">개요</a>
+<nav class="home-nav">
+    <ul>
+      <li>
+        <a href="#home">개요</a>
       </li>
-      <li style="display: inline-block;">
-        <a href="#slogan" class="navbar_link">슬로건</a>
-      </li>
+      <li>
+        <a href="#notice">공지</a>
       </li>
     </ul>
   </nav>
-
+<div class="teaser-bg header-bg">
   <div id="badges" style="position: relative">
-    <img style="position: absolute; width: 200px; right: 0;" src="{% static 'image/stripe-logo.png' %}">
-    <img style="position: absolute; width: 200px; left: 0; top: 300px;" src="{% static 'image/dotted-fill-logo.png' %}">
+    <img class="badge-stripe-logo" src="{% static 'image/stripe-logo.png' %}">
+    <img class="badge-dotted-fill-logo" src="{% static 'image/dotted-fill-logo.png' %}">
+
+    <img class="badge-etc1" src="{% static 'image/etc-badge1.png' %}">
+    <img class="badge-etc2" src="{% static 'image/etc-badge2.png' %}">
   </div>
-  <header class="teaser-header">
-    <img style="width: 620px;" src="{% static 'image/pyconkr-2018-slogan.png' %}">
+  <header class="teaser-header z-index-1" id="home">
+    <img class="img-slogan" src="{% static 'image/pyconkr-2018-slogan.png' %}">
     <div class="box header-box white-text">
       <p>파이콘 한국 2018</p>
       <span>서울, 코엑스</span><br>
@@ -49,8 +51,9 @@
     </div>
   </header>
 
-  <div class="box-container">
+  <div class="box-container" id="notice">
     <div class="box notice-box">
+      <img class="badge-dashed-logo" src="{% static 'image/dashed-logo.png' %}">
       <div class="js_slick">
         <div>
           <div class="title-text title-underline">발표자모집</div>
@@ -63,18 +66,18 @@
           <p class="sub-title-text">홈 IoT 구축</p>
           <p class="sub-title-text">식물 자동 재배</p>
           <p class="sub-title-text">주식 트레이닝 알고리즘</p>
+          <button class="submit-btn margin-top-20">발표자 신청하기</button>
         </div>
-        <div>헤헤</div>
       </div>
-
     </div>
   </div>
 </div>
 
-<div class="box-container box-top-margin">
+<div class="box-container box-top-margin z-index-1" id="venue">
+  <img class="badge-dotted-logo" src="{% static 'image/dotted-logo.png' %}">
   <div class="title-text title-underline">장소</div>
   <p class="title-text">서울 코엑스 그랜드볼륨</p>
-  <div class="box map-box">
+  <div class="box map-box z-index-1">
     지도
   </div>
 </div>
@@ -88,14 +91,15 @@
   </p>
 </div>
 
-<div class="box-container teaser-bg slogan-bg">
+<img class="badge-incline-logo" src="{% static 'image/incline-logo.png' %}">
+<div class="box-container teaser-bg slogan-bg" id="slogan">
   <div class="mask-black"></div>
   <div class="mask-content">
   <div class="title-text title-underline white-text white-underline">슬로건</div>
   <div class="slogan-text white-text">'Dive into Diversity<br>다양성에 빠지다'</div>
   <div class="box slogan-box">
     <p class="desc-text slogan-desc-text white-text">
-      파이콘 한국 2018은 ‘Dive into diversity 다양성에 빠지다’ 라는 슬로건으로 진행됩니다.<br><br>
+      파이콘 한국 2018은 ‘Dive into Diversity 다양성에 빠지다’ 라는 슬로건으로 진행됩니다.<br><br>
       파이썬 커뮤니티는 다양한 기술, 개성 및 경험을 갖추고 있는 전세계 구성원들이 서로의 차이를 존중하고,
       다른 견해에 귀를 기울이며, 올바른 상호작용을 통해 성장하는 커뮤니티를 지향해왔습니다.<br><br>
       파이콘 한국 2018에서는 다양한 사람들이 다양한 상황과 분야에서 다양한 의도를 가지고 파이썬과 만났던 사례를 공유합니다.
@@ -106,25 +110,29 @@
     </div>
 </div>
 
-<div class="box-container">
+<div class="box-container" id="contact">
   <div class="title-text title-underline">문의&공식계정</div>
   <div>파이콘 한국 2018에 대한 모든 문의는 아래의 공식 연락처로 주시기 바랍니다.</div>
-  <div class="box">
-    <table style="width: 100%;">
+  <div class="contact-box">
+    <table class="table-contact">
     <tr>
       <td>
-        이메일
+        이메일<br>
+        support@pycon.kr
       </td>
       <td>
-        페이스
+        페이스북<br>
+        https://www.facebook.com/pyconkorea/
       </td>
     </tr>
     <tr>
       <td>
-        스폰서
+        스폰서<br>
+        sponsor@pycon.kr
       </td>
       <td>
-        트위터
+        트위터<br>
+        https://twitter.com/pyconkr
       </td>
     </tr>
   </table>
@@ -134,7 +142,6 @@
 
 <footer>
   <div class="main-grid">
-    <img class="footer-logo" src="../../static/image/pyconkr2017-logo.png">
     <div class="footer-content">
       <h3>Dive into Diversity, PyCon Korea 2018</h3>
       PyCon Korea 2018 is a product of PyCon Korea Organizing Team
