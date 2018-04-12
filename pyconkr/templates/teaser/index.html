@@ -19,6 +19,7 @@
 
   <script src="{% static 'components/jquery/dist/jquery.min.js' %}"></script>
   <script src="{% static 'components/slick-carousel/slick/slick.min.js' %}"></script>
+  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=sMW7tOAADWjqWohLWnR4"></script>
   <script src="{% static 'js/teaser.js' %}"></script>
 </head>
 <body>
@@ -66,7 +67,7 @@
           <p class="sub-title-text">홈 IoT 구축</p>
           <p class="sub-title-text">식물 자동 재배</p>
           <p class="sub-title-text">주식 트레이닝 알고리즘</p>
-          <button class="submit-btn margin-top-20">발표자 신청하기</button>
+          <a class="submit-btn margin-top-20" href="https://goo.gl/R7hwcj">발표자 신청하기</a>
         </div>
       </div>
     </div>
@@ -77,8 +78,7 @@
   <img class="badge-dotted-logo" src="{% static 'image/dotted-logo.png' %}">
   <div class="title-text title-underline">장소</div>
   <p class="title-text">서울 코엑스 그랜드볼륨</p>
-  <div class="box map-box z-index-1">
-    지도
+  <div class="box map-box z-index-1" id="map">
   </div>
 </div>
 
