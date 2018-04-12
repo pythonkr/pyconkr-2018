@@ -11,9 +11,10 @@
   box-sizing: border-box;
 }
 
-strong{
-    font-weight: 600;
+strong {
+  font-weight: 600;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -55,7 +56,6 @@ nav a {
   color: white;
 }
 
-
 section {
   margin-bottom: 5rem;
 }
@@ -86,7 +86,7 @@ section a {
   z-index: 2;
 }
 
-.home-nav li{
+.home-nav li {
   display: inline-block;
   padding: 25px;
 }
@@ -105,47 +105,47 @@ section a {
 }
 
 .badge-dotted-fill-logo {
-position: absolute;
-    width: 170px;
-    left: 40px;
-    top: 182px;
+  position: absolute;
+  width: 170px;
+  left: -127px;
+  top: -108px;
+  z-index: -1;
 }
 
 .badge-etc1 {
- position: absolute;
-    width: 170px;
-    left: -52px;
-    top: -42px;
+  position: absolute;
+  width: 170px;
+  left: -52px;
+  top: -42px;
 }
 
 .badge-etc2 {
-      position: absolute;
-    width: 250px;
-    right: 52px;
-    top: 256px;
+  position: absolute;
+  width: 250px;
+  right: 52px;
+  top: 256px;
 }
 
 .badge-dashed-logo {
   position: absolute;
-    width: 150px;
-    top: 120px;
-    right: -92px;
-    z-index: -1;
+  width: 150px;
+  top: 120px;
+  right: -92px;
+  z-index: -1;
 }
 
 .badge-dotted-logo {
-   position: absolute;
-    width: 180px;
-    left: 153px;
-    top: 1037px;
+  position: absolute;
+  width: 180px;
+  left: -95px;
+  top: -89px;
 }
 
 .badge-incline-logo {
-        position: absolute;
-    width: 200px;
-    top: 1759px;
-    right: 250px;
-  z-index: 2;
+  position: absolute;
+  width: 200px;
+  top: -350px;
+  right: -217px;
 }
 
 /** header **/
@@ -197,15 +197,15 @@ position: absolute;
 }
 
 .title-underline:after {
-    border-style: solid;
-    border-image: linear-gradient(to right, #3b4ec7 20%, #771592 30%, #f21e87 100%);
-    border-image-slice: 1;
-    border-width: 0 0 2px 0;
-    content: "";
-    display: block;
-    margin: 0 auto;
-    width: 35px;
-    padding-top: 3px;
+  border-style: solid;
+  border-image: linear-gradient(to right, #3b4ec7 20%, #771592 30%, #f21e87 100%);
+  border-image-slice: 1;
+  border-width: 0 0 2px 0;
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 35px;
+  padding-top: 3px;
 }
 
 .slogan-text {
@@ -247,6 +247,7 @@ position: absolute;
 .main-grid {
   margin: 0 auto;
   width: 720px;
+  text-align: center;
 }
 
 .box-container {
@@ -294,18 +295,26 @@ position: absolute;
 .header-box {
   text-align: left;
   margin-bottom: 0;
+  position: relative;
 }
 
 .map-box {
   height: 350px;
   background-color: black;
+  position: relative;
+}
+
+.map-box-container {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .notice-box {
   height: 440px;
   padding: 40px 20px 0;
   background-color: white;
-  box-shadow: 0 4px 30px 3px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 30px 3px rgba(0, 0, 0, 0.12);
   position: relative;
 }
 
@@ -313,6 +322,7 @@ position: absolute;
   text-align: left;
   margin-bottom: 40px;
   padding: 0 20px;
+  position: relative;
 }
 
 .contact-box {
@@ -360,20 +370,20 @@ footer {
 
 /** media query **/
 
-@media (max-width:1024px) {
-  #navbar{
+@media (max-width: 1024px) {
+  #navbar {
     display: none;
   }
 }
 
-@media (max-width:900px) {
+@media (max-width: 900px) {
   .main-grid {
     width: 100%;
     padding: 0 3.5rem;
   }
 }
 
-@media (max-width:768px) {
+@media (max-width: 768px) {
   .box {
     width: 550px;
     padding: 40px 0 0;
@@ -397,7 +407,23 @@ footer {
   }
 }
 
-@media (max-width:640px) {
+@media (max-width: 640px) {
+  .badge-dotted-logo {
+    display: none;
+  }
+
+  .badge-dashed-logo {
+    display: none;
+  }
+
+  .badge-incline-logo {
+    display: none;
+  }
+
+  .badge-etc2 {
+    width: 200px;
+  }
+
   .box {
     width: 100%;
     padding: 40px 20px;
@@ -405,6 +431,10 @@ footer {
 
   .box-container {
     padding: 40px 15px;
+  }
+
+  .map-box-container {
+    width: 100%;
   }
 
   .home-nav {

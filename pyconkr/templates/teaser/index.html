@@ -46,7 +46,6 @@
 
   <div id="badges" style="position: relative">
     <img class="badge-stripe-logo" src="{% static 'image/stripe-logo.png' %}">
-    <img class="badge-dotted-fill-logo" src="{% static 'image/dotted-fill-logo.png' %}">
 
     <img class="badge-etc1" src="{% static 'image/etc-badge1.png' %}">
     <img class="badge-etc2" src="{% static 'image/etc-badge2.png' %}">
@@ -54,6 +53,7 @@
   <header class="teaser-header z-index-1" id="home">
     <img class="img-slogan" src="{% static 'image/pyconkr-2018-slogan.png' %}">
     <div class="box header-box white-text">
+      <img class="badge-dotted-fill-logo" src="{% static 'image/dotted-fill-logo.png' %}">
       <p>파이콘 한국 2018</p>
       <span>서울, 코엑스</span><br>
       <span class="margin-right-20"><b>스프린트</b> 2018.08.15(수), 17(금)</span>
@@ -84,11 +84,13 @@
   </div>
 </div>
 
-<div class="box-container box-top-margin z-index-1" id="venue">
-  <img class="badge-dotted-logo" src="{% static 'image/dotted-logo.png' %}">
+<div class="box-container box-top-margin" id="venue">
   <div class="title-text title-underline">장소</div>
   <p class="title-text">서울 코엑스 그랜드볼륨</p>
-  <div class="box map-box z-index-1" id="map">
+  <div class="map-box-container">
+    <img class="badge-dotted-logo" src="{% static 'image/dotted-logo.png' %}">
+    <div class="box map-box z-index-1" id="map">
+    </div>
   </div>
 </div>
 
@@ -101,13 +103,13 @@
   </p>
 </div>
 
-<img class="badge-incline-logo" src="{% static 'image/incline-logo.png' %}">
 <div class="box-container teaser-bg slogan-bg" id="slogan">
   <div class="mask-black"></div>
   <div class="mask-content">
   <div class="title-text title-underline white-text white-underline">슬로건</div>
   <div class="slogan-text white-text">'Dive into Diversity<br>다양성에 빠지다'</div>
   <div class="box slogan-box">
+    <img class="badge-incline-logo" src="{% static 'image/incline-logo.png' %}">
     <p class="desc-text slogan-desc-text white-text">
       파이콘 한국 2018은 ‘Dive into Diversity 다양성에 빠지다’ 라는 슬로건으로 진행됩니다.<br><br>
       파이썬 커뮤니티는 다양한 기술, 개성 및 경험을 갖추고 있는 전세계 구성원들이 서로의 차이를 존중하고,
