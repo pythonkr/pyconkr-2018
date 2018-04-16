@@ -3,180 +3,165 @@
 <html lang="kr">
 <head>
   <meta charset="UTF-8">
-  <title>파이콘 한국 2017 - Teaser</title>
-  <meta property="og:site_name" content="파이콘 한국 2017">
-  <meta property="og:title" content="파이콘 한국 2017">
-  <meta property="og:url" content="https://www.pycon.kr/2017/">
-  <meta property="og:image" content="https://www.pycon.kr/2017/static/image/pyconkr-2017-cover.png">
-  <meta property="og:description" content="파이콘 한국 2017: 8월 12~15일 코엑스">
-  <link rel="icon" type="image/png" href="{% static "image/favicon2017.ico" %}">
-  <link href="{% static "css/pyconkr-teaser.css" %}" rel="stylesheet" type="text/css">
-  <script src="{% static "js/teaser.js" %}"></script>
+  <title>파이콘 한국 2018 - Teaser</title>
+  <meta property="og:site_name" content="파이콘 한국 2018">
+  <meta property="og:title" content="파이콘 한국 2018">
+  <meta property="og:url" content="https://www.pycon.kr/2018/">
+  <meta property="og:image" content="{% static 'image/pyconkr-2018-cover.jpg' %}">
+  <meta property="og:description" content="파이콘 한국 2018: 8월 15, 17~19일 코엑스">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+
+  <link rel="icon" type="image/png" href="{% static 'image/favicon2017.ico' %}">
+
+  <link href="{% static 'components/slick-carousel/slick/slick.css' %}" rel="stylesheet">
+  <link href="{% static 'components/slick-carousel/slick/slick-theme.css' %}" rel="stylesheet">
+  <link href="{% static 'css/pyconkr-teaser.css' %}" rel="stylesheet" type="text/css">
+
+  <script src="{% static 'components/jquery/dist/jquery.min.js' %}"></script>
+  <script src="{% static 'components/slick-carousel/slick/slick.min.js' %}"></script>
+  <script type="text/javascript"
+          src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=sMW7tOAADWjqWohLWnR4"></script>
+  <script src="{% static 'js/teaser.js' %}"></script>
 </head>
 <body>
-  <div id="brackets">
-    <img class="bracket_fill" src="{% static "image/angle_bracket_fill.png" %}"></img>
-    <img class="bracket_fill" src="{% static "image/angle_bracket_fill.png" %}"></img>
+<div class="body-container">
+  <div class="teaser-bg header-bg">
+    <nav class="home-nav">
+      <ul>
+        <li>
+          <a href="#home">개요</a>
+        </li>
+        <li>
+          <a href="#notice">공지</a>
+        </li>
+        <li>
+          <a href="#venue">장소</a>
+        </li>
+        <li>
+          <a href="#slogan">슬로건</a>
+        </li>
+        <li>
+          <a href="#contact">문의</a>
+        </li>
+      </ul>
+    </nav>
 
-    <img class="bracket_line" src="{% static "image/angle_bracket_line.png" %}"></img>
-    <img class="bracket_line" src="{% static "image/angle_bracket_line.png" %}"></img>
-    <img class="bracket_line" src="{% static "image/angle_bracket_line.png" %}"></img>
-    <img class="bracket_line" src="{% static "image/angle_bracket_line.png" %}"></img>
+    <div id="badges" style="position: relative">
+      <img class="badge-stripe-logo" src="{% static 'image/stripe-logo.png' %}">
+
+      <img class="badge-etc1" src="{% static 'image/etc-badge1.png' %}">
+      <img class="badge-etc2" src="{% static 'image/etc-badge2.png' %}">
+    </div>
+    <header class="teaser-header z-index-1" id="home">
+      <img class="img-slogan" src="{% static 'image/pyconkr-2018-slogan.png' %}">
+      <div class="box header-box white-text">
+        <img class="badge-dotted-fill-logo" src="{% static 'image/dotted-fill-logo.png' %}">
+        <p>파이콘 한국 2018</p>
+        <span>서울, 코엑스</span><br>
+        <span class="margin-right-20"><b>스프린트</b> 2018.08.15(수), 17(금)</span>
+        <span class="margin-right-20"><b>튜토리얼</b> 2018.08.17(금)</span>
+        <span><b>컨퍼런스</b> 2018.08.18 - 19(토-일)</span>
+      </div>
+    </header>
+
+    <div class="box-container" id="notice">
+      <div class="box notice-box">
+        <img class="badge-dashed-logo" src="{% static 'image/dashed-logo.png' %}">
+        <div class="js_slick">
+          <div>
+            <div class="title-text title-underline">발표자모집</div>
+            <p class="desc-text">
+              파이콘 한국 2018의 슬로건은 파이썬이 다양한 분야에서 쓰인다는 의미의 "Dive into Diversity" 입니다.<br>
+              다양한 분야의 파이썬 관련 발표를 모집받고 있습니다.
+            </p>
+            <p class="sub-title-text">시빅해킹 (생활, 환경, 정치, 언론)</p>
+            <p class="sub-title-text">예술 (Procedural Art, 3DSmax|Maya|Houdini|Blender Script)</p>
+            <p class="sub-title-text">홈 IoT 구축</p>
+            <p class="sub-title-text">식물 자동 재배</p>
+            <p class="sub-title-text">주식 트레이닝 알고리즘</p>
+            <a class="submit-btn margin-top-20" href="https://goo.gl/R7hwcj">발표자 신청하기</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <header id="header">
-    <h1 class="header-slogan">Back to the Basic</h1>
-    <h3>
-      <span class="header-title">PYCON KOREA</span>
-      <span class="header-date">2017.08.12-15</span>
-      <div class="header-place">Seoul, COEX</div>
-    </h3>
-    <img class="header-logo" src="{% static "image/pycon2017-logo-yellow.png" %}">
-  </header>
-  <nav id="navbar">
-  <ul class="nav">
-    <li>
-      <a href="#summary" class="navbar_link">개요</a>
-    </li>
-    <li>
-      <a href="#slogan" class="navbar_link">슬로건</a>
-    </li>
-    <li>
-      <a href="#proposal" class="navbar_link">발표자 지원</a>
-    </li>
-    <li>
-      <a href="#topic" class="navbar_link">발표 주제</a>
-    </li>
-    <li>
-      <a href="#registration" class="navbar_link">등록 안내</a>
-    </li>
-    <li>
-      <a href="#about" class="navbar_link">안내</a>
-    </li>
-    <li>
-      <a href="#contact" class="navbar_link">문의</a>
-    </li>
-    <li>
-      <a href="#sns" class="navbar_link">공식 소셜 계정</a>
-    </li>
-  </ul>
-  </nav>
-  <div class="main-grid">
-    <article>
-      <section id="summary">
-          <h2>개요</h2>
-          <div>
-              <h3>컨퍼런스 세션</h3>
-              <dl>
-                  <dt>- 날짜</dt>
-                  <dd>2017년 8월 12일(토) ~ 2017년 8월 13일(일)</dd>
-                  <dt>- 장소</dt>
-                  <dd>코엑스 그랜드볼룸, 서울</dd>
-              </dl>
-          </div>
-          <div>
-              <h3>튜토리얼과 스프린트</h3>
-              <dl>
-                  <dt>- 날짜</dt>
-                  <dd>2017년 8월 14일(월) ~ 2017년 8월 15일(화)</dd>
-                  <dt>- 장소</dt>
-                  <dd>코엑스 그랜드볼룸, 서울</dd>
-              </dl>
-          </div>
-      </section>
-      <section id="slogan">
-        <h2>슬로건</h2>
-        <p>
-          파이콘 한국 2017은 <b>Back to the Basic</b>이라는 주제로 파이썬 초심자들도 부담없이 참가할 수 있는 컨퍼런스로 진행될 예정입니다.
+
+  <div class="box-container box-top-margin" id="venue">
+    <div class="title-text title-underline">장소</div>
+    <p class="title-text">서울 코엑스 그랜드볼륨</p>
+    <div class="map-box-container">
+      <img class="badge-dotted-logo" src="{% static 'image/dotted-logo.png' %}">
+      <div class="box map-box z-index-1" id="map">
+      </div>
+    </div>
+  </div>
+
+
+  <div class="box-container">
+    <div class="title-text title-underline">행사 상세</div>
+    <p class="desc-text">
+      파이콘 한국은 한국의 파이썬 개발자들이 지식을 공유하고 만남을 갖기 위한 장입니다.<br>
+      아직 티켓 판매 일정은 정해지지 않았습니다. 추후 공식 페이스북, 트위터 등을 통해서 공지할 예정입니다.
+    </p>
+  </div>
+
+  <div class="box-container teaser-bg slogan-bg" id="slogan">
+    <div class="mask-black"></div>
+    <div class="mask-content">
+      <div class="title-text title-underline white-text white-underline">슬로건</div>
+      <div class="slogan-text white-text">'Dive into Diversity<br>다양성에 빠지다'</div>
+      <div class="box slogan-box">
+        <img class="badge-incline-logo" src="{% static 'image/incline-logo.png' %}">
+        <p class="desc-text slogan-desc-text white-text">
+          파이콘 한국 2018은 ‘Dive into Diversity 다양성에 빠지다’ 라는 슬로건으로 진행됩니다.<br><br>
+          파이썬 커뮤니티는 다양한 기술, 개성 및 경험을 갖추고 있는 전세계 구성원들이 서로의 차이를 존중하고,
+          다른 견해에 귀를 기울이며, 올바른 상호작용을 통해 성장하는 커뮤니티를 지향해왔습니다.<br><br>
+          파이콘 한국 2018에서는 다양한 사람들이 다양한 상황과 분야에서 다양한 의도를 가지고 파이썬과 만났던 사례를 공유합니다.
+          또한 우리가 원하는 것을 이루고 문제를 해결하는 도구로서, 파이썬이 어떻게 쓰이고 있는지 조명하려고 합니다.
+          파이콘 한국 2018을 통해 서로 다른 견해와 경험을 접하며, 생각의 경계를 허물고 새로운 아이디어를 발견하는 계기가 되었으면 합니다.
         </p>
-      </section>
-      <section id="proposal">
-        <h2>발표자 지원</h2>
-      <div>
-          <ul>
-              <li><strong> - 5월 1일&nbsp;(월)</strong>&nbsp;:&nbsp;발표 주제 모집 오픈</li>
-              <li><strong> - 5월 20일&nbsp;(토)</strong>&nbsp;:&nbsp;발표 주제 모집 마감</li>
-              <li><strong> - 6월 1일&nbsp;(목)</strong>&nbsp;:&nbsp;최종 발표자 확정</li>
-          </ul>
-          <br/><strong><a href="https://docs.google.com/forms/d/e/1FAIpQLSfsWvNn_AwlsFjYUPvW0yTZe7vxc9Qtc0CRtpZ4LFlJl28kXQ/viewform?c=0&w=1&usp=send_form" target="_blank">
-            >> 지원 서식 작성하기
-          </a></strong>
-        </div>
-      </section>
-
-      <section id="topic">
-        <h2>발표 주제</h2>
-        <div>
-          <ul class="topic-list">
-            <li>Best Practices & Pattern</li>
-            <li>Python Core (language, stdlib, etc.)</li>
-            <li>Python Libraries</li>
-            <li>Science / Data</li>
-            <li>Community</li>
-            <li>Other</li>
-          </ul>
-          <div>
-            파이썬에 대한 학술적 또는 상업적 프로젝트, 케이스 스터디 등 다양한 파이썬 관련 발표를 모집하고 있습니다.
-            제시된 주제는 예시이며, 위의 내용으로 한정하는 것은 아닙니다.
-          </div>
-        </div>
-      </section>
-
-      <section id="registration">
-          <h2>등록 안내</h2>
-          <div>
-          <ul>
-            <li> - 얼리버드 등록 일정 : 5월 16일(화) 오후 1시부터 (한정 수량)</li>
-            <li> - 일반 등록 일정은 정해지지 않았으며 추후 공지할 예정입니다.</li>
-          </ul>
-          <br/>
-          <ul>
-            <li> - 얼리버드 등록 가격: 4만원 / 일반 등록 가격: 6만원 (부가세 포함)</li>
-            <li> - 위 등록은 컨퍼런스 1,2일차 세션과 기타 프로그램을 참가하기 위한 등록입니다.</li>
-            <li>  &nbsp; &nbsp;3,4일차 튜토리얼과 스프린트는 별도 등록을 통해 진행 됩니다.</li>
-          </ul>
-          </div>
-      </section>
-
-      <section id="info">
-        <h2>안내</h2>
-        <div>
-          <p>
-            파이콘 한국은 한국의 파이썬 개발자들이 지식을 공유하고 만남을 갖기 위한 공유의 장입니다.<br/>
-          </p>
-        </div>
-      </section>
-      <section id="contact">
-        <h2>문의</h2>
-        <div>
-          <h3>이메일</h3>
-          program@pycon.kr
-        </div>
-        <div>
-          <h3>스폰서 문의</h3>
-          sponsor@pycon.kr
-        </div>
-      </section>
-      <section id="sns">
-        <h2>공식 소셜 계정</h2>
-        <div>
-          <h3>트위터</h3>
-          <a href="https://twitter.com/pyconkr">https://twitter.com/pyconkr</a>
-        </div>
-        <div>
-          <h3>페이스북</h3>
-          <a href="https://www.facebook.com/pyconkorea/">https://www.facebook.com/pyconkorea/</a>
-        </div>
-      </section>
-    </article>
+      </div>
+    </div>
   </div>
+
+  <div class="box-container" id="contact">
+    <div class="title-text title-underline">문의&공식계정</div>
+    <div>파이콘 한국 2018에 대한 모든 문의는 아래의 공식 연락처로 주시기 바랍니다.</div>
+    <div class="contact-box">
+      <table class="table-contact">
+        <tr>
+          <td>
+            이메일<br>
+            support@pycon.kr
+          </td>
+          <td>
+            페이스북<br>
+            https://www.facebook.com/pyconkorea/
+          </td>
+        </tr>
+        <tr>
+          <td>
+            스폰서<br>
+            sponsor@pycon.kr
+          </td>
+          <td>
+            트위터<br>
+            https://twitter.com/pyconkr
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
   <footer>
     <div class="main-grid">
-      <img class="footer-logo" src="../../static/image/pyconkr2017-logo.png">
       <div class="footer-content">
-      <h3>Back to the Basic at PyCon Korea 2017</h3>
-      PyCon Korea 2017 is a product of PyCon Korea Organizing Team
-    </div>
+        <h3>Dive into Diversity, PyCon Korea 2018</h3>
+        PyCon Korea 2018 is a product of PyCon Korea Organizing Team
+      </div>
     </div>
   </footer>
+</div>
 </body>
 </html>

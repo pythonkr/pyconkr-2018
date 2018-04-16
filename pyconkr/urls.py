@@ -33,8 +33,8 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
-    # url(r'.*', TemplateView.as_view(template_name='teaser/index.html')),
-    url(r'^$', index, name='index'),
+    url(r'.*', TemplateView.as_view(template_name='teaser/index.html')),
+    # url(r'^$', index, name='index'),
     url(r'^room/(?P<pk>\d+)$',
         RoomDetail.as_view(), name='room'),
     url(r'^about/announcements/$',
