@@ -11,10 +11,6 @@
   box-sizing: border-box;
 }
 
-html {
-  overflow-x: hidden;
-}
-
 strong {
   font-weight: 600;
 }
@@ -79,6 +75,10 @@ section a {
   color: #333;
   border-bottom: 2px solid #FDDA24;
   padding-bottom: 3px;
+}
+
+.body-container {
+  overflow-x: hidden;
 }
 
 /** nav **/
