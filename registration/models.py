@@ -5,6 +5,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 
+
 class Option(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField()
@@ -56,7 +57,7 @@ class Registration(models.Model):
         default='card',
         choices=(
             ('card', u'Credit Card'),
-            #('bank', u'Bank Transfer'),
+            # ('bank', u'Bank Transfer'),
             ('vbank', u'Virtual Bank Transfer'),
         )
     )
@@ -82,6 +83,7 @@ class Registration(models.Model):
 
     def __str__(self):
         return "{} {} {}".format(self.name, self.email, self.option.name)
+
 
 class ManualPayment(models.Model):
     user = models.ForeignKey(User)
