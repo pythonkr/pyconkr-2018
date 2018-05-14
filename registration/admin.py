@@ -111,12 +111,12 @@ admin.site.register(Option, OptionAdmin)
 
 
 class RegistrationAdmin(admin.ModelAdmin):
-    list_display = ('user', 'option', 'name', 'email', 'payment_method',
+    list_display = ('user', 'type', 'option', 'name', 'email', 'payment_method',
                     'payment_status', 'created', 'confirmed', 'canceled')
     list_editable = ('payment_status',)
-    list_filter = ('option', 'payment_method', 'payment_status')
-    csv_fields = ['name', 'email', 'company', 'option', ]
-    search_fields = ('name', 'email', 'merchant_uid', 'transaction_code', )
+    list_filter = ('type', 'option', 'payment_method', 'payment_status')
+    csv_fields = ['type', 'name', 'email', 'company', 'option']
+    search_fields = ('type', 'name', 'email', 'merchant_uid', 'transaction_code', )
     readonly_fields = ('created', 'merchant_uid', 'transaction_code', )
     ordering = ('id',)
     actions = (send_bankpayment_alert_email, cancel_registration)
