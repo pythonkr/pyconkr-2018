@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
+from constance import config
 from django.contrib import admin
 from django.core.mail import send_mass_mail
 from django.shortcuts import render
-from constance import config
 from django.utils import timezone
-from .iamporter import get_access_token, Iamporter, IamporterError
 
+from .iamporter import get_access_token, Iamporter, IamporterError
 from .models import Registration, Option, ManualPayment, IssueTicket
 
 
@@ -25,6 +25,7 @@ def send_bankpayment_alert_email(modeladmin, request, queryset):
         message = (subject, body, from_email, [email])
         messages.append(message)
     send_mass_mail(messages, fail_silently=False)
+
 
 send_bankpayment_alert_email.short_description = "Send Bank Payment Email"
 
@@ -98,6 +99,7 @@ def cancel_registration(modeladmin, request, queryset):
     send_mass_mail(messages, fail_silently=False)
     return render(request, 'registration/cancellation_result.html', {'results': results})
 
+
 cancel_registration.short_description = "Cancel registration"
 
 
@@ -105,8 +107,10 @@ class OptionAdmin(admin.ModelAdmin):
     list_display = ('name', 'is_active',
                     'begin_at', 'closed_at',
                     'price', 'is_cancelable', 'cancelable_date', )
-    list_editable = ('is_active', )
-    ordering = ('id', )
+    list_editable = ('is_active',)
+    ordering = ('id',)
+
+
 admin.site.register(Option, OptionAdmin)
 
 
@@ -116,24 +120,31 @@ class RegistrationAdmin(admin.ModelAdmin):
     list_editable = ('payment_status',)
     list_filter = ('type', 'option', 'payment_method', 'payment_status')
     csv_fields = ['type', 'name', 'email', 'company', 'option']
-    search_fields = ('type', 'name', 'email', 'merchant_uid', 'transaction_code', )
-    readonly_fields = ('created', 'merchant_uid', 'transaction_code', )
+    search_fields = ('type', 'name', 'email', 'merchant_uid', 'transaction_code',)
+    readonly_fields = ('created', 'merchant_uid', 'transaction_code',)
     ordering = ('id',)
     actions = (send_bankpayment_alert_email, cancel_registration)
+
+
 admin.site.register(Registration, RegistrationAdmin)
 
 
 class IssueTicketAdmin(admin.ModelAdmin):
     list_display = ('registration', 'issuer', 'issue_date')
     ordering = ('issue_date',)
+
+
 admin.site.register(IssueTicket, IssueTicketAdmin)
 
+
 class ManualPaymentAdmin(admin.ModelAdmin):
-    list_display = ('title', 'payment_status', 'user', )
-    list_filter = ('payment_status', )
-    search_fields = ('user__email', 'description', )
-    raw_id_fields = ('user', )
+    list_display = ('title', 'payment_status', 'user',)
+    list_filter = ('payment_status',)
+    search_fields = ('user__email', 'description',)
+    raw_id_fields = ('user',)
 
     class Meta:
         model = ManualPayment
+
+
 admin.site.register(ManualPayment, ManualPaymentAdmin)
