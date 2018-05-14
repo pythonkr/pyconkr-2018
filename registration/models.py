@@ -5,6 +5,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 
+
 class Option(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField()
@@ -31,6 +32,17 @@ class Registration(models.Model):
     merchant_uid = models.CharField(max_length=32)
     option = models.ForeignKey(Option, null=True)
     name = models.CharField(max_length=100)
+    type = models.CharField(
+        max_length=20,
+        default='regular',
+        choices=(
+            ('earlybird', u'얼리버드'),
+            ('regular', u'일반'),
+            ('patron', u'개인후원'),
+            ('sponsor', u'스폰서'),
+            ('group', u'단체')
+        )
+    )
     top_size = models.CharField(
         max_length=20,
         default=None,
@@ -56,7 +68,7 @@ class Registration(models.Model):
         default='card',
         choices=(
             ('card', u'Credit Card'),
-            #('bank', u'Bank Transfer'),
+            # ('bank', u'Bank Transfer'),
             ('vbank', u'Virtual Bank Transfer'),
         )
     )
@@ -82,6 +94,7 @@ class Registration(models.Model):
 
     def __str__(self):
         return "{} {} {}".format(self.name, self.email, self.option.name)
+
 
 class ManualPayment(models.Model):
     user = models.ForeignKey(User)
