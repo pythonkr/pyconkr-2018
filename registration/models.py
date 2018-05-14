@@ -111,7 +111,7 @@ class Registration(models.Model):
         default='card',
         choices=(
             ('card', u'Credit Card'),
-            #('bank', u'Bank Transfer'),
+            # ('bank', u'Bank Transfer'),
             ('vbank', u'Virtual Bank Transfer'),
         )
     )
