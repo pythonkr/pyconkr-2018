@@ -32,6 +32,17 @@ class Registration(models.Model):
     merchant_uid = models.CharField(max_length=32)
     option = models.ForeignKey(Option, null=True)
     name = models.CharField(max_length=100)
+    type = models.CharField(
+        max_length=20,
+        default='regular',
+        choices=(
+            ('earlybird', u'얼리버드'),
+            ('regular', u'일반'),
+            ('patron', u'개인후원'),
+            ('sponsor', u'스폰서'),
+            ('group', u'단체')
+        )
+    )
     top_size = models.CharField(
         max_length=20,
         default=None,
