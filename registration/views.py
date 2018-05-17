@@ -1,50 +1,44 @@
 # -*- coding: utf-8 -*-
 import datetime
-import json
 import logging
 from uuid import uuid4
 
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse, JsonResponse, HttpResponseBadRequest
-from django.utils import timezone
-from django.utils.translation import ugettext as _
+from constance import config
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import user_passes_test
-from django.contrib.auth.models import User
-from django.views.generic import DetailView
+from django.http import HttpResponse, JsonResponse, HttpResponseBadRequest
+from django.shortcuts import render, redirect, get_object_or_404
+from django.utils import timezone
+from django.utils.translation import ugettext as _
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
-from constance import config
+from django.views.generic import DetailView
 
 from pyconkr.helper import render_io_error
+from registration.helpers import is_registration_open
 from .forms import (RegistrationForm, RegistrationAdditionalPriceForm,
                     ManualPaymentForm, IssueSubmitForm)
-from .models import Option, Registration, ManualPayment, IssueTicket
 from .iamporter import get_access_token, Iamporter, IamporterError
+from .models import Option, Registration, ManualPayment, IssueTicket
 
 logger = logging.getLogger(__name__)
 payment_logger = logging.getLogger('payment')
 
 
-def _is_ticket_open():
-    open_datetime = datetime.datetime.combine(config.REGISTRATION_OPEN, config.REGISTRATION_OPEN_TIME)
-    close_datetime = datetime.datetime.combine(config.REGISTRATION_CLOSE, config.REGISTRATION_CLOSE_TIME)
-    return True if open_datetime <= datetime.datetime.now() <= close_datetime else False
-
-
 def index(request):
+    is_registered = False
     if request.user.is_authenticated():
-        is_registered = Registration.objects.filter(
-            user=request.user,
-            payment_status__in=['paid', 'ready']
-        ).exists()
-    else:
-        is_registered = False
-    options = Option.objects.filter(is_active=True)
-    return render(request, 'registration/info.html',
-                  {'is_ticket_open': _is_ticket_open,
-                   'options': options,
-                   'is_registered': is_registered})
+        is_registered = (Registration.objects
+                         .filter(user=request.user,
+                                 payment_status__in=['paid', 'ready'])
+                         .exists())
+    options = Option.objects.active_conference()
+    ctx = {
+        'is_registration_open': is_registration_open(),
+        'options': options,
+        'is_registered': is_registered
+    }
+    return render(request, 'registration/info.html', ctx)
 
 
 @login_required
@@ -61,10 +55,10 @@ def status(request):
 
 @login_required
 def payment(request, option_id):
-    if not _is_ticket_open():
+    product = Option.objects.get(id=option_id)
+    if not product.is_opened:
         return redirect('registration_index')
 
-    product = Option.objects.get(id=option_id)
     is_registered = Registration.objects.filter(
         user=request.user,
         payment_status__in=['paid', 'ready']
@@ -98,7 +92,7 @@ def payment_process(request):
         return redirect('registration_index')
 
     # alreay registered
-    if Registration.objects.filter(user=request.user, payment_status__in=['paid','ready']).exists():
+    if Registration.objects.filter(user=request.user, payment_status__in=['paid', 'ready']).exists():
         return redirect('registration_status')
 
     payment_logger.debug(request.POST)

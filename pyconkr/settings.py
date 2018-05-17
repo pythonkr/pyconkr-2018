@@ -231,9 +231,9 @@ CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 
 CONSTANCE_CONFIG = {
         'REGISTRATION_OPEN_TIME': (datetime.time(12,0), 'Registration opening time'),
-        'REGISTRATION_OPEN': (datetime.date(2016, 3, 23), 'Registration opening date'),
+        'REGISTRATION_OPEN': (datetime.date(2018, 3, 1), 'Registration opening date'),
         'REGISTRATION_CLOSE_TIME': (datetime.time(12,0), 'Registration opening time'),
-        'REGISTRATION_CLOSE': (datetime.date(2016,9,1), 'Registration closing date'),
+        'REGISTRATION_CLOSE': (datetime.date(2018, 8, 1), 'Registration closing date'),
         'TOTAL_TICKET': (1500, 'How many ticket to sold'),
         'IMP_USER_CODE': ('', 'iamport user code'),
         'IMP_API_KEY': ('', 'iamport api key'),
