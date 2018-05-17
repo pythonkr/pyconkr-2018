@@ -45,7 +45,7 @@ class OptionMansger(models.Manager):
     def active_young(self):
         return self.active().filter(event_type=EVENT_YOUNG)
 
-    def active_babecare(self):
+    def active_babycare(self):
         return self.active().filter(event_type=EVENT_BABYCARE)
 
 
