@@ -29,9 +29,9 @@ CONFERENCE_REGISTRATION_TYPES = (
 )
 
 
-class OptionMansger(models.Manager):
+class OptionManager(models.Manager):
     def get_queryset(self):
-        return super(OptionMansger, self).get_queryset()
+        return super(OptionManager, self).get_queryset()
 
     def active(self):
         return self.get_queryset().filter(is_active=True)
@@ -63,7 +63,7 @@ class Option(models.Model):
     begin_at = models.DateTimeField(null=True, blank=False)
     closed_at = models.DateTimeField(null=True, blank=False)
 
-    objects = OptionMansger()
+    objects = OptionManager()
 
     class Meta:
         unique_together = ('event_type', 'conference_type', )
