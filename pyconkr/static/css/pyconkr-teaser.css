@@ -55,6 +55,18 @@ nav a {
   color: white;
 }
 
+nav a .glyphicon {
+  vertical-align: baseline;
+}
+
+nav .menu {
+  float: left;
+}
+
+nav .user {
+  float: right;
+}
+
 section {
   margin-bottom: 5rem;
 }
@@ -154,7 +166,8 @@ section a {
 /** header **/
 
 .header-bg {
-  height: 600px;
+  max-height: 600px;
+  padding-bottom: 20px;
 }
 
 .teaser-bg {
@@ -255,6 +268,9 @@ section a {
 
 .box-container {
   padding: 40px 0;
+}
+
+.index .box-container {
   text-align: center;
 }
 
