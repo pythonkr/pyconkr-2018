@@ -15,7 +15,6 @@ from django.views.decorators.http import require_http_methods
 from django.views.generic import DetailView
 
 from pyconkr.helper import render_io_error
-from registration.helpers import is_registration_open
 from .forms import (RegistrationForm, RegistrationAdditionalPriceForm,
                     ManualPaymentForm, IssueSubmitForm)
 from .iamporter import get_access_token, Iamporter, IamporterError
@@ -34,7 +33,6 @@ def index(request):
                          .exists())
     options = Option.objects.active_conference()
     ctx = {
-        'is_registration_open': is_registration_open(),
         'options': options,
         'is_registered': is_registered
     }
