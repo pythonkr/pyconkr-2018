@@ -5,22 +5,77 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 
+
+EVENT_CONFERENCE = 'conference'
+EVENT_TUTORIAL = 'tuturial'
+EVENT_YOUNG = 'young'
+EVENT_BABYCARE = 'babycare'
+EVENT_TYPES = (
+    (EVENT_CONFERENCE, '컨퍼런스', ),
+    (EVENT_TUTORIAL, '튜토리얼', ),
+    (EVENT_YOUNG, '영코더', ),
+    (EVENT_BABYCARE, '아이돌봄', ),
+)
+
+CONFERENCE_REGISTRATION_EARLYBIRD = 'earlybird'
+CONFERENCE_REGISTRATION_REGULAR = 'regular'
+CONFERENCE_REGISTRATION_COMPANY = 'company'
+CONFERENCE_REGISTRATION_PATRON = 'patron'
+CONFERENCE_REGISTRATION_TYPES = (
+    (CONFERENCE_REGISTRATION_EARLYBIRD, '얼리버드', ),
+    (CONFERENCE_REGISTRATION_REGULAR, '일반', ),
+    (CONFERENCE_REGISTRATION_COMPANY, '법인', ),
+    (CONFERENCE_REGISTRATION_PATRON, '개인후원', ),
+)
+
+
+class OptionManager(models.Manager):
+    def get_queryset(self):
+        return super(OptionManager, self).get_queryset()
+
+    def active(self):
+        return self.get_queryset().filter(is_active=True)
+
+    def active_conference(self):
+        return self.active().filter(event_type=EVENT_CONFERENCE)
+
+    def active_tutorial(self):
+        return self.active().filter(event_type=EVENT_TUTORIAL)
+
+    def active_young(self):
+        return self.active().filter(event_type=EVENT_YOUNG)
+
+    def active_babycare(self):
+        return self.active().filter(event_type=EVENT_BABYCARE)
+
+
 class Option(models.Model):
+    event_type = models.CharField(max_length=15, choices=EVENT_TYPES, default=EVENT_CONFERENCE, null=False)
+    conference_type = models.CharField(max_length=15, choices=CONFERENCE_REGISTRATION_TYPES, null=True, blank=True)
     name = models.CharField(max_length=50)
     description = models.TextField()
     is_active = models.BooleanField(default=False)
-    price = models.IntegerField()
+    price = models.PositiveIntegerField()
     has_additional_price = models.BooleanField(default=False)
     total = models.IntegerField(default=500)
     is_cancelable = models.BooleanField(default=False)
     cancelable_date = models.DateTimeField(null=True)
+    begin_at = models.DateTimeField(null=True, blank=False)
+    closed_at = models.DateTimeField(null=True, blank=False)
+
+    objects = OptionManager()
 
     class Meta:
+        unique_together = ('event_type', 'conference_type', )
         ordering = ['price']
 
     @property
     def is_soldout(self):
         return self.total <= Registration.objects.filter(option=self, payment_status__in=['paid', 'ready']).count()
+
+    @property
+    def is_opened(self):
+        return self.is_active and self.begin_at < timezone.now() < self.closed_at
 
     def __str__(self):
         return self.name
@@ -82,6 +137,7 @@ class Registration(models.Model):
 
     def __str__(self):
         return "{} {} {}".format(self.name, self.email, self.option.name)
+
 
 class ManualPayment(models.Model):
     user = models.ForeignKey(User)
