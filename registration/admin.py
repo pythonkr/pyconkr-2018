@@ -19,7 +19,7 @@ def send_bankpayment_alert_email(modeladmin, request, queryset):
     입금시한은 구매로부터 일주일입니다.
     감사합니다.
     """
-    from_email = "pycon@pycon.kr"
+    from_email = "pyconkr@pycon.kr"
     for obj in queryset:
         email = obj.email
         message = (subject, body, from_email, [email])
@@ -41,7 +41,7 @@ def cancel_registration(modeladmin, request, queryset):
 다른 문의 사항은 support@pycon.kr 로 메일 부탁드립니다.
 감사합니다.
     """
-    from_email = "pycon@pycon.kr"
+    from_email = "pyconkr@pycon.kr"
 
     results = []
     now = timezone.now()
