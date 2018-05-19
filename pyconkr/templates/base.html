@@ -1,101 +1,114 @@
+<!DOCTYPE html>
 {% load staticfiles %}
 {% load i18n %}
-<!DOCTYPE html>
-<html>
-
+<html lang="kr">
 <head>
-  <title>{% block head-title %}{% trans "PyCon Korea 2017" %}{% endblock %}</title>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=0.85">
+    <meta charset="UTF-8">
+    <title>파이콘 한국 2018 - Teaser</title>
+    <meta property="og:site_name" content="파이콘 한국 2018">
+    <meta property="og:title" content="파이콘 한국 2018">
+    <meta property="og:url" content="https://www.pycon.kr/2018/">
+    <meta property="og:image" content="https://www.pycon.kr/2018/static/image/pyconkr-2018-cover.png">
+    <meta property="og:description" content="파이콘 한국 2018: 8월 15, 17~19일 코엑스">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
 
-  <!-- Opengraph tag -->
-  <meta property="og:site_name" content="{% trans "PyCon Korea 2017" %}">
-  <meta property="og:title" content="{% block og-title %}{% trans "PyCon Korea 2017" %}{% endblock %}">
-  <meta property="og:image" content="{{ domain }}{% block og-image %}{% static "image/pyconkr-2017-cover.png" %}{% endblock %}">
-  <meta property="og:url" content="{{ domain }}{{ request.path }}">
-  <meta property="og:description" content="{% block og-desc %}{% trans "PyCon Korea Opengraph Description" %}{% endblock %}">
+    <link rel="icon" type="image/png" href="{% static 'image/favicon2017.ico' %}">
 
-  <!-- Include basic items -->
-  <link href="{% static "components/bootstrap/dist/css/bootstrap.min.css" %}" rel="stylesheet">
-  <link href="{% static "components/bootstrap-social/bootstrap-social.css" %}" rel="stylesheet">
-  <link href="{% static "components/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
-  <link href="{% static "components/montserrat-webfont/css/montserrat-webfont.min.css" %}" rel="stylesheet">
+    <link href="{% static 'components/slick-carousel/slick/slick.css' %}" rel="stylesheet">
+    <link href="{% static 'components/slick-carousel/slick/slick-theme.css' %}" rel="stylesheet">
 
-  <!-- Override bootstrap css -->
-  <link href="{% static "css/pyconkr.css" %}" rel="stylesheet">
-  <link href="{% static "css/pyconkr-media.css" %}" rel="stylesheet">
+    <script src="{% static 'components/jquery/dist/jquery.min.js' %}"></script>
 
-  <!-- Google fonts -->
-  <link href='//fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-  <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-  <link href='//fonts.googleapis.com/earlyaccess/nanumgothic.css' rel='stylesheet' type='text/css'>
+    <link href="{% static "components/bootstrap/dist/css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "components/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/pyconkr.css" %}" rel="stylesheet">
+    <link href="{% static "css/pyconkr-media.css" %}" rel="stylesheet">
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="{% static "image/favicon.ico" %}" type="image/x-icon">
-  <link rel="icon" href="{% static "image/favicon.ico" %}" type="image/x-icon">
-
-  <!-- Scripts -->
-  <!--[if lt IE 9]>
-    <script src="{% static "components/html5shiv/dist/html5shiv.min.js" %}"></script>
-    <script src="{% static "components/respond/dest/respond.min.js" %}"></script>
-  <![endif]-->
-  <script src="{% static "components/jquery/dist/jquery.min.js" %}"></script>
-  <script src="{% static "components/bootstrap/dist/js/bootstrap.min.js" %}"></script>
-  <script src="{% static "js/rgb-hsv.js" %}"></script>
-  <script src="{% static "components/js-cookie/src/js.cookie.js" %}" charset="utf-8"></script>
-  <script src="{% static "components/handlebars/handlebars.min.js" %}" charset="utf-8"></script>
-  <script>
-  function csrfSafeMethod(method) {
-    // these HTTP methods do not require CSRF protection
-    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-  }
-  </script>
-  {% block head-include %}{% endblock %}
+    <link href="{% static 'css/pyconkr-teaser.css' %}" rel="stylesheet" type="text/css">
 </head>
-
 <body>
-{% block nav %}{% include "nav.html" %}{% endblock %}
-{% block container %}
-<div class="container">
-    {% block wrap %}
-    <div class="row wrap">
-        <div class="col-md-9 content">
-            <h1>{% block title %}{{ title }}{% endblock %}</h1>
-            {% if messages %}
-            {% for message in messages %}
-            <div class="alert{% if message.tags %} alert-{{ message.tags }}{% endif %}" role="alert">
-                {{ message }}
+<div class="body-container">
+    <div class="teaser-bg header-bg">
+        <nav class="home-nav">
+            {# TODO : use 'menu' context processor. #}
+            <ul class="menu">
+                <li>
+                    <a href="/#home">개요</a>
+                </li>
+                <li>
+                    <a href="/#notice">공지</a>
+                </li>
+                <li>
+                    <a href="/#venue">장소</a>
+                </li>
+                <li>
+                    <a href="/#slogan">슬로건</a>
+                </li>
+                <li>
+                    <a href="/#contact">문의</a>
+                </li>
+                <li>
+                    <a href="{% url 'registration_index' %}">등록</a>
+                </li>
+            </ul>
+            <ul class="user">
+                {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url "profile" %}">{{ user.username }}</a>
+                </li>
+                <li>
+                    <a href="{% url "logout" %}">{% trans "Logout" %}</a>
+                </li>
+                {% else %}
+                <li class="{% if v.active %}active{% endif %}">
+                    <a href="{% url "login" %}"><span class="glyphicon glyphicon-user"></span> {% trans "Login" %}</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+
+        <div id="badges" style="position: relative">
+            <img class="badge-stripe-logo" src="{% static 'image/stripe-logo.png' %}">
+
+            <img class="badge-etc1" src="{% static 'image/etc-badge1.png' %}">
+            <img class="badge-etc2" src="{% static 'image/etc-badge2.png' %}">
+        </div>
+
+        <header class="teaser-header z-index-1" id="home">
+            <img class="img-slogan" src="{% static 'image/pyconkr-2018-slogan.png' %}">
+            <div class="box header-box white-text">
+                <img class="badge-dotted-fill-logo" src="{% static 'image/dotted-fill-logo.png' %}">
+                <p>파이콘 한국 2018</p>
+                <span>서울, 코엑스</span><br>
+                <span class="margin-right-20"><b>스프린트</b> 2018.08.15(수), 17(금)</span>
+                <span class="margin-right-20"><b>튜토리얼</b> 2018.08.17(금)</span>
+                <span><b>컨퍼런스</b> 2018.08.18 - 19(토-일)</span>
             </div>
-            {% endfor %}
-            {% endif %}
-            {{ base_content | safe }}
-            {% block content %}{% endblock %}
-        </div>
-        <div class="col-md-3">
-            {% include "submenu.html" %}
-            {% include "banner.html" %}
+        </header>
+        {% block notice %}
+        {% endblock %}
+    </div>
+
+    {% block content_wrapper %}
+    <div class="box-container">
+        <div class="box">
+        {% block content %}
+        {% endblock %}
         </div>
     </div>
     {% endblock %}
-    {% block sponsors %}
-    <hr>
-    <div class="row wrap">
-        <div class="col-md-12 sponsors">
-        <h2>{% trans "Sponsors" %}</h2>
-        {% include "sponsors.html" %}
-        </div>
-    </div>
+
+    {% block unboxed_content %} {# for index ^^ #}
     {% endblock %}
+
+    <footer>
+        <div class="main-grid">
+            <div class="footer-content">
+                <h3>Dive into Diversity, PyCon Korea 2018</h3>
+                PyCon Korea 2018 is a product of PyCon Korea Organizing Team
+            </div>
+        </div>
+    </footer>
 </div>
-{% endblock %}
-
-{% block script %}
-{% endblock %}
-
-{% include "footer.html" %}
-{% include "ga.html" %}
-{% include "facebook_script.html" %}
 </body>
-
 </html>
