@@ -9,8 +9,8 @@
         <span class="glyphicon glyphicon-python"></span>
       </button>
       {% if not index %}
-      <a class="navbar-logo" href="{% url "index" %}">
-        <img src="{% static "image/pycon2017-logo-yellow.png" %}" alt="PyCon Korea">
+      <a class="navbar-logo" href="{% url 'index' %}">
+        <img src="{% static 'image/pycon2018-logo.png' %}" alt="PyCon Korea">
       </a>
       {% endif %}
     </div>
@@ -22,7 +22,7 @@
         {% if v.submenu %}
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <span class="glyphicon glyphicon-{{ v.icon }}"></span> {{ v.title }} <span class="caret"></span></a>
+            {{ v.title }} <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
           {% for sk, sv in v.submenu.items %}
             <li class="{% if sv.active %}active{% endif %}">
@@ -33,7 +33,7 @@
         </li>
         {% else %}
         <li class="{% if v.active %}active{% endif %}">
-          <a href="{% url "index" %}{{ k }}"><span class="glyphicon glyphicon-{{ v.icon }}"></span> {{ v.title }}</a>
+          <a href="{% url "index" %}{{ k }}">{{ v.title }}</a>
         </li>
         {% endif %}
         {% endfor %}
@@ -70,13 +70,12 @@
         </li>
       {% else %}
         <li class="{% if v.active %}active{% endif %}">
-          <a href="{% url "login" %}"><span class="glyphicon glyphicon-user"></span> {% trans "Login" %}</a>
+          <a href="{% url "login" %}">{% trans "Login" %}</a>
         </li>
       {% endif %}
       <!-- Language -->
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <span class="glyphicon glyphicon-globe"></span>
             {% trans "Language" %} <span class="caret"></span></a>
           <ul id="language-menu" class="dropdown-menu" role="menu">
             {% get_language_info_list for LANGUAGES as languages %}
