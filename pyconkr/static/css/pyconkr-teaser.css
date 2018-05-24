@@ -1,16 +1,6 @@
-html {
-  min-height: 100%;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
 main {
-  flex: auto;
-  padding: 50px 0;
+  padding: 130px 0 200px;
+  min-height: 100%;
 }
 
 section {
@@ -31,33 +21,52 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0.3rem 0 0.3rem;
 }
 
+.navbar-nav>li>.dropdown-menu {
+  border-radius: 4px;
+}
+
 .tilt-counterclock {
   -webkit-transform: skewY(-11deg);
   transform: skewY(-11deg);
   transform-origin: 0;
 }
 
-.tilt-counterclock .tilt-clock {
+.tilt-clock {
   -webkit-transform: skewY(11deg);
   transform: skewY(11deg);
   transform-origin: 0;
 }
 
-/** header **/
-
-.header-bg {
+.gradient-bg {
   background: linear-gradient(90deg, #491faf, #771592, #a20a77);
-  overflow: hidden;
 }
 
-.tilt-counterclock.header-bg {
+/** header **/
+.header-bg {
   min-height: 685px;
-  padding-bottom: 160px;
-  margin-bottom: -15px;
+  padding: 160px 0;
+  overflow: hidden;
+  margin-bottom: -100px;
+}
+
+.transparent-gradient-bg div {
+  background: linear-gradient(90deg, rgba(73, 31, 175, 0.2), rgba(119, 21, 146, 0.2), rgba(162, 10, 119, 0.2));
+  position: absolute;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.transparent-gradient-bg :first-child {
+  transform-origin: bottom;
+  transform: skewY(-8deg);
+}
+
+.transparent-gradient-bg :last-child {
+  transform-origin: right;
+  transform: skewY(5deg);
 }
 
 header {
-  padding-top: 90px;
   padding-bottom: 120px;
   color: white;
   position: relative;
@@ -95,7 +104,7 @@ header p span:last-child {
 .bg-lines :first-child {
   width: 37%;
   height: 75px;
-  top: 100px;
+  top: 25px;
   left: 17%;
   background: #ffffff1f;
 }
@@ -103,7 +112,7 @@ header p span:last-child {
 .bg-lines :nth-child(2) {
   width: 57%;
   height: 85px;
-  top: 52px;
+  top: -30px;
   left: 33%;
   background: #7b138f;
 }
@@ -111,7 +120,7 @@ header p span:last-child {
 .bg-lines :nth-child(3) {
   width: 33%;
   height: 10px;
-  top: 230px;
+  top: 180px;
   left: 70%;
   background: #ffffff2b;
 }
@@ -119,7 +128,7 @@ header p span:last-child {
 .bg-lines :nth-child(4) {
   width: 10px;
   height: 10px;
-  top: 230px;
+  top: 180px;
   left: 68%;
   background: #ffffff2b;
 }
@@ -127,7 +136,7 @@ header p span:last-child {
 .bg-lines :nth-child(5) {
   width: 70%;
   height: 85px;
-  top: 380px;
+  top: 300px;
   left: 55%;
   background: #a20b78;
 }
@@ -135,7 +144,7 @@ header p span:last-child {
 .bg-lines :nth-child(6) {
   width: 47%;
   height: 85px;
-  top: 450px;
+  top: 400px;
   left: -100px;
   background: #4920af;
 }
@@ -143,7 +152,7 @@ header p span:last-child {
 .bg-lines :nth-child(7) {
   width: 20%;
   height: 10px;
-  top: 560px;
+  top: 520px;
   left: 4%;
   background: #ffffff14;
 }
@@ -151,7 +160,7 @@ header p span:last-child {
 .bg-lines :nth-child(8) {
   width: 10px;
   height: 10px;
-  top: 560px;
+  top: 520px;
   left: 2%;
   background: #ffffff14;
 }
@@ -198,10 +207,12 @@ main h3:after {
 
 /** footer **/
 footer {
+  height: 185px;
   padding: 4rem 0;
   background-color: #eee;
   color: #717171;
   font-size: 0.7rem;
+  margin-top: -185px;
 }
 
 footer h3 {
@@ -211,19 +222,28 @@ footer h3 {
 }
 
 /** media query **/
-
 @media (max-width: 1024px) {
+  .transparent-gradient-bg div {
+    margin-top: 40px;
+  }
 }
-@media (max-width: 900px) {
-}
+
 @media (max-width: 768px) {
+  .transparent-gradient-bg div {
+    margin-top: 65px;
+  }
+
   header p span {
     margin-right: 10px;
   }
 }
 @media (max-width: 640px) {
-  .tilt-counterclock.header-bg {
+  .header-bg {
     padding-bottom: 90px;
+  }
+
+  .transparent-gradient-bg div {
+    margin-top: 10px;
   }
 
   header h1 {
@@ -243,14 +263,14 @@ footer h3 {
   .bg-lines :first-child {
     width: 37%;
     height: 50px;
-    top: 94px;
+    top: 54px;
     left: 10%;
   }
 
   .bg-lines :nth-child(2) {
     width: 80%;
     height: 65px;
-    top: 48px;
+    top: 8px;
     left: 25%;
   }
 
@@ -265,16 +285,16 @@ footer h3 {
 
   .bg-lines :nth-child(6) {
     height: 65px;
-    top: 445px;
+    top: 380px;
     left: -50px;
   }
 
   .bg-lines :nth-child(7) {
-    top: 530px;
+    top: 470px;
   }
 
   .bg-lines :nth-child(8) {
-    top: 530px;
+    top: 470px;
     left: 1%;
   }
 
@@ -283,7 +303,7 @@ footer h3 {
   }
 }
 @media (max-width: 500px) {
-  .tilt-counterclock.header-bg {
+  .header-bg {
     min-height: 650px;
   }
 
