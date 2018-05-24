@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 {% load i18n %}
+{% if LANGUAGE_CODE == 'en' %}
+<html lang="en">
+{% else %}
 <html lang="kr">
+{% endif %}
 <head>
     <meta charset="UTF-8">
     <title>파이콘 한국 2018 - Teaser</title>
@@ -30,10 +34,14 @@
     <script src="{% static "components/bootstrap/dist/js/bootstrap.min.js" %}"></script>
 </head>
 <body>
-<div class="header-bg {% if index %}tilt-counterclock{% endif %}">
+{% block nav %}{% include "nav.html" %}{% endblock %}
+{% if index %}
+<div class="transparent-gradient-bg">
+    <div class="header-bg tilt-clock"></div>
+    <div class="header-bg tilt-clock"></div>
+</div>
+<div class="header-bg gradient-bg tilt-counterclock">
     <div class="tilt-clock">
-    {% block nav %}{% include "nav.html" %}{% endblock %}
-        {% if index %}
         <div class="bg-lines tilt-counterclock">
             <span></span>
             <span></span>
@@ -54,9 +62,9 @@
             </p>
             <p><b>서울, 코엑스</b></p>
         </header>
-        {% endif %}
     </div>
 </div>
+{% endif %}
 
 <main>
     <div class="container">
