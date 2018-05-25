@@ -16,13 +16,13 @@
     <script>
         // TODO : i18n
         // 자 콜백의 지옥으로 가자..
-        $(document).ready(function() {
+        $(document).ready(function () {
             function handleResponse(response) {
                 response['csrfmiddlewaretoken'] = '{{ csrf_token }}';
                 response['name'] = $('#id_name').val();
                 response['email'] = $('#id_email').val();
-                response['base_price'] = parseInt('{{ amount }}'),
-                response['additional_price'] = parseInt($('#id_additional_price').val()) ? parseInt($('#id_additional_price').val()) : 0,
+                response['base_price'] = parseInt('{{ amount }}');
+                response['additional_price'] = parseInt($('#id_additional_price').val()) ? parseInt($('#id_additional_price').val()) : 0;
                 response['company'] = $('#id_company').val();
                 response['top_size'] = $('#id_top_size').val();
                 response['phone_number'] = $('#id_phone_number').val();
@@ -34,53 +34,66 @@
                     url: '{% url "registration_payment" %}',
                     data: response,
                     dataType: 'json'
-                }).done(function(result) {
-                    if(!result.success) {
+                }).done(function (result) {
+                    if (!result.success) {
                         alert('결제에 실패했습니다. ' + result.code + ' ' + result.message);
                         window.location.reload();
                         return;
                     }
                     alert('결제가 완료되었습니다.');
                     window.location.href = '{% url 'registration_status' %}';
-                }.bind(this)).fail(function(xhr, status, error) {
+                }.bind(this)).fail(function (xhr, status, error) {
                     alert('결제에 실패했습니다. 다시 시도해 주세요.' + error);
                     window.location.reload();
                 }.bind(this));
             }
 
-            $('#registration-form').submit(function(e) {
+            $('#registration-form').submit(function (e) {
                 e.preventDefault();
                 var additional_price = parseInt($('#id_additional_price').val()) ? parseInt($('#id_additional_price').val()) : 0;
 
                 var paymentMethod = $('#id_payment_method').val();
-                if(paymentMethod === 'card') {
-                    IMP.SBCR.init('{{ config.IMP_USER_CODE }}');
+                if (paymentMethod === 'card-korean') {
+                    IMP.SBCR.init('{{ config.IMP_DOM_USER_CODE }}');
                     IMP.SBCR.onetime({
                         merchant_uid: '{{ uid }}',
                         amount: parseInt('{{ amount }}') + additional_price,
-                        vat: parseInt('{{ vat }}')
-                    }, function(response) {
-                        if(!response.token) {
+                        vat: 0
+                    }, function (response) {
+                        if (!response.token) {
                             alert(response.message);
                             return false;
                         }
                         handleResponse(response);
                     }.bind(this));
-                } else if(paymentMethod === 'vbank') {
-                    IMP.init('{{ config.IMP_USER_CODE }}');
+                } else if (paymentMethod === 'card-foreign') {
+                    IMP.SBCR.init('{{ config.IMP_INTL_USER_CODE }}');
+                    IMP.SBCR.onetime({
+                        merchant_uid: '{{ uid }}',
+                        amount: parseInt('{{ amount }}') + additional_price,
+                        vat: 0
+                    }, function (response) {
+                        if (!response.token) {
+                            alert(response.message);
+                            return false;
+                        }
+                        handleResponse(response);
+                    }.bind(this));
+                } else if (paymentMethod === 'vbank') {
+                    IMP.init('{{ config.IMP_DOM_USER_CODE }}');
                     IMP.request_pay({
-                        pg : 'nice',
-                        pay_method : 'vbank',
-                        merchant_uid : '{{ uid }}',
-                        name : $('#id_option').val(),
-                        amount : parseInt('{{ amount }}') + additional_price,
-                        buyer_email : $('#id_email').val(),
-                        buyer_name : $('#id_name').val(),
-                        buyer_tel : $('#id_phone_number').val(),
-                        buyer_addr : '',
-                        buyer_postcode : ''
-                    }, function(rsp) {
-                        if ( rsp.success ) {
+                        pg: 'nice',
+                        pay_method: 'vbank',
+                        merchant_uid: '{{ uid }}',
+                        name: $('#id_option').val(),
+                        amount: parseInt('{{ amount }}') + additional_price,
+                        buyer_email: $('#id_email').val(),
+                        buyer_name: $('#id_name').val(),
+                        buyer_tel: $('#id_phone_number').val(),
+                        buyer_addr: '',
+                        buyer_postcode: ''
+                    }, function (rsp) {
+                        if (rsp.success) {
                             handleResponse(rsp);
                         } else {
                             var msg = '결제에 실패하였습니다.';
