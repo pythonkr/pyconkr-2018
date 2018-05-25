@@ -20,3 +20,5 @@ $ bower install
 $ python manage.py runserver
 ```
 
+## ETC
+- 테스트
