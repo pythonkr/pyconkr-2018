@@ -21,4 +21,4 @@ $ python manage.py runserver
 ```
 
 ## ETC
-- 테스트
+- 빌드 자동 테스트
