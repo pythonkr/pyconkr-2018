@@ -107,11 +107,11 @@ header p span:last-child {
   height: 75px;
   top: 25px;
   left: 17%;
-  background: #ffffff1f;
+  background: linear-gradient(90deg, #ffffff40, #ffffff00);
 }
 
 .bg-lines :nth-child(2) {
-  width: 57%;
+  width: 70%;
   height: 85px;
   top: -30px;
   left: 33%;
@@ -123,7 +123,7 @@ header p span:last-child {
   height: 10px;
   top: 180px;
   left: 70%;
-  background: #ffffff2b;
+  background: linear-gradient(90deg, #ffffff2b, #ffffff00);
 }
 
 .bg-lines :nth-child(4) {
@@ -147,7 +147,7 @@ header p span:last-child {
   height: 85px;
   top: 400px;
   left: -100px;
-  background: #4920af;
+  background: linear-gradient(90deg, #3a139d, #4920af00);
 }
 
 .bg-lines :nth-child(7) {
@@ -155,7 +155,7 @@ header p span:last-child {
   height: 10px;
   top: 520px;
   left: 4%;
-  background: #ffffff14;
+  background: linear-gradient(90deg, #ffffff14, #ffffff00);
 }
 
 .bg-lines :nth-child(8) {
@@ -270,8 +270,8 @@ footer h3 {
 
   .bg-lines :nth-child(2) {
     width: 80%;
-    height: 65px;
-    top: 8px;
+    height: 75px;
+    top: 0;
     left: 25%;
   }
 
