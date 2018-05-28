@@ -88,12 +88,9 @@ class Registration(models.Model):
     name = models.CharField(max_length=100)
     type = models.CharField(
         max_length=20,
-        default='regular',
+        default='personal',
         choices=(
-            ('earlybird', u'얼리버드'),
-            ('regular', u'일반'),
-            ('patron', u'개인후원'),
-            ('sponsor', u'스폰서'),
+            ('personal', u'개인'),
             ('group', u'단체')
         )
     )

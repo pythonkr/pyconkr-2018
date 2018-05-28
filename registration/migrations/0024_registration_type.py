@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='registration',
             name='type',
-            field=models.CharField(choices=[('earlybird', '얼리버드'), ('regular', '일반'), ('patron', '개인후원'), ('sponsor', '스폰서'), ('group', '단체')], default='regular', max_length=20),
+            field=models.CharField(choices=[('personal', '일반'), ('group', '단체')], default='personal', max_length=20),
         ),
     ]
