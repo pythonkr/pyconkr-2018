@@ -43,6 +43,10 @@
                     <td>{{ registration.phone_number }}</td>
                 </tr>
                 <tr>
+                    <th>{% trans "Ticket Type" %}</th>
+                    <td>{{ registration.get_type_display }}</td>
+                </tr>
+                <tr>
                     <th>{% trans "Option" %}</th>
                     <td>{{ registration.option }}</td>
                 </tr>

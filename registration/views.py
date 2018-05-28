@@ -105,7 +105,8 @@ def payment_process(request):
             'message': form_errors_string,  # TODO : ...
         })
 
-    remain_ticket_count = (config.TOTAL_TICKET - Registration.objects.filter(payment_status__in=['paid', 'ready']).count())
+    remain_ticket_count = (
+            config.TOTAL_TICKET - Registration.objects.filter(payment_status__in=['paid', 'ready']).count())
 
     # sold out
     if remain_ticket_count <= 0:
@@ -121,17 +122,18 @@ def payment_process(request):
         })
 
     registration = Registration(
-            user=request.user,
-            name = form.cleaned_data.get('name'),
-            email = request.user.email,
-            additional_price = form.cleaned_data.get('additional_price', 0),
-            company = form.cleaned_data.get('company', ''),
-            top_size = form.cleaned_data.get('top_size', ''),
-            phone_number = form.cleaned_data.get('phone_number', ''),
-            merchant_uid = request.POST.get('merchant_uid'),
-            option = form.cleaned_data.get('option'),
-            payment_method = form.cleaned_data.get('payment_method')
-        )
+        user=request.user,
+        name=form.cleaned_data.get('name'),
+        email=request.user.email,
+        additional_price=form.cleaned_data.get('additional_price', 0),
+        company=form.cleaned_data.get('company', ''),
+        top_size=form.cleaned_data.get('top_size', ''),
+        phone_number=form.cleaned_data.get('phone_number', ''),
+        merchant_uid=request.POST.get('merchant_uid'),
+        option=form.cleaned_data.get('option'),
+        payment_method=form.cleaned_data.get('payment_method'),
+        type=form.cleaned_data.get('type'),
+    )
 
     # sold out
     if registration.option.is_soldout:
@@ -342,6 +344,7 @@ def group_required(*group_names):
             if bool(u.groups.filter(name__in=group_names)) or u.is_superuser:
                 return True
         return False
+
     return user_passes_test(in_groups)
 
 
@@ -354,13 +357,14 @@ def issue(request):
     }
     return render(request, 'registration/issue_ticket.html', context)
 
+
 @group_required('admin', 'organizer', 'volunteer')
 def issue_print(request, registration_id):
     registration = get_object_or_404(Registration, id=registration_id)
-    name = registration.user.profile.name if registration.user.profile.name != ''\
-            else registration.name
+    name = registration.user.profile.name if registration.user.profile.name != '' \
+        else registration.name
     company = registration.user.profile.organization if \
-            registration.user.profile.organization != '' else registration.company
+        registration.user.profile.organization != '' else registration.company
     company = '' if company == None else company
     context = {
         'name': name,
@@ -369,6 +373,7 @@ def issue_print(request, registration_id):
         'title': _("Ticket Print"),
     }
     return render(request, 'registration/issue_print.html', context)
+
 
 @group_required('admin', 'organizer', 'volunteer')
 @require_http_methods(["POST"])
@@ -379,7 +384,7 @@ def issue_submit(request):
     user_id = user_data.cleaned_data['user_id']
     registration = Registration.objects.get(payment_status='paid',
                                             id=user_id)
-    issue=IssueTicket(
+    issue = IssueTicket(
         registration=registration,
         issuer=request.user
     ).save()

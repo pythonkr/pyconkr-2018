@@ -14,6 +14,7 @@ class RegistrationForm(forms.ModelForm):
         self.fields['email'].widget.attrs['readonly'] = True
         self.fields['base_price'].widget.attrs['readonly'] = True
         self.fields['option'].widget.attrs['disabled'] = True
+        self.fields['type'].widget.attrs['disabled'] = True
         self.helper = FormHelper()
         self.helper.form_id = 'registration-form'
         self.helper.form_method = 'post'
@@ -21,14 +22,16 @@ class RegistrationForm(forms.ModelForm):
 
     class Meta:
         model = Registration
-        fields = ('email', 'option', 'base_price', 'name', 'top_size', 'company', 'phone_number', 'payment_method')
+        fields = (
+            'email', 'type', 'option', 'base_price', 'name', 'top_size', 'company', 'phone_number', 'payment_method')
         labels = {
             'name': _('Name'),
+            'type': _('Ticket Type'),
             'option': _('Option'),
             'top_size': _('Top Size'),
             'email': _('E-Mail'),
             'company': _('Company or Organization'),
-            'phone_number':  _('Phone Number'),
+            'phone_number': _('Phone Number'),
             'payment_method': _('Payment Method'),
         }
 
