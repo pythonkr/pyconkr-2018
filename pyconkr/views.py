@@ -16,13 +16,12 @@ from datetime import datetime, timedelta
 import random
 from .forms import (EmailLoginForm, SpeakerForm, ProgramForm, SprintProposalForm,
                     ProposalForm, ProfileForm, TutorialProposalForm)
-from .helper import sendEmailToken
+from .helper import sendEmailToken, is_pycon_user
 from .models import (Room, Program, ProgramDate, ProgramTime, ProgramCategory,
                      Speaker, Sponsor, Announcement, Preference, TutorialProposal,
                      SprintProposal, EmailToken, Profile, Proposal, TutorialCheckin,
                      SprintCheckin)
 from registration.models import Registration, Option
-from constance import config
 
 logger = logging.getLogger(__name__)
 payment_logger = logging.getLogger('payment')
@@ -248,6 +247,9 @@ def login_req(request, token):
         user = User.objects.get(email=email)
     except ObjectDoesNotExist:
         user = User.objects.create_user(email, email, token)
+        if is_pycon_user(email):
+            user.is_staff = True
+            user.is_superuser = True
         user.save()
 
     token.delete()
