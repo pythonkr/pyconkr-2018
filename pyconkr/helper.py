@@ -2,13 +2,11 @@
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 from django.http import HttpResponse
-from django.template import Context
-from django.template.loader import render_to_string, get_template
+from django.template.loader import render_to_string
 import json
-from django.shortcuts import render
+
 
 def sendEmailToken(request, token):
-
     html = render_to_string('mail/token_html.html', {'token': token}, request)
     text = render_to_string('mail/token_text.html', {'token': token}, request)
 
@@ -19,6 +17,10 @@ def sendEmailToken(request, token):
         [token.email])
     msg.attach_alternative(html, "text/html")
     msg.send(fail_silently=False)
+
+
+def is_pycon_user(email):
+    return str.endswith(email, '@pycon.kr')
 
 
 def render_json(data_dict):
