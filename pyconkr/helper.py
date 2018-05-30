@@ -4,7 +4,6 @@ from django.conf import settings
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 import json
-import re
 
 
 def sendEmailToken(request, token):
@@ -21,8 +20,7 @@ def sendEmailToken(request, token):
 
 
 def is_pycon_user(email):
-    domain = re.search("@[\w.]+", email)
-    return domain.group() == '@pycon.kr'
+    return str.endswith(email, '@pycon.kr')
 
 
 def render_json(data_dict):
