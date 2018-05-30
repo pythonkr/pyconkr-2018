@@ -312,7 +312,6 @@ section a {
 }
 
 .header-box {
-  text-align: left;
   margin-bottom: 0;
   position: relative;
 }
@@ -490,4 +489,7 @@ footer {
     display: block;
     margin: 0 auto 10px auto;
   }
+}
+.align-left {
+  text-align: left;
 }
