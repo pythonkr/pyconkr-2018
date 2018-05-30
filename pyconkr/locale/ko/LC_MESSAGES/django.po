@@ -337,14 +337,14 @@ msgid "100 people"
 msgstr "100 명"
 
 #: pyconkr/settings.py:194
-msgid "PyCon Korea 2017 one-time login token"
-msgstr "파이콘 한국 2017 일회용 로그인 토큰"
+msgid "PyCon Korea 2018 one-time login token"
+msgstr "파이콘 한국 2018 일회용 로그인 토큰"
 
 #: pyconkr/settings.py:195 pyconkr/templates/base.html:7
 #: pyconkr/templates/base.html:13 pyconkr/templates/base.html:14
 #: pyconkr/templates/footer.html:11 pyconkr/templates/mail/token_html.html:2
-msgid "PyCon Korea 2017"
-msgstr "파이콘 한국 2017"
+msgid "PyCon Korea 2018"
+msgstr "파이콘 한국 2018"
 
 #: pyconkr/templates/base.html:17
 msgid "PyCon Korea Opengraph Description"
@@ -436,8 +436,8 @@ msgstr "결제 정보"
 
 #: pyconkr/templates/mail/token_html.html:3
 #: pyconkr/templates/mail/token_text.html:2
-msgid "You can login to PyCon Korea 2017 homepage via below url."
-msgstr "아래 주소를 통해 파이콘 한국 2017 홈페이지에 로그인하실 수 있습니다."
+msgid "You can login to PyCon Korea 2018 homepage via below url."
+msgstr "아래 주소를 통해 파이콘 한국 2018 홈페이지에 로그인하실 수 있습니다."
 
 #: pyconkr/templates/mail/token_html.html:4
 msgid "Link"

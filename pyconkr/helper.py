@@ -1,19 +1,22 @@
 # -*- coding: utf-8 -*-
+import json
+
 from django.core.mail import EmailMultiAlternatives
-from django.conf import settings
 from django.http import HttpResponse
 from django.template.loader import render_to_string
-import json
+from django.utils.translation import ugettext_lazy as _
 
 
 def sendEmailToken(request, token):
+    title = _('PyCon Korea 2018 one-time login token')
+    sender = _('PyCon Korea 2018') + '<no-reply@pycon.kr>'
     html = render_to_string('mail/token_html.html', {'token': token}, request)
     text = render_to_string('mail/token_text.html', {'token': token}, request)
 
     msg = EmailMultiAlternatives(
-        settings.EMAIL_LOGIN_TITLE,
+        title,
         text,
-        settings.EMAIL_SENDER,
+        sender,
         [token.email])
     msg.attach_alternative(html, "text/html")
     msg.send(fail_silently=False)
