@@ -1,7 +1,10 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:300,700);
+
 * {
-    font-family: 'Open Sans', 'Helvetica Neue', 'Apple SD Gothic Neo', 'Nanum Gothic', 'Arial', 'Apple Gothic', sans-serif;
-    font-weight: 400;
-    line-height: 172%;
+    font-family: 'Noto Sans KR', 'Helvetica Neue', 'Apple SD Gothic Neo', 'Nanum Gothic', 'Arial', 'Apple Gothic', sans-serif;
+    letter-spacing: -0.02rem;
+    line-height: 1.6rem;
 
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
@@ -27,15 +30,12 @@ html {
 body {
     margin: 0;
     font-size: 1rem;
-    min-height: 100%;
-    position: relative;
-    padding-bottom: 7rem;
+    height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6, th {
-    font-family: 'Lato', 'Helvetica Neue', 'Apple SD Gothic Neo', 'Nanum Gothic', 'Arial', 'Apple Gothic', sans-serif;
+    font-family: 'Montserrat', 'Noto Sans KR', 'Helvetica Neue', 'Apple SD Gothic Neo', 'Nanum Gothic', 'Arial', 'Apple Gothic', sans-serif;
     font-weight: 700;
-    line-height: 200%;
     margin: 0.3rem 0 0.25rem;
 }
 
@@ -57,9 +57,14 @@ input[type=file] {
 }
 
 .navbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 10;
     padding: 10px 0;
     margin-bottom: 0px !important;
-    background-color: #002E7A;
+    background-color: transparent;
     border: 0;
     border-radius: 0;
 }
@@ -72,6 +77,10 @@ input[type=file] {
     font-family: 'Montserrat','Lato', 'Helvetica Neue', 'Apple SD Gothic Neo', 'Nanum Gothic', 'Arial', 'Apple Gothic', sans-serif;
     font-weight: 300;
     color: #333;
+}
+
+.navbar .navbar-nav>li>a:lang(en) {
+    font-size: .9rem;
 }
 
 .navbar .dropdown .caret {
@@ -126,7 +135,7 @@ input[type=file] {
 .navbar .glyphicon-python {
     width: 16px;
     height: 16px;
-    background: url("../image/python-black-small.png");
+    background: url("../image/python-white.png");
     background-size: 100% 100%;
 }
 
@@ -161,24 +170,25 @@ input[type=file] {
 
 
 .navbar-translucent .glyphicon-python {
-    background: url("../image/python-yellow.png");
+    background: url("../image/python-white.png");
     background-size: 100% 100%;
 }
 
 .navbar-translucent .navbar-nav>li>a {
     font-weight: 700;
-    color: #FDDA24;
+    color: rgba(255, 255, 255, 0.75);
 }
 
 .navbar-translucent .nav>li>a:hover,
 .navbar-translucent .nav>li>a:focus {
-    background-color: rgba(0,0,0,0.2);
+    color: white;
+    background-color: transparent;
 }
 
 .navbar-translucent .navbar-nav>.open>a,
 .navbar-translucent .navbar-nav>.open>a:hover,
 .navbar-translucent .navbar-nav>.open>a:focus {
-    background-color: rgba(0,0,0,0.4);
+    background-color: transparent;
 }
 
 .navbar-translucent .navbar-toggle {
