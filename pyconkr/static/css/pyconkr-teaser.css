@@ -423,6 +423,10 @@ footer {
   .badge-etc1 {
     display: none;
   }
+
+  .box-top-margin {
+    margin-top: 250px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -469,6 +473,10 @@ footer {
 
   .notice-box {
     height: 100%;
+  }
+
+  .box-top-margin {
+    margin-top: 280px;
   }
 
   .img-slogan {
