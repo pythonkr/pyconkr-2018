@@ -94,11 +94,9 @@ section a {
 }
 
 /** nav **/
-
 .home-nav {
-  position: relative;
-  margin-left: 30px;
-  z-index: 2;
+  margin-bottom: 0;
+  z-index: 10;
 }
 
 .home-nav li {
@@ -108,6 +106,8 @@ section a {
 
 .home-nav li a:hover {
   font-weight: 700;
+  color: white;
+  text-decoration: none;
 }
 
 /** badges **/
@@ -182,6 +182,7 @@ section a {
 
 .img-slogan {
   width: 620px;
+  max-width: 100%;
 }
 
 .z-index-1 {
@@ -454,8 +455,12 @@ footer {
     width: 100%;
   }
 
-  .home-nav {
-    display: none;
+  .home-nav li {
+    padding: 25px 15px;
+  }
+
+  .hide-sm {
+    display: none!important;
   }
 
   .header-bg {

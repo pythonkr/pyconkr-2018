@@ -32,22 +32,23 @@
 <body>
 <div class="body-container">
     <div class="teaser-bg header-bg">
-        <nav class="home-nav">
+        <nav class="navbar home-nav"> 
+            <div class="container">
             {# TODO : use 'menu' context processor. #}
             <ul class="menu">
                 <li>
                     <a href="/#home">개요</a>
                 </li>
-                <li>
+                <li class="hide-sm">
                     <a href="/#notice">공지</a>
                 </li>
-                <li>
+                <li class="hide-sm">
                     <a href="/#venue">장소</a>
                 </li>
-                <li>
+                <li class="hide-sm">
                     <a href="/#slogan">슬로건</a>
                 </li>
-                <li>
+                <li class="hide-sm">
                     <a href="/#contact">문의</a>
                 </li>
                 <li>
@@ -64,10 +65,11 @@
                 </li>
                 {% else %}
                 <li class="{% if v.active %}active{% endif %}">
-                    <a href="{% url "login" %}"><span class="glyphicon glyphicon-user"></span> {% trans "Login" %}</a>
+                    <a href="{% url "login" %}">{% trans "Login" %}</a>
                 </li>
                 {% endif %}
             </ul>
+        </div>
         </nav>
 
         <div id="badges" style="position: relative">
