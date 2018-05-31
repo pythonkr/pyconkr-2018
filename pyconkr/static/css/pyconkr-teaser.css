@@ -277,11 +277,10 @@ section a {
 .box {
   width: 700px;
   margin: 0 auto;
-  margin-bottom: 150px;
 }
 
 .box-top-margin {
-  margin-top: 400px;
+  margin-top: 200px;
 }
 
 .margin-right-20 {
