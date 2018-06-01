@@ -280,6 +280,10 @@ section a {
   margin: 0 auto;
 }
 
+.box-slick {
+  min-height: 200px;
+}
+
 .box-top-margin {
   margin-top: 200px;
 }

@@ -4,6 +4,7 @@
 
 
 {% block head-include %}
+<script src="{% static 'components/slick-carousel/slick/slick.min.js' %}"></script>
 <script src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=sMW7tOAADWjqWohLWnR4"></script>
 <script src="{% static 'js/teaser.js' %}"></script>
 {% endblock %}
@@ -13,19 +14,42 @@
     <div class="box-container" id="notice">
         <div class="box notice-box">
             <img class="badge-dashed-logo" src="{% static 'image/dashed-logo.png' %}">
-            <div>
-                <div class="title-text title-underline">발표자모집</div>
-                <p class="desc-text">
-                    파이콘 한국 2018의 슬로건은 파이썬이 다양한 분야에서 쓰인다는 의미의 "Dive into Diversity" 입니다.<br>
-                    다양한 분야의 파이썬 관련 발표를 모집받고 있습니다.
-                </p>
-                <p class="sub-title-text">시빅해킹 (생활, 환경, 정치, 언론)</p>
-                <p class="sub-title-text">예술 (Procedural Art, 3DSmax|Maya|Houdini|Blender Script)</p>
-                <p class="sub-title-text">홈 IoT 구축</p>
-                <p class="sub-title-text">식물 자동 재배</p>
-                <p class="sub-title-text">주식 트레이딩 알고리즘</p>
-                <p class="sub-title-text">그외 모든 분야</p>
-                <p class="title-text margin-top-20">발표자 신청이 마감되었습니다.</p>
+            <div class="js_slick">
+                <div class="box-slick">
+                    <div class="title-text title-underline">재정지원 신청안내</div>
+                    <p class="desc-text">
+                        파이콘 한국 2018의 재정지원 신청이 시작되었습니다.<br>
+                        파이콘에 참가하고 싶은데 비용 때문에 고민이셨다면<br>
+                        아래의 재정지원 가이드를 읽고 지원을 해주시기 바랍니다.<br>
+                        <a href="https://www.facebook.com/pyconkorea/posts/2084710378457837">✏️ 재정지원 공지</a>
+                    </p>
+                    <p class="sub-title-text">신청 기간 : ~ 2018년 7월 14일 (토) 23시 59분 KST 까지</p>
+                    <p class="sub-title-text">대상자 : 티켓 구매자 한정</p>
+                    <a class="submit-btn margin-top-20" href="https://bit.ly/2sirUwl">재정지원 신청하기</a>
+                </div>
+                <div class="box-slick">
+                    <div class="title-text title-underline">튜토리얼/스프린트 진행자 모집</div>
+                    <p class="desc-text">
+                        파이콘 한국 2018에서 튜토리얼/스프린트 진행자를 모집합니다.<br>
+                        튜토리얼과 스프린트가 생소하신 분들은<br>
+                        파이콘 한국 2017의 스프린트, 튜토리얼 소개글을 읽어보세요 :) <br>
+                        <a href="http://blog.pycon.kr/2017/07/11/tutorial-and-sprint/">✏️ 스프린트/튜토리얼의 대장이 되어보자</a>
+                    </p>
+                    <p class="sub-title-text">모집 기간 : 5월 17일(목) ~ 6월 21일(목)</p>
+                    <p class="sub-title-text">스프린트 : 언어 무관</p>
+                    <p class="sub-title-text">튜토리얼 : 파이썬 한정</p>
+                    <a class="submit-btn margin-top-20" href="https://goo.gl/forms/7gVkG46WsQ3JM7Ok1">진행자 신청하기</a>
+                </div>
+                <div class="box-slick">
+                    <div class="title-text title-underline">후원사 모집</div>
+                    <p class="desc-text">
+                        파이콘 후원을 통해 파이썬 커뮤니티의 성장을 지원하고<br>
+                        파이콘 한국 2018의 공식 스폰서로서의 특별한 가치를 갖는 데<br>
+                        관심이 있는 후원사를 모십니다.<br>
+                        <a href="https://www.facebook.com/pyconkorea/posts/2081845105411031">✏️ 후원 안내</a>
+                    </p>
+                    <a class="submit-btn margin-top-20" href="mailto:sponsor@pycon.kr">후원 문의</a>
+                </div>
             </div>
         </div>
     </div>
