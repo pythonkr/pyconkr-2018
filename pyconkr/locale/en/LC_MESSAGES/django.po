@@ -712,3 +712,15 @@ msgstr "Intermediate"
 
 msgid "Difficulty Experienced"
 msgstr "Experienced"
+
+#: registration/models.py:113
+msgid "Credit Card only for Korean"
+msgstr "Credit Card only for Korean"
+
+#: registration/models.py:114
+msgid "Credit Card for Foreign"
+msgstr "Credit Card for Foreign"
+
+#: registration/models.py:115
+msgid "Virtual Bank Transfer"
+msgstr "Virtual Bank Transfer"

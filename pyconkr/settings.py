@@ -228,9 +228,12 @@ SPEAKER_IMAGE_MINIMUM_DIMENSION = (500, 500)
 CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 
 CONSTANCE_CONFIG = {
-        'TOTAL_TICKET': (1800, 'How many ticket to sold'),
-        'IMP_USER_CODE': ('', 'iamport user code'),
-        'IMP_API_KEY': ('', 'iamport api key'),
-        'IMP_API_SECRET': ('', 'iamport api secret'),
+        'TOTAL_TICKET': (1800, '판매할 전체 티켓 수량'),
+        'IMP_DOM_USER_CODE': ('', '아임포트 국내용 유저 번호'),
+        'IMP_DOM_API_KEY': ('', '아임포트 국내용 API KEY'),
+        'IMP_DOM_API_SECRET': ('', '아임포트 국내용 API SECRET'),
+        'IMP_INTL_USER_CODE': ('', '아임포트 해외용 유저 번호'),
+        'IMP_INTL_API_KEY': ('', '아임포트 해외용 API KEY'),
+        'IMP_INTL_API_SECRET': ('', '아임포트 해외용 API SECRET'),
         'SHOW_SLIDE_DATA': (False, 'Show slide data on schedule table and program detail'),
 }

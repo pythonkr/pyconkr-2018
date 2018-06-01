@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-from django import forms
-from django.utils.translation import ugettext_lazy as _
-from .models import Registration, ManualPayment
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
+from django import forms
+from django.utils.translation import ugettext_lazy as _
+
+from .models import Registration, ManualPayment
 
 
 class RegistrationForm(forms.ModelForm):
@@ -28,18 +29,18 @@ class RegistrationForm(forms.ModelForm):
             'top_size': _('Top Size'),
             'email': _('E-Mail'),
             'company': _('Company or Organization'),
-            'phone_number':  _('Phone Number'),
+            'phone_number': _('Phone Number'),
             'payment_method': _('Payment Method'),
         }
 
 
 class RegistrationAdditionalPriceForm(RegistrationForm):
-
     additional_price = forms.IntegerField(min_value=0)
 
     class Meta:
         model = Registration
-        fields = ('email', 'option', 'base_price', 'additional_price', 'name', 'top_size', 'company', 'phone_number', 'payment_method')
+        fields = ('email', 'option', 'base_price', 'additional_price', 'name', 'top_size', 'company', 'phone_number',
+                  'payment_method')
         labels = {
             'name': _('Name'),
             'option': _('Option'),
@@ -47,8 +48,8 @@ class RegistrationAdditionalPriceForm(RegistrationForm):
             'additional_price': _('Additional Funding KRW'),
             'email': _('E-Mail'),
             'company': _('Company or Organization'),
-            'phone_number':  _('Phone Number'),
-            'payment_method': _('Payment Method') 
+            'phone_number': _('Phone Number'),
+            'payment_method': _('Payment Method')
         }
 
 

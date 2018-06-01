@@ -723,3 +723,15 @@ msgstr "중급"
 
 msgid "Difficulty Experienced"
 msgstr "상급"
+
+#: registration/models.py:113
+msgid "Credit Card only for Korean"
+msgstr "카드 결제 (한국용)"
+
+#: registration/models.py:114
+msgid "Credit Card for Foreign"
+msgstr "카드 결제 (해외용), Credit Card for Foreign"
+
+#: registration/models.py:115
+msgid "Virtual Bank Transfer"
+msgstr "가상 계좌 입금"

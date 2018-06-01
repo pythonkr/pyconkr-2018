@@ -70,7 +70,7 @@ class Iamporter(object):
     def onetime(self, **params):
         url = 'https://api.iamport.kr/subscribe/payments/onetime/'
         keys = ['token', 'merchant_uid', 'amount', 'vat', 'card_number', 'expiry', 'birth', 'pwd_2digit',
-                'name', 'remember_me', 'customer_uid', 'buyer_name', 'buyer_email', ]
+                'name', 'remember_me', 'buyer_name', 'buyer_email', ]
         data = {k: v for k, v in params.items() if k in keys}
         return self._post(url, data)
 
