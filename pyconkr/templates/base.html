@@ -54,6 +54,9 @@
                 <li>
                     <a href="{% url 'registration_index' %}">등록</a>
                 </li>
+                <li>
+                    <a href="{% url 'patrons' %}">개인후원자</a>
+                </li>
             </ul>
             <ul class="user">
                 {% if user.is_authenticated %}
