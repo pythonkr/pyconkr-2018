@@ -55,6 +55,18 @@ nav a {
   color: white;
 }
 
+nav a .glyphicon {
+  vertical-align: baseline;
+}
+
+nav .menu {
+  float: left;
+}
+
+nav .user {
+  float: right;
+}
+
 section {
   margin-bottom: 5rem;
 }
@@ -82,11 +94,9 @@ section a {
 }
 
 /** nav **/
-
 .home-nav {
-  position: relative;
-  margin-left: 30px;
-  z-index: 2;
+  margin-bottom: 0;
+  z-index: 10;
 }
 
 .home-nav li {
@@ -96,6 +106,8 @@ section a {
 
 .home-nav li a:hover {
   font-weight: 700;
+  color: white;
+  text-decoration: none;
 }
 
 /** badges **/
@@ -154,7 +166,8 @@ section a {
 /** header **/
 
 .header-bg {
-  height: 600px;
+  max-height: 600px;
+  padding-bottom: 20px;
 }
 
 .teaser-bg {
@@ -169,6 +182,7 @@ section a {
 
 .img-slogan {
   width: 620px;
+  max-width: 100%;
 }
 
 .z-index-1 {
@@ -255,17 +269,23 @@ section a {
 
 .box-container {
   padding: 40px 0;
+}
+
+.index .box-container {
   text-align: center;
 }
 
 .box {
   width: 700px;
   margin: 0 auto;
-  margin-bottom: 150px;
+}
+
+.box-slick {
+  min-height: 200px;
 }
 
 .box-top-margin {
-  margin-top: 400px;
+  margin-top: 200px;
 }
 
 .margin-right-20 {
@@ -296,7 +316,6 @@ section a {
 }
 
 .header-box {
-  text-align: left;
   margin-bottom: 0;
   position: relative;
 }
@@ -408,6 +427,10 @@ footer {
   .badge-etc1 {
     display: none;
   }
+
+  .box-top-margin {
+    margin-top: 250px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -440,8 +463,12 @@ footer {
     width: 100%;
   }
 
-  .home-nav {
-    display: none;
+  .home-nav li {
+    padding: 25px 15px;
+  }
+
+  .hide-sm {
+    display: none!important;
   }
 
   .header-bg {
@@ -450,6 +477,10 @@ footer {
 
   .notice-box {
     height: 100%;
+  }
+
+  .box-top-margin {
+    margin-top: 280px;
   }
 
   .img-slogan {
@@ -474,4 +505,7 @@ footer {
     display: block;
     margin: 0 auto 10px auto;
   }
+}
+.align-left {
+  text-align: left;
 }

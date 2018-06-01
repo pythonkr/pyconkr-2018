@@ -20,3 +20,5 @@ $ bower install
 $ python manage.py runserver
 ```
 
+## ETC
+- 빌드 자동 테스트

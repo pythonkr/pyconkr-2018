@@ -1,20 +1,20 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 from django.utils import timezone
-
+from django.utils.translation import ugettext_lazy as _
 
 EVENT_CONFERENCE = 'conference'
 EVENT_TUTORIAL = 'tuturial'
 EVENT_YOUNG = 'young'
 EVENT_BABYCARE = 'babycare'
 EVENT_TYPES = (
-    (EVENT_CONFERENCE, '컨퍼런스', ),
-    (EVENT_TUTORIAL, '튜토리얼', ),
-    (EVENT_YOUNG, '영코더', ),
-    (EVENT_BABYCARE, '아이돌봄', ),
+    (EVENT_CONFERENCE, '컨퍼런스',),
+    (EVENT_TUTORIAL, '튜토리얼',),
+    (EVENT_YOUNG, '영코더',),
+    (EVENT_BABYCARE, '아이돌봄',),
 )
 
 CONFERENCE_REGISTRATION_EARLYBIRD = 'earlybird'
@@ -22,10 +22,10 @@ CONFERENCE_REGISTRATION_REGULAR = 'regular'
 CONFERENCE_REGISTRATION_COMPANY = 'company'
 CONFERENCE_REGISTRATION_PATRON = 'patron'
 CONFERENCE_REGISTRATION_TYPES = (
-    (CONFERENCE_REGISTRATION_EARLYBIRD, '얼리버드', ),
-    (CONFERENCE_REGISTRATION_REGULAR, '일반', ),
-    (CONFERENCE_REGISTRATION_COMPANY, '법인', ),
-    (CONFERENCE_REGISTRATION_PATRON, '개인후원', ),
+    (CONFERENCE_REGISTRATION_EARLYBIRD, '얼리버드',),
+    (CONFERENCE_REGISTRATION_REGULAR, '일반',),
+    (CONFERENCE_REGISTRATION_COMPANY, '법인',),
+    (CONFERENCE_REGISTRATION_PATRON, '개인후원',),
 )
 
 
@@ -66,11 +66,11 @@ class Option(models.Model):
     objects = OptionManager()
 
     class Meta:
-        unique_together = ('event_type', 'conference_type', )
+        unique_together = ('event_type', 'conference_type',)
         ordering = ['price']
 
     @property
-    def is_soldout(self):
+    def is_sold_out(self):
         return self.total <= Registration.objects.filter(option=self, payment_status__in=['paid', 'ready']).count()
 
     @property
@@ -108,11 +108,12 @@ class Registration(models.Model):
     additional_price = models.IntegerField(default=0)
     payment_method = models.CharField(
         max_length=20,
-        default='card',
+        default='card-korean',
         choices=(
-            ('card', u'Credit Card'),
-            #('bank', u'Bank Transfer'),
-            ('vbank', u'Virtual Bank Transfer'),
+            ('card-korean', _('Credit Card only for Korean')),
+            ('card-foreign', _('Credit Card for Foreign')),
+            ('vbank', _('Virtual Bank Transfer')),
+            # ('bank', u'Bank Transfer'),
         )
     )
     payment_status = models.CharField(

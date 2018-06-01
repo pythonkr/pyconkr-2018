@@ -11,6 +11,7 @@ django-modeltranslation==0.12.1
 django-picklefield==0.3.2
 django-rosetta==0.7.13
 django-summernote==0.8.7
+iamport-rest-client==0.7.0
 microsofttranslator==0.8
 oauthlib==2.0.2
 olefile==0.44

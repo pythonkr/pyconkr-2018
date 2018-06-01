@@ -10,10 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
-import os
 import datetime
+import os
 
 from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -141,10 +142,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-ugettext = lambda s: s
 LANGUAGES = (
-    ('ko', ugettext('Korean')),
-    ('en', ugettext('English')),
+    ('ko', _('Korean')),
+    ('en', _('English')),
 )
 LANGUAGE_CODE = 'ko'
 MODELTRANSLATION_FALLBACK_LANGUAGES = {
@@ -161,7 +161,6 @@ USE_TZ = True
 
 FORCE_SCRIPT_NAME = ''
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
@@ -170,7 +169,6 @@ FORCE_SCRIPT_NAME = ''
 # )
 STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
 STATIC_URL = '/static/'
-
 
 # Media files
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -190,8 +188,6 @@ ACCOUNT_EMAIL_REQUIRED = True
 
 DOMAIN = ''
 
-EMAIL_LOGIN_TITLE = ugettext("PyCon Korea 2017 one-time login token")
-EMAIL_SENDER = ugettext("PyCon Korea 2017") + "<registration@pycon.kr>"
 EMAIL_USE_TLS = True
 EMAIL_HOST = ''
 EMAIL_PORT = 587
@@ -200,8 +196,10 @@ EMAIL_HOST_PASSWORD = ''
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
+
 def static_url(url):
     return os.path.join(STATIC_URL, url)
+
 
 SUMMERNOTE_CONFIG = {
     'width': '100%',
@@ -230,13 +228,12 @@ SPEAKER_IMAGE_MINIMUM_DIMENSION = (500, 500)
 CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 
 CONSTANCE_CONFIG = {
-        'REGISTRATION_OPEN_TIME': (datetime.time(12,0), 'Registration opening time'),
-        'REGISTRATION_OPEN': (datetime.date(2018, 3, 1), 'Registration opening date'),
-        'REGISTRATION_CLOSE_TIME': (datetime.time(12,0), 'Registration opening time'),
-        'REGISTRATION_CLOSE': (datetime.date(2018, 8, 1), 'Registration closing date'),
-        'TOTAL_TICKET': (1500, 'How many ticket to sold'),
-        'IMP_USER_CODE': ('', 'iamport user code'),
-        'IMP_API_KEY': ('', 'iamport api key'),
-        'IMP_API_SECRET': ('', 'iamport api secret'),
+        'TOTAL_TICKET': (1800, '판매할 전체 티켓 수량'),
+        'IMP_DOM_USER_CODE': ('', '아임포트 국내용 유저 번호'),
+        'IMP_DOM_API_KEY': ('', '아임포트 국내용 API KEY'),
+        'IMP_DOM_API_SECRET': ('', '아임포트 국내용 API SECRET'),
+        'IMP_INTL_USER_CODE': ('', '아임포트 해외용 유저 번호'),
+        'IMP_INTL_API_KEY': ('', '아임포트 해외용 API KEY'),
+        'IMP_INTL_API_SECRET': ('', '아임포트 해외용 API SECRET'),
         'SHOW_SLIDE_DATA': (False, 'Show slide data on schedule table and program detail'),
 }
