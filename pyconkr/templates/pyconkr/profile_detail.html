@@ -8,14 +8,14 @@
 <div class="row profile-detail">
     {% if profile.name %}
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 {% if profile.image %}
                     <img src="/media/{{ profile.image }}" width="300">
                 {% else %}
                     <img src="{% static 'image/pycon_profile.png' %}" width="300">
                 {% endif %}
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <h3>
                     {{ profile.name }}
                     <a href="{% url 'profile_edit' %}"><i class="fa fa-pencil-square-o"></i></a>
@@ -41,26 +41,11 @@
             <p>{% trans "You didn't have a ticket." %} <a href="{% url 'registration_index' %}">{% trans "Purchase a ticket" %}</a></p>
             {% endif %}
 
-            <h4>Proposal</h4>
-            {% if has_proposal %}
-            <p>{% trans "Thank you for submitting." %} <a href="{% url 'proposal' %}">{% trans "Check my proposal" %}</a></p>
-            {% else %}
-            <p>{% trans "Please be a session speaker at PyCon." %} <a href="{% url 'propose' %}">{% trans "Submit a new proposal" %}</a></p>
-            {% endif %}
-
-            <h4>Tutorial</h4>
-            {% if has_tutorial %}
-            <p>{% trans "Thank you for submitting." %} <a href="{% url 'tutorial-propose' %}">{% trans "Check my proposal" %}</a></p>
-            {% else %}
-            <p>{% trans "Please be a tutorial speaker at PyCon." %} <a href="{% url 'tutorial-propose' %}">{% trans "Submit a new proposal" %}</a></p>
-            {% endif %}
+            <h4>Tutorial/Sprint</h4>
+            <p>{% trans "Please be a tutorial speaker at PyCon." %} <a href='https://docs.google.com/forms/d/e/1FAIpQLSeKEQ1Wmgd4YDig4nYXSHRwSBpFCJc5L5er3ndMHArdpmuESw/viewform'>{% trans "Submit a new proposal" %}</a></p>
 
             <h4>Sprint</h4>
-            {% if has_sprint %}
-            <p>{% trans "Thank you for submitting." %} <a href="{% url 'sprint-propose' %}">{% trans "Check my proposal" %}</a></p>
-            {% else %}
-            <p>{% trans "Please be a sprint leader at PyCon." %} <a href="{% url 'sprint-propose' %}">{% trans "Submit a new proposal" %}</a></p>
-            {% endif %}
+            <p>{% trans "Please be a sprint leader at PyCon." %} <a href='https://docs.google.com/forms/d/e/1FAIpQLSeKEQ1Wmgd4YDig4nYXSHRwSBpFCJc5L5er3ndMHArdpmuESw/viewform'>{% trans "Submit a new proposal" %}</a></p>
         </div>
     {% endif %}
 </div>
