@@ -21,7 +21,7 @@ from .models import (Room, Program, ProgramDate, ProgramTime, ProgramCategory,
                      Speaker, Sponsor, Announcement, Preference, TutorialProposal,
                      SprintProposal, EmailToken, Profile, Proposal, TutorialCheckin,
                      SprintCheckin)
-from registration.models import Registration, Option
+from registration.models import Registration, Option, CONFERENCE_REGISTRATION_PATRON
 
 logger = logging.getLogger(__name__)
 payment_logger = logging.getLogger('payment')
@@ -96,11 +96,10 @@ class PatronList(ListView):
 
     def get_queryset(self):
         queryset = super(PatronList, self).get_queryset()
-        patron_option = Option.objects.filter(name='PyCon-Patron')
+        patron_option = Option.objects.filter(conference_type=CONFERENCE_REGISTRATION_PATRON)
 
-        if patron_option:
-            patron_option = patron_option.first()
-            return queryset.filter(option=patron_option, payment_status='paid').order_by('-additional_price', 'created')
+        if patron_option.exists():
+            return queryset.filter(option__in=patron_option, payment_status='paid').order_by('-additional_price', 'created')
 
         return None
 
