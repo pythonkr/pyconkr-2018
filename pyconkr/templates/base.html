@@ -72,6 +72,15 @@
         {% block content %}
         {% endblock %}
     </div>
+
+    {% block sponsors %}
+    <div class="container">
+        <div class="sponsors">
+        <h2>{% trans "Sponsors" %}</h2>
+        {% include "sponsors.html" %}
+        </div>
+    </div>
+    {% endblock %}
 </main>
 
 {% block unboxed_content %} {# for index ^^ #}
