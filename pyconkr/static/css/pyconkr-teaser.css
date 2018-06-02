@@ -206,22 +206,6 @@ main h3:after {
   margin: 0 auto;
 }
 
-/** footer **/
-footer {
-  height: 185px;
-  padding: 2rem 0;
-  background-color: #eee;
-  color: #717171;
-  font-size: 0.7rem;
-  margin-top: -185px;
-}
-
-footer h3 {
-  margin-top: 0.3rem;
-  padding: 0;
-  font-size: 1rem;
-}
-
 /** media query **/
 @media (max-width: 1024px) {
   .transparent-gradient-bg div {
