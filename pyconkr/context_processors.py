@@ -76,12 +76,10 @@ def default(request):
         }),
     ])
 
-    rp = request.path[len(settings.FORCE_SCRIPT_NAME):]
-
     for k, v in menu.items():
         path = '/{}/'.format(k)
 
-        if rp.startswith(path):
+        if url.startswith(path):
             v['active'] = True
             title = v['title']
 
@@ -92,7 +90,7 @@ def default(request):
                     sv['path'] = '{}{}/'.format(path, sk)
                     subpath = sv['path']
 
-                    if rp == subpath:
+                    if url == subpath:
                         sv['active'] = True
                         title = sv['title']
 
