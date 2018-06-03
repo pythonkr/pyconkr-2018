@@ -9,11 +9,11 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block head-title %}{% trans "PyCon Korea 2018" %}{% endblock %}</title>
-    <meta property="og:site_name" content="{% trans "Pycon Korea 2018" %}">
+    <meta property="og:site_name" content="{% trans "PyCon Korea 2018" %}">
     <meta property="og:title" content="{% block og-title %}{% trans "PyCon Korea 2018" %}{% endblock %}">
     <meta property="og:url" content="{{ domain }}{{ request.path }}">
     <meta property="og:image" content="{{ domain }}{% block og-image %}{% static "image/pyconkr-2018-cover.png" %}{% endblock %}">
-    <meta property="og:description" content="{% block og-desc %}{% trans "PyCon Korea 2018: 15th, 17th-19th August. Coex Seoul." %}{% endblock %}">
+    <meta property="og:description" content="{% block og-desc %}{% trans "base-og-description" %}{% endblock %}">
     <meta name="viewport" content="width=device-width, user-scalable=no">
 
     <link rel="icon" type="image/png" href="{% static 'image/favicon2017.ico' %}">
@@ -55,13 +55,13 @@
         </div>
         <header class="text-center">
             <h1>DIVE <span>INTO</span><br>DIVERSITY</h1>
-            <h2>파이콘 한국 2018</h2>
+            <h2>{% trans "PyCon Korea 2018" %}</h2>
             <p>
-                <span><b>스프린트</b> 2018.08.15(수), 17(금)</span>
-                <span><b>튜토리얼</b> 2018.08.17(금)</span>
-                <span><b>컨퍼런스</b> 2018.08.18 - 19(토-일)</span>
+                <span><b>{% trans "Sprint" %}</b> 2018.08.15({% trans "Wed" %}), 17({% trans "Fri" %})</span>
+                <span><b>{% trans "Tutorial" %}</b> 2018.08.17({% trans "Fri" %})</span>
+                <span><b>{% trans "Conference" %}</b> 2018.08.18 - 19({% trans "Sat" %}-{% trans "Sun" %})</span>
             </p>
-            <p><b>서울, 코엑스</b></p>
+            <p><b>{% trans "Coex, Seoul" %}</b></p>
         </header>
     </div>
 </div>

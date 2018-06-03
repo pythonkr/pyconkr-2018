@@ -151,6 +151,10 @@ MODELTRANSLATION_FALLBACK_LANGUAGES = {
     'default': ('ko', 'en'),
 }
 
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'pyconkr', 'locale'),
+)
+
 TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
