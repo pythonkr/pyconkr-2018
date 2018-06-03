@@ -69,9 +69,8 @@
 
 <main>
     <div class="container">
-        {% if title %}<h1>{{ title }}</h1>{% endif %}
-
         {% block content %}
+            {% if title %}<h1>{{ title }}</h1>{% endif %}
             {{ base_content | safe }}
         {% endblock %}
     </div>
