@@ -347,8 +347,8 @@ msgid "PyCon Korea 2018"
 msgstr "파이콘 한국 2018"
 
 #: pyconkr/templates/base.html:17
-msgid "PyCon Korea Opengraph Description"
-msgstr "파이콘 한국 2017"
+msgid "PyCon Korea 2018: 15th, 17th-19th August. Coex Seoul."
+msgstr "파이콘 한국 2018: 8월 15, 17~19일 코엑스"
 
 #: pyconkr/templates/disqus.html:2
 msgid "Comments"
