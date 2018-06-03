@@ -102,6 +102,9 @@ urlpatterns += i18n_patterns(
 
     url(r'^registration/', include('registration.urls')),
 
+    # for rosetta
+    url(r'^rosetta/', include('rosetta.urls')),
+
     # for flatpages
     url(r'^pages/', include('django.contrib.flatpages.urls')),
     url(r'^(?P<url>.*/)$', views.flatpage, name='flatpage'),
@@ -113,9 +116,3 @@ urlpatterns += i18n_patterns(
 if settings.DEBUG:
     urlpatterns += staticfiles_urlpatterns()
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-# for rosetta
-if 'rosetta' in settings.INSTALLED_APPS:
-    urlpatterns += [
-        url(r'^rosetta/', include('rosetta.urls')),
-    ]
