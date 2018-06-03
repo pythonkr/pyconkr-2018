@@ -596,57 +596,33 @@ input[type=file] {
     clear: both;
 }
 
-.footer {
-    background: #FAFAFA;
-    padding: 10px 0;
-    border-top: 1px solid #E7E7E7;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+/** footer **/
+footer {
+  height: 185px;
+  padding: 2rem 0;
+  background-color: #eee;
+  color: #717171;
+  font-size: 0.7rem;
+  margin-top: -185px;
 }
 
-.footer p {
-    font-size: 0.8rem;
-    margin-bottom: 0;
+footer h3 {
+  margin-top: 0.3rem;
+  padding: 0;
+  font-size: 1rem;
 }
 
-.footer .col {
-    padding: 10px 0 20px;
+footer p {
+    margin: 0;
 }
 
-.footer h3,
-.footer h4
-{
-    margin-top: -10px;
-}
-
-.footer .pyconkr-badge {
-    text-align: center;
-}
-
-.footer .pyconkr-badge img {
-    width: 72px;
-    height: auto;
-}
-
-.footer .btn-social-icon {
-    font-size: 1rem;
-    width: 44px;
-    height: 44px;
-    border-radius: 44px;
-    border: 0;
-    margin-right: 4px;
-}
-
-.footer .btn-social-icon :first-child {
+footer .btn-social-icon :first-child {
     line-height: 44px;
 }
 
-.footer .hosting {
+footer .hosting {
     width: 64px;
     height: auto;
-    display: block;
 }
 
 .social-badges {

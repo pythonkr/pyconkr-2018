@@ -24,8 +24,8 @@ msgid "About"
 msgstr "파이콘 한국"
 
 #: pyconkr/context_processors.py:25
-msgid "About PyCon Korea 2017"
-msgstr "파이콘 한국 2017"
+msgid "About PyCon Korea 2018"
+msgstr "파이콘 한국 2018"
 
 #: pyconkr/context_processors.py:26
 msgid "Code of Conduct"
@@ -36,8 +36,8 @@ msgid "Announcements"
 msgstr "알림"
 
 #: pyconkr/context_processors.py:27
-msgid "PyCon.KR 2017 Blog"
-msgstr "파이콘 한국 2017 블로그"
+msgid "PyCon Korea Blog"
+msgstr "파이콘 한국 블로그"
 
 msgid "Young Coder"
 msgstr "영코더"
@@ -355,8 +355,8 @@ msgid "Comments"
 msgstr "댓글"
 
 #: pyconkr/templates/footer.html:14
-msgid "PyCon Korea 2017 is a product of PyCon Korea Organizing Team"
-msgstr "파이콘 한국 2017은 파이콘 한국 준비위원회가 만들고 있습니다."
+msgid "PyCon Korea 2018 is a product of PyCon Korea Organizing Team"
+msgstr "파이콘 한국 2018은 파이콘 한국 준비위원회가 만들고 있습니다."
 
 #: pyconkr/templates/footer.html:17
 msgid "Powered by Django"
