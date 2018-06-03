@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block head-title %}{% trans "PyCon Korea 2018" %}{% endblock %}</title>
-    <meta property="og:site_name" content="파이콘 한국 2018">
+    <meta property="og:site_name" content="{% trans "파이콘 한국 2018" %}">
     <meta property="og:title" content="{% block og-title %}{% trans "PyCon Korea 2018" %}{% endblock %}">
     <meta property="og:url" content="{{ domain }}{{ request.path }}">
     <meta property="og:image" content="{{ domain }}{% block og-image %}{% static "image/pyconkr-2018-cover.png" %}{% endblock %}">
