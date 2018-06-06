@@ -4,7 +4,7 @@ main {
 }
 
 section {
-  margin-bottom: 70px;
+  margin-bottom: 30px;
 }
 
 ul {
@@ -167,6 +167,7 @@ main h3 {
   color: #303030;
   font-size: 1.5rem;
   display: inline-block;
+  margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
