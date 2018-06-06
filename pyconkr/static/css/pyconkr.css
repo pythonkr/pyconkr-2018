@@ -36,7 +36,7 @@ body {
 h1, h2, h3, h4, h5, h6, th {
     font-family: 'Montserrat', 'Noto Sans KR', 'Helvetica Neue', 'Apple SD Gothic Neo', 'Nanum Gothic', 'Arial', 'Apple Gothic', sans-serif;
     font-weight: 700;
-    margin: 0.3rem 0 0.25rem;
+    margin: 0.3rem 0 1rem;
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -390,6 +390,7 @@ input[type=file] {
 }
 
 .sponsors {
+    padding-top: 75px;
     padding-bottom: 100px;
 }
 

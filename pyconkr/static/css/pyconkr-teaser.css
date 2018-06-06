@@ -17,10 +17,6 @@ a {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  margin: 0.3rem 0 0.3rem;
-}
-
 .navbar-nav>li>.dropdown-menu {
   border-radius: 4px;
 }
@@ -281,10 +277,6 @@ main h3:after {
   .bg-lines :nth-child(8) {
     top: 470px;
     left: 1%;
-  }
-
-  main h3 {
-    font-size: 2rem;
   }
 }
 @media (max-width: 500px) {
