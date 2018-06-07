@@ -11,8 +11,8 @@
     <title>{% block head-title %}{% trans "PyCon Korea 2018" %}{% endblock %}</title>
     <meta property="og:site_name" content="{% trans "PyCon Korea 2018" %}">
     <meta property="og:title" content="{% block og-title %}{% trans "PyCon Korea 2018" %}{% endblock %}">
-    <meta property="og:url" content="{{ domain }}{{ request.path }}">
-    <meta property="og:image" content="{{ domain }}{% block og-image %}{% static "image/pyconkr-2018-cover.png" %}{% endblock %}">
+    <meta property="og:url" content="{{ request.path }}">
+    <meta property="og:image" content="{% block og-image %}{% static "image/pyconkr-2018-cover.png" %}{% endblock %}">
     <meta property="og:description" content="{% block og-desc %}{% trans "base-og-description" %}{% endblock %}">
     <meta name="viewport" content="width=device-width, user-scalable=no">
 
