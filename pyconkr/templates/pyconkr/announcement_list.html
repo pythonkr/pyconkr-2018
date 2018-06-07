@@ -3,7 +3,7 @@
 
 {% block content %}
     {% if not object_list %}
-        <p>준비중 입니다.</p>
+        <p>{% trans "Ready for content" %}</p>
     {% endif %}
 
 {% for announcement in object_list %}

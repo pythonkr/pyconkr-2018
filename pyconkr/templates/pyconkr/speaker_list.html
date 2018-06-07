@@ -6,7 +6,7 @@
 {% block content %}
 <ul class="speakers media-list">
 {% if not object_list %}
-    <p>준비중 입니다.</p>
+    <p>{% trans "Ready for content" %}</p>
 {% endif %}
 {% for speaker in object_list %}
   <li class="media">
