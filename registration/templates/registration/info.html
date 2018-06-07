@@ -22,7 +22,7 @@
                             <p>{% autoescape off %}{{ option.description }}{% endautoescape %}</p>
                             <p>Price: {{ option.price|intcomma }} KRW</p>
                             <p>
-                            {% if option.is_soldout %}
+                            {% if option.is_sold_out %}
                                 <div class="btn btn-info">
                                     {{ option.name }}-SOLD OUT
                                 </div>
