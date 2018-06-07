@@ -140,7 +140,7 @@ msgstr "티켓 구입"
 
 #: pyconkr/context_processors.py:74
 msgid "Financial Aid"
-msgstr "자금 지원"
+msgstr "재정 지원"
 
 #: pyconkr/forms.py:27 pyconkr/templates/login_notvalidtoken.html:7
 #: pyconkr/templates/nav.html:68 pyconkr/views.py:228
