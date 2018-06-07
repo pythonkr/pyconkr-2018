@@ -7,7 +7,7 @@
 <div class="content">
   {{ base_content | safe }}
   {% if not narrow %}
-    <p>준비중 입니다.</p>
+    <p>{% trans "Ready for content" %}</p>
   {% endif %}
 
   {% for d, d_ in narrow.items %}

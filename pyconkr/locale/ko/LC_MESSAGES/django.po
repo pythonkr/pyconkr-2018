@@ -767,3 +767,6 @@ msgstr "스프린트 갱신"
 
 #~ msgid "Virtual Bank Transfer"
 #~ msgstr "가상 계좌 입금"
+
+#~ msgid "Ready for content"
+#~ msgstr "준비 중입니다"

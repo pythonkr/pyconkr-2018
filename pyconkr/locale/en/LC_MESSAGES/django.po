@@ -750,3 +750,6 @@ msgstr "Update sprint"
 
 #~ msgid "Virtual Bank Transfer"
 #~ msgstr "Virtual Bank Transfer"
+
+#~ msgid "Ready for content"
+#~ msgstr "Ready for content"
