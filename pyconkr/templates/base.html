@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 {% load i18n %}
+{% if LANGUAGE_CODE == 'en' %}
+<html lang="en">
+{% else %}
 <html lang="kr">
+{% endif %}
 <head>
     <meta charset="UTF-8">
-    <title>파이콘 한국 2018 - Teaser</title>
-    <meta property="og:site_name" content="파이콘 한국 2018">
-    <meta property="og:title" content="파이콘 한국 2018">
-    <meta property="og:url" content="https://www.pycon.kr/2018/">
-    <meta property="og:image" content="https://www.pycon.kr/2018/static/image/pyconkr-2018-cover.png">
-    <meta property="og:description" content="파이콘 한국 2018: 8월 15, 17~19일 코엑스">
+    <title>{% block head-title %}{% trans "PyCon Korea 2018" %}{% endblock %}</title>
+    <meta property="og:site_name" content="{% trans "PyCon Korea 2018" %}">
+    <meta property="og:title" content="{% block og-title %}{% trans "PyCon Korea 2018" %}{% endblock %}">
+    <meta property="og:url" content="{{ domain }}{{ request.path }}">
+    <meta property="og:image" content="{{ domain }}{% block og-image %}{% static "image/pyconkr-2018-cover.png" %}{% endblock %}">
+    <meta property="og:description" content="{% block og-desc %}{% trans "base-og-description" %}{% endblock %}">
     <meta name="viewport" content="width=device-width, user-scalable=no">
 
-    <link rel="icon" type="image/png" href="{% static 'image/favicon2017.ico' %}">
+    <link rel="icon" type="image/png" href="{% static 'image/favicon2018.ico' %}">
 
     <link href="{% static 'components/slick-carousel/slick/slick.css' %}" rel="stylesheet">
     <link href="{% static 'components/slick-carousel/slick/slick-theme.css' %}" rel="stylesheet">
@@ -31,99 +35,62 @@
     {% endblock %}
 </head>
 <body>
-<div class="body-container">
-    <div class="teaser-bg header-bg">
-        <nav class="navbar home-nav"> 
-            <div class="container">
-            {# TODO : use 'menu' context processor. #}
-            <ul class="menu">
-                <li>
-                    <a href="/#home">개요</a>
-                </li>
-                <li class="hide-sm">
-                    <a href="/#notice">공지</a>
-                </li>
-                <li class="hide-sm">
-                    <a href="/#venue">장소</a>
-                </li>
-                <li class="hide-sm">
-                    <a href="/#slogan">슬로건</a>
-                </li>
-                <li class="hide-sm">
-                    <a href="/#contact">문의</a>
-                </li>
-                <li>
-                    <a href="{% url 'registration_index' %}">등록</a>
-                </li>
-                <li>
-                    <a href="{% url 'patrons' %}">개인후원자</a>
-                </li>
-            </ul>
-            <ul class="user">
-                {% if user.is_authenticated %}
-                <li>
-                    <a href="{% url "profile" %}">{{ user.username }}</a>
-                </li>
-                <li>
-                    <a href="{% url "logout" %}">{% trans "Logout" %}</a>
-                </li>
-                {% else %}
-                <li class="{% if v.active %}active{% endif %}">
-                    <a href="{% url "login" %}">{% trans "Login" %}</a>
-                </li>
-                {% endif %}
-            </ul>
-        </div>
-        </nav>
-
-        <div id="badges" style="position: relative">
-            <img class="badge-stripe-logo" src="{% static 'image/stripe-logo.png' %}">
-
-            <img class="badge-etc1" src="{% static 'image/etc-badge1.png' %}">
-            <img class="badge-etc2" src="{% static 'image/etc-badge2.png' %}">
-        </div>
-
-        <header class="teaser-header z-index-1" id="home">
-            <div class="box header-box">
-                <img class="img-slogan" src="{% static 'image/pyconkr-2018-slogan.png' %}">
-            </div>
-            <div class="box header-box white-text align-left">
-                <img class="badge-dotted-fill-logo" src="{% static 'image/dotted-fill-logo.png' %}">
-                <p>파이콘 한국 2018</p>
-                <span>서울, 코엑스</span><br>
-                <span class="margin-right-20"><b>스프린트</b> 2018.08.15(수), 17(금)</span>
-                <span class="margin-right-20"><b>튜토리얼</b> 2018.08.17(금)</span>
-                <span><b>컨퍼런스</b> 2018.08.18 - 19(토-일)</span>
-            </div>
-        </header>
-        {% block notice %}
-        {% endblock %}
-    </div>
-
-    {% block content_wrapper %}
-    <div class="box-container">
-        <div class="box">
-        {% block content %}
-        {% endblock %}
-        </div>
-    </div>
-    {% endblock %}
-
-    {% block unboxed_content %} {# for index ^^ #}
-    {% endblock %}
-
-    <footer>
-        <div class="main-grid">
-            <div class="footer-content">
-                <h3>Dive into Diversity, PyCon Korea 2018</h3>
-                PyCon Korea 2018 is a product of PyCon Korea Organizing Team
-            </div>
-        </div>
-    </footer>
+{% block nav %}{% include "nav.html" %}{% endblock %}
+{% if index %}
+<div class="transparent-gradient-bg">
+    <div class="header-bg tilt-clock"></div>
+    <div class="header-bg tilt-clock"></div>
 </div>
+<div class="header-bg gradient-bg tilt-counterclock">
+    <div class="tilt-clock">
+        <div class="bg-lines tilt-counterclock">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <header class="text-center">
+            <h1>DIVE <span>INTO</span><br>DIVERSITY</h1>
+            <h2>{% trans "PyCon Korea 2018" %}</h2>
+            <p>
+                <span><b>{% trans "Sprint" %}</b> 2018.08.15({% trans "Wed" %}), 17({% trans "Fri" %})</span>
+                <span><b>{% trans "Tutorial" %}</b> 2018.08.17({% trans "Fri" %})</span>
+                <span><b>{% trans "Conference" %}</b> 2018.08.18 - 19({% trans "Sat" %}-{% trans "Sun" %})</span>
+            </p>
+            <p><b>{% trans "Coex, Seoul" %}</b></p>
+        </header>
+    </div>
+</div>
+{% endif %}
 
-{% block script %}
+<main>
+    <div class="container">
+        {% if title %}<h1>{{ title }}</h1>{% endif %}
+
+        {{ base_content | safe }}
+
+        {% block content %}{% endblock %}
+    </div>
+
+    {% block sponsors %}
+    <div class="container">
+        <div class="sponsors">
+        <h2>{% trans "Sponsors" %}</h2>
+        {% include "sponsors.html" %}
+        </div>
+    </div>
+    {% endblock %}
+</main>
+
+{% block unboxed_content %} {# for index ^^ #}
 {% endblock %}
+
+
+{% include "footer.html" %}
 
 </body>
 </html>

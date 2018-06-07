@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-13 01:44+0900\n"
+"POT-Creation-Date: 2018-06-03 19:40+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -19,128 +19,113 @@ msgstr ""
 "X-Translated-Using: django-rosetta 0.7.8\n"
 "X-Generator: Poedit 1.8.7.1\n"
 
-#: pyconkr/context_processors.py:22
+#: pyconkr/context_processors.py:23
 msgid "About"
 msgstr "파이콘 한국"
 
-#: pyconkr/context_processors.py:25
-msgid "About PyCon Korea 2017"
-msgstr "파이콘 한국 2017"
-
 #: pyconkr/context_processors.py:26
+msgid "About PyCon Korea 2018"
+msgstr "파이콘 한국 2018"
+
+#: pyconkr/context_processors.py:27
 msgid "Code of Conduct"
 msgstr "파이콘 성명서"
 
-#: pyconkr/context_processors.py:27
+#: pyconkr/context_processors.py:28
+msgid "PyCon Korea Blog"
+msgstr "파이콘 한국 블로그"
+
+#: pyconkr/context_processors.py:29
 msgid "Announcements"
 msgstr "알림"
 
-#: pyconkr/context_processors.py:27
-msgid "PyCon.KR 2017 Blog"
-msgstr "파이콘 한국 2017 블로그"
-
-msgid "Young Coder"
-msgstr "영코더"
-
-msgid "Child Care"
-msgstr "아이돌봄"
-
-#: pyconkr/context_processors.py:28 pyconkr/templates/base.html:76
+#: pyconkr/context_processors.py:30 pyconkr/templates/base.html:82
 #: pyconkr/templates/pyconkr/sponsor_list.html:4
 msgid "Sponsors"
 msgstr "후원사 목록"
 
-#: pyconkr/context_processors.py:29
-#: pyconkr/templates/pyconkr/patron_list.html:6
+#: pyconkr/context_processors.py:31
 msgid "Patrons"
 msgstr "개인 후원자"
 
-#: pyconkr/context_processors.py:30
+#: pyconkr/context_processors.py:32
 msgid "Sponsorship"
 msgstr "후원 안내"
 
-#: pyconkr/context_processors.py:31
+#: pyconkr/context_processors.py:33
 msgid "Staff"
 msgstr "준비위원회 및 자원봉사자"
 
-#: pyconkr/context_processors.py:32
+#: pyconkr/context_processors.py:34
 msgid "Contact"
 msgstr "연락처"
 
-#: pyconkr/context_processors.py:36 pyconkr/templates/nav.html:61
+#: pyconkr/context_processors.py:38 pyconkr/templates/nav.html:56
 msgid "Programs"
 msgstr "프로그램"
 
-#: pyconkr/context_processors.py:39
+#: pyconkr/context_processors.py:41
 msgid "Schedule"
 msgstr "세부 일정"
 
-#: pyconkr/context_processors.py:40
+#: pyconkr/context_processors.py:42
 msgid "Program list"
 msgstr "프로그램 목록"
 
-#: pyconkr/context_processors.py:41
-msgid "Preference survey"
-msgstr "선호도 조사"
-
-#: pyconkr/context_processors.py:42
+#: pyconkr/context_processors.py:43
 msgid "Keynotes"
 msgstr "키노트"
 
-#: pyconkr/context_processors.py:43
+#: pyconkr/context_processors.py:44
 msgid "Speakers"
 msgstr "발표자"
 
-#: pyconkr/context_processors.py:44
+#: pyconkr/context_processors.py:45
 msgid "Sprint and Tutorial"
 msgstr "스프린트와 튜토리얼"
 
-#: pyconkr/context_processors.py:45
+#: pyconkr/context_processors.py:46
+msgid "Young Coder"
+msgstr "영코더"
+
+#: pyconkr/context_processors.py:47
+msgid "Child Care"
+msgstr "아이돌봄"
+
+#: pyconkr/context_processors.py:48
 msgid "Lightning talk"
 msgstr "라이트닝 토크"
 
-#: pyconkr/context_processors.py:46
+#: pyconkr/context_processors.py:49
 msgid "Open Spaces"
 msgstr "열린 공간"
 
-#: pyconkr/context_processors.py:50
+#: pyconkr/context_processors.py:53
 msgid "Venue"
 msgstr "장소"
 
-#: pyconkr/context_processors.py:53
+#: pyconkr/context_processors.py:56
 msgid "Venue Map"
 msgstr "지도"
 
-#: pyconkr/context_processors.py:54
+#: pyconkr/context_processors.py:57
 msgid "Transportation"
 msgstr "교통 수단"
 
-#: pyconkr/context_processors.py:55
-msgid "Hotels"
-msgstr "숙박 안내"
-
-#: pyconkr/context_processors.py:56
-msgid "Restaurants"
-msgstr "식당 정보"
-
-#: pyconkr/context_processors.py:60 pyconkr/views.py:327 pyconkr/views.py:341
+#: pyconkr/context_processors.py:61 pyconkr/views.py:336 pyconkr/views.py:350
 msgid "Proposal"
 msgstr "발표안"
 
-#: pyconkr/context_processors.py:63
+#: pyconkr/context_processors.py:64
 msgid "Call for proposals"
 msgstr "발표자 모집"
 
-#: pyconkr/context_processors.py:64
+#: pyconkr/context_processors.py:65
 msgid "How to propose"
 msgstr "발표안 제안하기"
 
-#: pyconkr/context_processors.py:65
-msgid "Propose"
-msgstr "제출하기"
-
 #: pyconkr/context_processors.py:69
-#: pyconkr/templates/pyconkr/profile_detail.html:31
+#: pyconkr/templates/pyconkr/profile_detail.html:35
 msgid "Registration"
 msgstr "등록"
 
@@ -149,113 +134,138 @@ msgid "Information"
 msgstr "정보"
 
 #: pyconkr/context_processors.py:73
-#: pyconkr/templates/pyconkr/profile_detail.html:37
+#: pyconkr/templates/pyconkr/profile_detail.html:41
 msgid "Purchase a ticket"
 msgstr "티켓 구입"
 
 #: pyconkr/context_processors.py:74
 msgid "Financial Aid"
-msgstr "자금 지원"
+msgstr "재정 지원"
 
 #: pyconkr/forms.py:27 pyconkr/templates/login_notvalidtoken.html:7
-#: pyconkr/templates/nav.html:73 pyconkr/views.py:226
+#: pyconkr/templates/nav.html:68 pyconkr/views.py:228
 msgid "Login"
 msgstr "로그인"
 
-#: pyconkr/forms.py:39 pyconkr/forms.py:86 pyconkr/forms.py:109
-#: pyconkr/forms.py:136 pyconkr/forms.py:164
+#: pyconkr/forms.py:39 pyconkr/forms.py:88 pyconkr/forms.py:110
+#: pyconkr/forms.py:137 pyconkr/forms.py:161 pyconkr/forms.py:188
 msgid "Submit"
 msgstr "제출"
 
-#: pyconkr/forms.py:40 pyconkr/forms.py:64 pyconkr/forms.py:165
-#: pyconkr/forms.py:187
+#: pyconkr/forms.py:40 pyconkr/forms.py:65 pyconkr/forms.py:189
+#: pyconkr/forms.py:212
 #, python-format
 msgid "Maximum size is %(size)d MB"
 msgstr "최대 크기 %(size)d MB"
 
-#: pyconkr/forms.py:43 pyconkr/forms.py:74 pyconkr/forms.py:168
-#: pyconkr/forms.py:197
-#, python-format
-msgid "Minimum dimension is %(dim)d x %(dim)d"
+#: pyconkr/forms.py:43 pyconkr/forms.py:75 pyconkr/forms.py:192
+#: pyconkr/forms.py:222
+#, fuzzy, python-format
+#| msgid "Minimum dimension is %(dim)d x %(dim)d"
+msgid "Minimum dimension is %(width)d x %(height)d"
 msgstr "최소 해상도 %(dim)d x %(dim)d"
 
-#: pyconkr/forms.py:53 pyconkr/forms.py:178
+#: pyconkr/forms.py:54 pyconkr/forms.py:203
 msgid "Photo"
 msgstr "사진"
 
-#: pyconkr/forms.py:54 pyconkr/templates/nav.html:55
-#: pyconkr/templates/nav.html:67 pyconkr/templates/pyconkr/profile_form.html:5
-#: pyconkr/templates/pyconkr/speaker_detail.html:17 pyconkr/views.py:294
+#: pyconkr/forms.py:55 pyconkr/templates/nav.html:50
+#: pyconkr/templates/nav.html:62 pyconkr/templates/pyconkr/profile_form.html:5
+#: pyconkr/templates/pyconkr/speaker_detail.html:17 pyconkr/views.py:303
 msgid "Profile"
 msgstr "프로필"
 
-#: pyconkr/forms.py:55
+#: pyconkr/forms.py:56
 msgid "Additional information"
 msgstr "추가 정보"
 
-#: pyconkr/forms.py:95 pyconkr/forms.py:147
+#: pyconkr/forms.py:97 pyconkr/forms.py:148 pyconkr/forms.py:172
 msgid "Title"
 msgstr "제목"
 
-#: pyconkr/forms.py:96
+#: pyconkr/forms.py:98
 msgid "Slide URL"
 msgstr "슬라이드 URL"
 
-#: pyconkr/forms.py:97
+#: pyconkr/forms.py:99
 msgid "Video URL"
 msgstr "동영상 URL"
 
-#: pyconkr/forms.py:98 pyconkr/templates/pyconkr/program_detail.html:45
+#: pyconkr/forms.py:100 pyconkr/templates/pyconkr/program_detail.html:54
 msgid "Photography and recording is allowed"
 msgstr "촬영, 녹화가 가능합니다."
 
-#: pyconkr/forms.py:99 pyconkr/templates/pyconkr/program_detail.html:64
+#: pyconkr/forms.py:101 pyconkr/templates/pyconkr/program_detail.html:73
 msgid "Description"
 msgstr "설명"
 
-#: pyconkr/forms.py:120
+#: pyconkr/forms.py:121
 msgid "Proposal title (required)"
 msgstr "세션 제목 (필수)"
 
-#: pyconkr/forms.py:121
+#: pyconkr/forms.py:122
 msgid "Brief (required)"
 msgstr "간략한 설명 (필수)"
 
-#: pyconkr/forms.py:122
+#: pyconkr/forms.py:123
 msgid "Detailed description (required)"
 msgstr "자세한 설명 (필수)"
 
-#: pyconkr/forms.py:123
+#: pyconkr/forms.py:124
 msgid "Comment to reviewers (optional)"
 msgstr "검토자에게 알리고 싶은 말 (선택)"
 
-#: pyconkr/forms.py:125 pyconkr/forms.py:152
+#: pyconkr/forms.py:126 pyconkr/forms.py:176
 msgid "Session difficulty"
 msgstr "세션 난이도"
 
-#: pyconkr/forms.py:126 pyconkr/forms.py:153
+#: pyconkr/forms.py:127 pyconkr/forms.py:177
 msgid "Session duration"
 msgstr "세션 길이"
 
-#: pyconkr/forms.py:127 pyconkr/forms.py:154 pyconkr/templates/nav.html:80
+#: pyconkr/forms.py:128 pyconkr/forms.py:149 pyconkr/forms.py:178
+#: pyconkr/templates/nav.html:74
 msgid "Language"
 msgstr "언어"
 
-#: pyconkr/forms.py:149
-#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:31
+#: pyconkr/forms.py:150 pyconkr/templates/pyconkr/sprintproposal_detail.html:47
+msgid "Project URL"
+msgstr "프로젝트 공식 URL"
+
+#: pyconkr/forms.py:151 pyconkr/templates/pyconkr/sprintproposal_detail.html:41
+msgid "Project brief"
+msgstr "오픈소스 프로젝트에 대한 간단한 설명"
+
+#: pyconkr/forms.py:152
+msgid "Contribution description"
+msgstr "이 프로젝트에서의 자신의 기여 활동 내용"
+
+#: pyconkr/forms.py:173
+#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:45
 msgid "Brief"
 msgstr "간단한 설명"
 
-#: pyconkr/forms.py:150 pyconkr/templates/pyconkr/proposal_detail.html:21
-#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:36
+#: pyconkr/forms.py:174 pyconkr/templates/pyconkr/proposal_detail.html:21
+#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:50
 msgid "Detailed description"
 msgstr "자세한 설명"
 
-#: pyconkr/forms.py:155
+#: pyconkr/forms.py:179
 msgid "Capacity"
 msgstr "수용 인원"
 
-#: pyconkr/models.py:100
+#: pyconkr/helper.py:11
+msgid "PyCon Korea 2018 one-time login token"
+msgstr "파이콘 한국 2018 일회용 로그인 토큰"
+
+#: pyconkr/helper.py:12 pyconkr/templates/base.html:11
+#: pyconkr/templates/base.html:12 pyconkr/templates/base.html:13
+#: pyconkr/templates/base.html:58 pyconkr/templates/footer.html:6
+#: pyconkr/templates/mail/token_html.html:2
+msgid "PyCon Korea 2018"
+msgstr "파이콘 한국 2018"
+
+#: pyconkr/models.py:101
 msgid "help-text-for-speaker-info"
 msgstr ""
 "<p>개인 페이지들을 JSON 형식으로 추가해주세요.</p>\n"
@@ -270,113 +280,123 @@ msgstr ""
 "\" target=\"_blank\">http://lipis.github.io/bootstrap-social/</a>에서 확인하"
 "실 수 있습니다.</p>\""
 
-#: pyconkr/models.py:148 pyconkr/models.py:241 pyconkr/models.py:280
+#: pyconkr/models.py:152 pyconkr/models.py:262 pyconkr/models.py:294
 msgid "Beginner"
 msgstr "초급"
 
-#: pyconkr/models.py:149 pyconkr/models.py:242 pyconkr/models.py:281
+#: pyconkr/models.py:153 pyconkr/models.py:263 pyconkr/models.py:295
 msgid "Intermediate"
 msgstr "중급"
 
-#: pyconkr/models.py:150 pyconkr/models.py:243 pyconkr/models.py:282
+#: pyconkr/models.py:154 pyconkr/models.py:264 pyconkr/models.py:296
 msgid "Experienced"
 msgstr "상급"
 
-#: pyconkr/models.py:155 pyconkr/models.py:248
+#: pyconkr/models.py:159 pyconkr/models.py:269
 msgid "25 mins"
 msgstr "25분"
 
-#: pyconkr/models.py:156 pyconkr/models.py:249
+#: pyconkr/models.py:160 pyconkr/models.py:270
 msgid "40 mins"
 msgstr "40분"
 
-#: pyconkr/models.py:161 pyconkr/models.py:254 pyconkr/models.py:294
-#: pyconkr/settings.py:148
+#: pyconkr/models.py:165 pyconkr/models.py:275 pyconkr/models.py:308
+#: pyconkr/settings.py:147
 msgid "English"
 msgstr "영어"
 
-#: pyconkr/models.py:162 pyconkr/models.py:255 pyconkr/models.py:295
-#: pyconkr/settings.py:147
+#: pyconkr/models.py:166 pyconkr/models.py:276 pyconkr/models.py:309
+#: pyconkr/settings.py:146
 msgid "Korean"
 msgstr "한국어"
 
-#: pyconkr/models.py:197
+#: pyconkr/models.py:218
 msgid "Not arranged yet"
 msgstr "아직 결정되지 않았습니다"
 
-#: pyconkr/models.py:274
-msgid "Tutorial"
-msgstr "튜토리얼"
-
-#: pyconkr/models.py:275
-msgid "Sprint"
-msgstr "스프린트"
-
-#: pyconkr/models.py:287
+#: pyconkr/models.py:301
 msgid "1 hour"
 msgstr "1 시간"
 
-#: pyconkr/models.py:288
+#: pyconkr/models.py:302
 msgid "2 hours"
 msgstr "2 시간"
 
-#: pyconkr/models.py:289
+#: pyconkr/models.py:303
 msgid "4 hours"
 msgstr "4 시간"
 
-#: pyconkr/models.py:301
+#: pyconkr/models.py:315
 msgid "10 people"
 msgstr "10 명"
 
-#: pyconkr/models.py:302
+#: pyconkr/models.py:316
 msgid "45 people"
 msgstr "45 명"
 
-#: pyconkr/models.py:303
+#: pyconkr/models.py:317
 msgid "100 people"
 msgstr "100 명"
 
-#: pyconkr/settings.py:194
-msgid "PyCon Korea 2018 one-time login token"
-msgstr "파이콘 한국 2018 일회용 로그인 토큰"
+#: pyconkr/templates/base.html:16
+msgid "base-og-description"
+msgstr "파이콘 한국 2018: 8월 15, 17~19일 코엑스"
 
-#: pyconkr/settings.py:195 pyconkr/templates/base.html:7
-#: pyconkr/templates/base.html:13 pyconkr/templates/base.html:14
-#: pyconkr/templates/footer.html:11 pyconkr/templates/mail/token_html.html:2
-msgid "PyCon Korea 2018"
-msgstr "파이콘 한국 2018"
+#: pyconkr/templates/base.html:60
+msgid "Sprint"
+msgstr "스프린트"
 
-#: pyconkr/templates/base.html:17
-msgid "PyCon Korea Opengraph Description"
-msgstr "파이콘 한국 2017"
+#: pyconkr/templates/base.html:60
+msgid "Wed"
+msgstr "수"
+
+#: pyconkr/templates/base.html:60 pyconkr/templates/base.html:61
+msgid "Fri"
+msgstr "금"
+
+#: pyconkr/templates/base.html:61
+msgid "Tutorial"
+msgstr "튜토리얼"
+
+#: pyconkr/templates/base.html:62
+msgid "Conference"
+msgstr "컨퍼런스"
+
+#: pyconkr/templates/base.html:62
+msgid "Sat"
+msgstr "토"
+
+#: pyconkr/templates/base.html:62
+msgid "Sun"
+msgstr "일"
+
+#: pyconkr/templates/base.html:64
+msgid "Coex, Seoul"
+msgstr "서울, 코엑스"
 
 #: pyconkr/templates/disqus.html:2
 msgid "Comments"
 msgstr "댓글"
 
-#: pyconkr/templates/footer.html:14
-msgid "PyCon Korea 2017 is a product of PyCon Korea Organizing Team"
-msgstr "파이콘 한국 2017은 파이콘 한국 준비위원회가 만들고 있습니다."
+#: pyconkr/templates/footer.html:7
+msgid "PyCon Korea 2018 is a product of PyCon Korea Organizing Team"
+msgstr "파이콘 한국 2018은 파이콘 한국 준비위원회가 만들고 있습니다."
 
-#: pyconkr/templates/footer.html:17
+#: pyconkr/templates/footer.html:9
 msgid "Powered by Django"
 msgstr ""
-"파이썬 웹 프레임워크 <a href='https://www.djangoproject.com/'>Django</a>로 "
-"만들었습니다."
+"파이썬 웹 프레임워크 <a href='https://www.djangoproject.com/'>Django</a>로 만"
+"들었습니다."
 
-#: pyconkr/templates/footer.html:20
+#: pyconkr/templates/footer.html:9
 msgid "Hosted on Naver D2"
 msgstr ""
 "홈페이지 호스팅은 <a href=\"http://d2.naver.com/\">Naver D2</a>의 지원을 받"
 "고 있습니다."
 
-#: pyconkr/templates/footer.html:25
+#: pyconkr/templates/footer.html:14
 msgid "Stay connected"
 msgstr "더 알아보기"
-
-#: pyconkr/templates/index.html:17
-msgid "Back to the Basic"
-msgstr "Back to the Basic"
 
 #: pyconkr/templates/login.html:7
 msgid "Login via mail"
@@ -387,8 +407,8 @@ msgid ""
 "We store your mail address only. Never store password or any personal "
 "information."
 msgstr ""
-"오직 메일 주소만 저장합니다. 비밀번호나 기타 개인 정보를 절대로 저장하지 않"
-"습니다."
+"오직 메일 주소만 저장합니다. 비밀번호나 기타 개인 정보를 절대로 저장하지 않습"
+"니다."
 
 #: pyconkr/templates/login.html:14
 msgid "Login via Social accounts"
@@ -428,7 +448,7 @@ msgstr "요청한 토큰이 없거나 유효하지 않습니다."
 #: pyconkr/templates/mail/ticket_registered_html.html:2
 #: pyconkr/templates/mail/ticket_registered_text.html:2
 msgid "PyCon Korea Registration confirmation"
-msgstr "파이콘 한국 2017 등록 확인"
+msgstr "파이콘 한국 2018 등록 확인"
 
 #: pyconkr/templates/mail/ticket_registered_html.html:19
 msgid "결제 정보"
@@ -447,20 +467,21 @@ msgstr "링크"
 msgid "Toggle navigation"
 msgstr "툴바 토글"
 
-#: pyconkr/templates/nav.html:56
+#: pyconkr/templates/nav.html:51
 msgid "My Profile"
 msgstr "내 정보"
 
-#: pyconkr/templates/nav.html:57
+#: pyconkr/templates/nav.html:52
 msgid "Edit Profile"
 msgstr "내 정보 수정"
 
-#: pyconkr/templates/nav.html:68
+#: pyconkr/templates/nav.html:63
 msgid "Logout"
 msgstr "로그아웃"
 
 #: pyconkr/templates/pyconkr/announcement_detail.html:13
-#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:42
+#: pyconkr/templates/pyconkr/sprintproposal_detail.html:54
+#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:56
 msgid "Back to list"
 msgstr "목록으로"
 
@@ -468,76 +489,92 @@ msgstr "목록으로"
 msgid "Read more"
 msgstr "더 보기"
 
-#: pyconkr/templates/pyconkr/profile_detail.html:35
+#: pyconkr/templates/pyconkr/profile_detail.html:39
 msgid "Thank you for registration."
 msgstr "등록해주셔서 감사합니다."
 
-#: pyconkr/templates/pyconkr/profile_detail.html:35
+#: pyconkr/templates/pyconkr/profile_detail.html:39
 msgid "Check Registration Status"
 msgstr "등록 확인"
 
-#: pyconkr/templates/pyconkr/profile_detail.html:37
+#: pyconkr/templates/pyconkr/profile_detail.html:41
 msgid "You didn't have a ticket."
 msgstr "아직 티켓을 구입하지 않았습니다."
 
-#: pyconkr/templates/pyconkr/profile_detail.html:42
-msgid "Thank you for submitting."
-msgstr "제출해주셔서 감사합니다."
+#: pyconkr/templates/pyconkr/profile_detail.html:45
+msgid "Please be a tutorial speaker at PyCon."
+msgstr "파이콘의 튜토리얼 진행자가 되어주세요."
 
-#: pyconkr/templates/pyconkr/profile_detail.html:42
-msgid "Check my proposal"
-msgstr "내 발표안 확인하기"
-
-#: pyconkr/templates/pyconkr/profile_detail.html:44
-msgid "Please be a session speaker at PyCon."
-msgstr "파이콘의 발표자가 되어주세요."
-
-#: pyconkr/templates/pyconkr/profile_detail.html:44
+#: pyconkr/templates/pyconkr/profile_detail.html:45
+#: pyconkr/templates/pyconkr/profile_detail.html:48
 msgid "Submit a new proposal"
 msgstr "발표안 제출하기"
+
+#: pyconkr/templates/pyconkr/profile_detail.html:48
+msgid "Please be a sprint leader at PyCon."
+msgstr "파이콘의 스프린트 진행자가 되어주세요."
 
 #: pyconkr/templates/pyconkr/program_detail.html:4
 #: pyconkr/templates/pyconkr/speaker_detail.html:22
 msgid "Program"
 msgstr "프로그램"
 
-#: pyconkr/templates/pyconkr/program_detail.html:47
+#: pyconkr/templates/pyconkr/program_detail.html:21
+#: pyconkr/templates/schedule.html:42 pyconkr/templates/schedule.html:79
+#: pyconkr/templates/schedule.html:145
+msgid "Difficulty Beginner"
+msgstr "초급"
+
+#: pyconkr/templates/pyconkr/program_detail.html:22
+#: pyconkr/templates/schedule.html:44 pyconkr/templates/schedule.html:81
+#: pyconkr/templates/schedule.html:147
+msgid "Difficulty Intermediate"
+msgstr "중급"
+
+#: pyconkr/templates/pyconkr/program_detail.html:23
+#: pyconkr/templates/schedule.html:46 pyconkr/templates/schedule.html:83
+#: pyconkr/templates/schedule.html:149
+msgid "Difficulty Experienced"
+msgstr "상급"
+
+#: pyconkr/templates/pyconkr/program_detail.html:56
 msgid "Photography and recording is not allowed"
 msgstr "촬영, 녹화가 금지되어 있습니다."
 
-#: pyconkr/templates/pyconkr/program_detail.html:52
+#: pyconkr/templates/pyconkr/program_detail.html:61
 msgid "Slide"
 msgstr "슬라이드"
 
-#: pyconkr/templates/pyconkr/program_detail.html:56
+#: pyconkr/templates/pyconkr/program_detail.html:65
 msgid "Video"
 msgstr "발표 동영상"
 
-#: pyconkr/templates/pyconkr/program_detail.html:60
+#: pyconkr/templates/pyconkr/program_detail.html:69
 msgid "PDF"
 msgstr "PDF"
 
-#: pyconkr/templates/pyconkr/program_detail.html:69
+#: pyconkr/templates/pyconkr/program_detail.html:78
 #: pyconkr/templates/pyconkr/speaker_detail.html:31
-#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:11
+#: pyconkr/templates/pyconkr/sprintproposal_detail.html:15
+#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:15
 msgid "Edit"
 msgstr "수정"
 
 #: pyconkr/templates/pyconkr/program_list.html:20
-#: pyconkr/templates/schedule.html:26 pyconkr/templates/schedule.html:43
-#: pyconkr/templates/schedule.html:94
+#: pyconkr/templates/schedule.html:31 pyconkr/templates/schedule.html:68
+#: pyconkr/templates/schedule.html:134
 msgid "Slides link"
 msgstr "슬라이드"
 
 #: pyconkr/templates/pyconkr/program_list.html:23
-#: pyconkr/templates/schedule.html:29 pyconkr/templates/schedule.html:46
-#: pyconkr/templates/schedule.html:97
+#: pyconkr/templates/schedule.html:34 pyconkr/templates/schedule.html:71
+#: pyconkr/templates/schedule.html:137
 msgid "Video link"
 msgstr "동영상"
 
 #: pyconkr/templates/pyconkr/program_list.html:26
-#: pyconkr/templates/schedule.html:32 pyconkr/templates/schedule.html:49
-#: pyconkr/templates/schedule.html:100
+#: pyconkr/templates/schedule.html:37 pyconkr/templates/schedule.html:74
+#: pyconkr/templates/schedule.html:140
 msgid "PDF link"
 msgstr "PDF"
 
@@ -566,97 +603,131 @@ msgstr "발표자"
 msgid "Sponsor"
 msgstr "후원사"
 
-#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:46
-msgid "Leave this event"
-msgstr "참석 취소"
+#: pyconkr/templates/pyconkr/sprintproposal_detail.html:22
+msgid "Sprinter"
+msgstr "진행자"
 
-#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:50
-msgid "Join this event"
-msgstr "참석하기"
+#: pyconkr/templates/pyconkr/sprintproposal_detail.html:34
+#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:40
+msgid "Tutorial Information"
+msgstr "일시와 장소"
 
-#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:54
-msgid "Attendees"
-msgstr "참석자"
-
-#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:56
-msgid "No attendees, yet."
-msgstr "아직 참석자가 없습니다."
-
-#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:68
-msgid "Not registered user"
-msgstr "미등록"
-
-#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:71
-msgid "Waiting"
-msgstr "대기자"
-
-#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:73
-msgid "Checked in"
-msgstr "참석자"
-
-#: pyconkr/templates/pyconkr/tutorialproposal_list.html:8
-msgid "Propose a sprint"
-msgstr "스프린트 제안하기"
+#: pyconkr/templates/pyconkr/sprintproposal_detail.html:39
+msgid "Sprint Language"
+msgstr "언어"
 
 #: pyconkr/templates/pyconkr/tutorialproposal_list.html:12
-msgid "Propose a tutorial"
-msgstr "튜토리얼 제안하기"
-
-#: pyconkr/templates/pyconkr/tutorialproposal_list.html:16
+#: pyconkr/templates/pyconkr/tutorialproposal_list.html:24
 msgid "Joined"
 msgstr "참석 예정"
 
-#: pyconkr/views.py:172
+#: pyconkr/templates/schedule.html:51 pyconkr/templates/schedule.html:88
+#: pyconkr/templates/schedule.html:154
+msgid "Schedule English Label"
+msgstr "영어"
+
+#: pyconkr/views.py:174
 msgid "Preferences are successfully updated."
 msgstr "선호도 등록이 완료되었습니다."
 
-#: pyconkr/views.py:239
+#: pyconkr/views.py:241
 msgid "Not valid token"
 msgstr "유효한 토큰 아님"
 
-#: pyconkr/views.py:261
+#: pyconkr/views.py:266
 msgid "Mail sent"
 msgstr "메일 발송 완료"
 
-#: pyconkr/views.py:301
+#: pyconkr/views.py:310
 msgid "Profile successfully updated."
 msgstr "프로필을 수정하였습니다."
 
-#: pyconkr/views.py:312
+#: pyconkr/views.py:321
 msgid "Update profile"
 msgstr "프로필 갱신"
 
-#: pyconkr/views.py:334
+#: pyconkr/views.py:343
 msgid "Proposal successfully updated."
 msgstr "발표안이 수정되었습니다."
 
-#: pyconkr/views.py:351
+#: pyconkr/views.py:360
 msgid "Proposal successfully created."
 msgstr "발표안을 제출하였습니다."
 
-#: pyconkr/views.py:385
+#: pyconkr/views.py:395
 msgid "Tutorial proposal successfully created."
 msgstr "튜토리얼 제안을 제출하였습니다."
 
-#: pyconkr/views.py:449
-msgid "Tutorial proposal successfully updated."
-msgstr "튜토리얼 제안서가 수정되었습니다."
-
-#: pyconkr/views.py:456
-msgid "Update tutorial"
-msgstr "튜토리얼 갱신"
-
-#: pyconkr/views.py:415
+#: pyconkr/views.py:417
 msgid "Sprint proposal successfully created."
 msgstr "스프린트 제안을 제출하였습니다."
 
-#: pyconkr/views.py:539
+#: pyconkr/views.py:481
+msgid "Tutorial proposal successfully updated."
+msgstr "튜토리얼 제안서가 수정되었습니다."
+
+#: pyconkr/views.py:488
+msgid "Update tutorial"
+msgstr "튜토리얼 갱신"
+
+#: pyconkr/views.py:541
 msgid "Sprint proposal successfully updated."
 msgstr "스프린트 제안서가 수정되었습니다."
 
-#: pyconkr/views.py:546
+#: pyconkr/views.py:548
 msgid "Update sprint"
 msgstr "스프린트 갱신"
+
+#~ msgid "Preference survey"
+#~ msgstr "선호도 조사"
+
+#~ msgid "Hotels"
+#~ msgstr "숙박 안내"
+
+#~ msgid "Restaurants"
+#~ msgstr "식당 정보"
+
+#~ msgid "Propose"
+#~ msgstr "제출하기"
+
+#~ msgid "Back to the Basic"
+#~ msgstr "Back to the Basic"
+
+#~ msgid "Thank you for submitting."
+#~ msgstr "제출해주셔서 감사합니다."
+
+#~ msgid "Check my proposal"
+#~ msgstr "내 발표안 확인하기"
+
+#~ msgid "Please be a session speaker at PyCon."
+#~ msgstr "파이콘의 발표자가 되어주세요."
+
+#~ msgid "Leave this event"
+#~ msgstr "참석 취소"
+
+#~ msgid "Join this event"
+#~ msgstr "참석하기"
+
+#~ msgid "Attendees"
+#~ msgstr "참석자"
+
+#~ msgid "No attendees, yet."
+#~ msgstr "아직 참석자가 없습니다."
+
+#~ msgid "Not registered user"
+#~ msgstr "미등록"
+
+#~ msgid "Waiting"
+#~ msgstr "대기자"
+
+#~ msgid "Checked in"
+#~ msgstr "참석자"
+
+#~ msgid "Propose a sprint"
+#~ msgstr "스프린트 제안하기"
+
+#~ msgid "Propose a tutorial"
+#~ msgstr "튜토리얼 제안하기"
 
 #~ msgid "About PyCon 2017"
 #~ msgstr "파이콘 한국 2017"
@@ -679,59 +750,23 @@ msgstr "스프린트 갱신"
 #~ msgid "PyCon APAC"
 #~ msgstr "파이콘 APAC"
 
-msgid "PyCon Schedule"
-msgstr "2017년 8월 12일 (토) ~ 2017년 8월 15일 (화)"
+#~ msgid "PyCon Schedule"
+#~ msgstr "2017년 8월 12일 (토) ~ 2017년 8월 15일 (화)"
 
-msgid "PyCon Location"
-msgstr "코엑스 그랜드볼룸, 서울"
+#~ msgid "PyCon Location"
+#~ msgstr "코엑스 그랜드볼룸, 서울"
 
-msgid "Project URL"
-msgstr "프로젝트 공식 URL"
+#~ msgid "Manual Payment"
+#~ msgstr "임시 결제"
 
-msgid "Project brief"
-msgstr "오픈소스 프로젝트에 대한 간단한 설명"
+#~ msgid "Credit Card only for Korean"
+#~ msgstr "카드 결제 (한국용)"
 
-msgid "Contribution description"
-msgstr "이 프로젝트에서의 자신의 기여 활동 내용"
+#~ msgid "Credit Card for Foreign"
+#~ msgstr "카드 결제 (해외용), Credit Card for Foreign"
 
-msgid "Sprinter"
-msgstr "진행자"
+#~ msgid "Virtual Bank Transfer"
+#~ msgstr "가상 계좌 입금"
 
-msgid "Sprint Language"
-msgstr "언어"
-
-msgid "Please be a tutorial speaker at PyCon."
-msgstr "파이콘의 튜토리얼 진행자가 되어주세요."
-
-msgid "Please be a sprint leader at PyCon."
-msgstr "파이콘의 스프린트 진행자가 되어주세요."
-
-msgid "Schedule English Label"
-msgstr "영어"
-
-msgid "Manual Payment"
-msgstr "임시 결제"
-
-msgid "Tutorial Information"
-msgstr "일시와 장소"
-
-msgid "Difficulty Beginner"
-msgstr "초급"
-
-msgid "Difficulty Intermediate"
-msgstr "중급"
-
-msgid "Difficulty Experienced"
-msgstr "상급"
-
-#: registration/models.py:113
-msgid "Credit Card only for Korean"
-msgstr "카드 결제 (한국용)"
-
-#: registration/models.py:114
-msgid "Credit Card for Foreign"
-msgstr "카드 결제 (해외용), Credit Card for Foreign"
-
-#: registration/models.py:115
-msgid "Virtual Bank Transfer"
-msgstr "가상 계좌 입금"
+#~ msgid "Ready for content"
+#~ msgstr "준비 중입니다"

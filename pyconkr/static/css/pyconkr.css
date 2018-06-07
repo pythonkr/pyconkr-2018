@@ -1,7 +1,10 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:300,700);
+
 * {
-    font-family: 'Open Sans', 'Helvetica Neue', 'Apple SD Gothic Neo', 'Nanum Gothic', 'Arial', 'Apple Gothic', sans-serif;
-    font-weight: 400;
-    line-height: 172%;
+    font-family: 'Noto Sans KR', 'Helvetica Neue', 'Apple SD Gothic Neo', 'Nanum Gothic', 'Arial', 'Apple Gothic', sans-serif;
+    letter-spacing: -0.02rem;
+    line-height: 1.6rem;
 
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
@@ -27,16 +30,13 @@ html {
 body {
     margin: 0;
     font-size: 1rem;
-    min-height: 100%;
-    position: relative;
-    padding-bottom: 7rem;
+    height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6, th {
-    font-family: 'Lato', 'Helvetica Neue', 'Apple SD Gothic Neo', 'Nanum Gothic', 'Arial', 'Apple Gothic', sans-serif;
+    font-family: 'Montserrat', 'Noto Sans KR', 'Helvetica Neue', 'Apple SD Gothic Neo', 'Nanum Gothic', 'Arial', 'Apple Gothic', sans-serif;
     font-weight: 700;
-    line-height: 200%;
-    margin: 0.3rem 0 0.25rem;
+    margin: 0.5rem 0;
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -56,6 +56,19 @@ input[type=file] {
     margin-right: 0 !important;
 }
 
+.navbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 10;
+    padding: 10px 0;
+    margin-bottom: 0px !important;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+}
+
 .onsky > .navbar {
     background: none;
 }
@@ -64,6 +77,10 @@ input[type=file] {
     font-family: 'Montserrat','Lato', 'Helvetica Neue', 'Apple SD Gothic Neo', 'Nanum Gothic', 'Arial', 'Apple Gothic', sans-serif;
     font-weight: 300;
     color: #333;
+}
+
+.navbar .navbar-nav>li>a:lang(en) {
+    font-size: .9rem;
 }
 
 .navbar .dropdown .caret {
@@ -118,7 +135,7 @@ input[type=file] {
 .navbar .glyphicon-python {
     width: 16px;
     height: 16px;
-    background: url("../image/python-black-small.png");
+    background: url("../image/python-white.png");
     background-size: 100% 100%;
 }
 
@@ -153,24 +170,25 @@ input[type=file] {
 
 
 .navbar-translucent .glyphicon-python {
-    background: url("../image/python-yellow.png");
+    background: url("../image/python-white.png");
     background-size: 100% 100%;
 }
 
 .navbar-translucent .navbar-nav>li>a {
     font-weight: 700;
-    color: #FDDA24;
+    color: rgba(255, 255, 255, 0.75);
 }
 
 .navbar-translucent .nav>li>a:hover,
 .navbar-translucent .nav>li>a:focus {
-    background-color: rgba(0,0,0,0.2);
+    color: white;
+    background-color: transparent;
 }
 
 .navbar-translucent .navbar-nav>.open>a,
 .navbar-translucent .navbar-nav>.open>a:hover,
 .navbar-translucent .navbar-nav>.open>a:focus {
-    background-color: rgba(0,0,0,0.4);
+    background-color: transparent;
 }
 
 .navbar-translucent .navbar-toggle {
@@ -372,6 +390,7 @@ input[type=file] {
 }
 
 .sponsors {
+    padding-top: 75px;
     padding-bottom: 100px;
 }
 
@@ -578,57 +597,33 @@ input[type=file] {
     clear: both;
 }
 
-.footer {
-    background: #FAFAFA;
-    padding: 10px 0;
-    border-top: 1px solid #E7E7E7;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+/** footer **/
+footer {
+  height: 185px;
+  padding: 2rem 0;
+  background-color: #eee;
+  color: #717171;
+  font-size: 0.7rem;
+  margin-top: -185px;
 }
 
-.footer p {
-    font-size: 0.8rem;
-    margin-bottom: 0;
+footer h3 {
+  margin-top: 0.3rem;
+  padding: 0;
+  font-size: 1rem;
 }
 
-.footer .col {
-    padding: 10px 0 20px;
+footer p {
+    margin: 0;
 }
 
-.footer h3,
-.footer h4
-{
-    margin-top: -10px;
-}
-
-.footer .pyconkr-badge {
-    text-align: center;
-}
-
-.footer .pyconkr-badge img {
-    width: 72px;
-    height: auto;
-}
-
-.footer .btn-social-icon {
-    font-size: 1rem;
-    width: 44px;
-    height: 44px;
-    border-radius: 44px;
-    border: 0;
-    margin-right: 4px;
-}
-
-.footer .btn-social-icon :first-child {
+footer .btn-social-icon :first-child {
     line-height: 44px;
 }
 
-.footer .hosting {
+footer .hosting {
     width: 64px;
     height: auto;
-    display: block;
 }
 
 .social-badges {

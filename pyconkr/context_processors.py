@@ -23,9 +23,9 @@ def default(request):
             'title': _('About'),
             'icon': 'python',
             'submenu': OrderedDict([
-                ('pyconkr', {'title': _('About PyCon Korea 2017')}),
+                ('pyconkr', {'title': _('About PyCon Korea 2018')}),
                 ('coc', {'title': _('Code of Conduct')}),
-                ('blog', {'title': _('PyCon.KR 2017 Blog')}),
+                ('blog', {'title': _('PyCon Korea Blog')}),
                 ('announcements', {'title': _('Announcements')}),
                 ('sponsor', {'title': _('Sponsors')}),
                 ('patron', {'title': _('Patrons')}),
@@ -76,12 +76,10 @@ def default(request):
         }),
     ])
 
-    rp = request.path[len(settings.FORCE_SCRIPT_NAME):]
-
     for k, v in menu.items():
         path = '/{}/'.format(k)
 
-        if rp.startswith(path):
+        if url.startswith(path):
             v['active'] = True
             title = v['title']
 
@@ -92,7 +90,7 @@ def default(request):
                     sv['path'] = '{}{}/'.format(path, sk)
                     subpath = sv['path']
 
-                    if rp == subpath:
+                    if url == subpath:
                         sv['active'] = True
                         title = sv['title']
 

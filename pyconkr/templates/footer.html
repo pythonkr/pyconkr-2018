@@ -1,41 +1,32 @@
 {% load staticfiles %}
 {% load i18n %}
-<div class="footer">
+
+<footer class="text-center">
     <div class="container">
-        <div class="row wrap">
-            <div class="col col-sm-2 pyconkr-badge">
-                <img src="{% static "image/pyconkr-badge.png" %}" alt="PyCon Korea badge">
-            </div>
-            <div class="col col-sm-7 credit">
-                <h4>
-                {% trans "PyCon Korea 2017" %}
-                </h4>
-                <p>
-                {% trans "PyCon Korea 2017 is a product of PyCon Korea Organizing Team" %}
-                </p>
-                <p>
-                {% trans "Powered by Django" %}
-                </p>
-                <p>
-                  {% trans "Hosted on Naver D2" %}
-                  <img class="hosting" src="{% static "image/naver-d2.png" %}" alt="Hosted on Naver D2">
-                </p>
-            </div>
-            <div class="col col-sm-3 info">
-                <h4>{% trans "Stay connected" %}</h4>
-                <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/pyconkr">
+        <h3>Dive into Diversity, {% trans "PyCon Korea 2018" %}</h3>
+        <p>{% trans "PyCon Korea 2018 is a product of PyCon Korea Organizing Team" %}</p>
+        <p>
+            {% trans "Powered by Django" %} | {% trans "Hosted on Naver D2" %}
+          <img class="hosting" src="{% static "image/naver-d2.png" %}" alt="Hosted on Naver D2">
+        </p>
+        <div>
+            <p>
+                {% trans "Stay connected" %}
+                <a class="btn-twitter" href="https://twitter.com/pyconkr">
                     <i class="fa fa-twitter"></i>
                 </a>
-                <a class="btn btn-social-icon btn-facebook" href="https://facebook.com/pyconkorea">
+                <a class="btn-facebook" href="https://facebook.com/pyconkorea">
                     <i class="fa fa-facebook"></i>
                 </a>
-                <a class="btn btn-social-icon btn-github" href="https://github.com/pythonkr/pyconkr-2017">
+                <a class="btn-github" href="https://github.com/pythonkr/pyconkr-2018">
                     <i class="fa fa-github"></i>
                 </a>
-                <a class="btn btn-social-icon btn-flickr" href="https://www.flickr.com/photos/126829363@N08/sets/">
+                <a class="btn-flickr" href="https://www.flickr.com/photos/126829363@N08/sets/">
                     <i class="fa fa-flickr"></i>
                 </a>
-            </div>
+            </p>
         </div>
+
     </div>
-</div>
+</footer>
+

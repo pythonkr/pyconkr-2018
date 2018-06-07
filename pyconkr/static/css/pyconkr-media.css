@@ -1,7 +1,4 @@
-@media (max-width: 768px) {
-    body {
-        padding-bottom: 24rem;
-    }
+@media (max-width: 767px) {
     .navbar {
         top: 0px;
         width: 100%;
@@ -128,6 +125,6 @@
 
 @media (min-width: 1280px) {
     .container {
-        width: 1280px;
+        width: 970px;
     }
 }
