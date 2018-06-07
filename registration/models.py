@@ -105,7 +105,7 @@ class Registration(models.Model):
     company = models.CharField(max_length=100, blank=True)
     phone_number = models.CharField(max_length=20)
     transaction_code = models.CharField(max_length=36, blank=True)
-    additional_price = models.IntegerField(default=0)
+    additional_price = models.PositiveIntegerField(default=0)
     payment_method = models.CharField(
         max_length=20,
         default='card-korean',
