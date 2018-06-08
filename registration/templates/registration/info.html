@@ -27,12 +27,13 @@
                                     {{ option.name }}-SOLD OUT
                                 </div>
                             {% elif option.is_opened %}
-                                <a href='{% url 'registration_payment' option.id %}' class="btn btn-primary">
+                                <a href='{% url "registration_payment" option.id %}' class="btn btn-primary">
                                     {{ option.name }}
                                 </a>
                             {% else %}
-                                <div>등록 기간이 아닙니다.</div>
-                                <div>티켓 등록: {{ option.begin_at|date:"Y년 M d일 D a g" }}시 부터 {{ option.closed_at|date:"M d일 D a g" }}시 까지</div>
+                                <a href='#' class="btn btn-default disabled">
+                                    {{ option.begin_at|date:"Y년 M d일 D a g" }}시 오픈 예정
+                                </a>
                             {% endif %}
                             </p>
                         </div>
