@@ -384,9 +384,10 @@ input[type=file] {
     z-index: 1;
 }
 
-.content .sponsor img {
+.sponsor img {
     border: 0;
     margin-bottom: 15px;
+    max-width: 100%;
 }
 
 .sponsors {
