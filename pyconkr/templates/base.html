@@ -69,10 +69,10 @@
 
 <main>
     <div class="container">
-        {% if title %}<h1>{{ title }}</h1>{% endif %}
-
+    {% if not index %}
+        <h1>{% block title %}{{ title }}{% endblock %}</h1>
+    {% endif %}
         {{ base_content | safe }}
-
         {% block content %}{% endblock %}
     </div>
 

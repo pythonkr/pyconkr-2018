@@ -79,9 +79,10 @@ class Sponsor(models.Model):
     url = models.CharField(max_length=255, null=True, blank=True)
     desc = models.TextField(null=True, blank=True)
     level = models.ForeignKey(SponsorLevel, null=True, blank=True)
+    deposit_time = models.DateTimeField(null=True, blank=True)
 
     class Meta:
-        ordering = ['id']
+        ordering = ['deposit_time', 'id']
 
     def get_absolute_url(self):
         return reverse('sponsor', args=[self.slug])
