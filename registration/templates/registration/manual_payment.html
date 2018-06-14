@@ -9,7 +9,7 @@
     </div>
 {% endblock %}
 
-{% block script %}
+{% block head-include %}
     <script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment.js"></script>
     <script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment.subscribe.js"></script>
     <script>
@@ -43,7 +43,7 @@
 
             $('#manual-payment-form').submit(function(e) {
                 e.preventDefault();
-                IMP.SBCR.init('{{ config.IMP_USER_CODE }}');
+                IMP.SBCR.init('{{ config.IMP_DOM_USER_CODE }}');
                 IMP.SBCR.onetime({
                     merchant_uid: '{{ uid }}',
                     amount: parseInt('{{ amount }}'),

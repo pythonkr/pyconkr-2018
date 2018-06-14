@@ -265,7 +265,7 @@ def payment_callback(request):
     registration = Registration.objects.filter(merchant_uid=merchant_uid)
 
     if not registration.exists():
-        return HttpResponse(status_code=404)
+        return HttpResponse(status=404)
 
     try:
         iamport = Iamport(config.IMP_DOM_API_KEY, config.IMP_DOM_API_SECRET)
@@ -295,7 +295,7 @@ def payment_callback(request):
             registration.save()
             return HttpResponse()
 
-    return HttpResponse(status_code=404)
+    return HttpResponse(status=404)
 
 
 @login_required
