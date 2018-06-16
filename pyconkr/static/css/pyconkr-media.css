@@ -68,6 +68,9 @@
     .titlebar h1 {
         font-size: 2rem;
     }
+    .sponsor img {
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 640px) {

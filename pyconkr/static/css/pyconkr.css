@@ -386,8 +386,9 @@ input[type=file] {
 
 .sponsor img {
     border: 0;
-    margin-bottom: 15px;
-    max-width: 100%;
+    margin: 40px auto;
+    max-width: 640px;
+    display: block;
 }
 
 .sponsors {
