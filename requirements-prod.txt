@@ -2,3 +2,4 @@
 uwsgi
 gevent
 psycopg2
+raven
