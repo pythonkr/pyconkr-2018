@@ -351,7 +351,7 @@ def manual_payment_process(request):
 
     # Only card
     try:
-        access_token = get_access_token(config.IMP_API_KEY, config.IMP_API_SECRET)
+        access_token = get_access_token(config.IMP_DOM_API_KEY, config.IMP_DOM_API_SECRET)
         imp_client = Iamporter(access_token)
 
         imp_params = dict(
