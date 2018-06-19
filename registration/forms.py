@@ -70,10 +70,11 @@ class ManualPaymentForm(forms.ModelForm):
 
     class Meta:
         model = ManualPayment
-        fields = ('title', 'email', 'base_price', 'payment_method')
+        fields = ('title', 'email', 'base_price', 'top_size', 'payment_method')
         labels = {
             'title': _('Title'),
             'email': _('Email'),
+            'top_size': _('Top Size'),
             'payment_method': _('Payment Method'),
         }
 

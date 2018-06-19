@@ -163,6 +163,21 @@ class ManualPayment(models.Model):
             ('cancelled', u'Cancelled'),
         )
     )
+    top_size = models.CharField(
+        max_length=20,
+        default=None,
+        null=True,
+        blank=True,
+        choices=(
+            ('small', u'S(85)'),
+            ('medium', u'M(90)'),
+            ('large', u'L(95)'),
+            ('xlarge', u'XL(100)'),
+            ('2xlarge', u'2XL(105)'),
+            ('3xlarge', u'3XL(110)'),
+            ('4xlarge', u'4XL(115)'),
+        )
+    )
     payment_message = models.CharField(max_length=255, null=True, blank=True)
     description = models.TextField(blank=True)
     created = models.DateTimeField(auto_now_add=True)
