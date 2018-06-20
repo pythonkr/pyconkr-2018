@@ -351,8 +351,7 @@ def manual_payment_process(request):
 
     # Only card
     try:
-        access_token = get_access_token(config.IMP_API_KEY, config.IMP_API_SECRET)
-        imp_client = Iamporter(access_token)
+        imp_client = Iamport(config.IMP_DOM_API_KEY, config.IMP_DOM_API_SECRET)
 
         imp_params = dict(
             token=request.POST.get('token'),
@@ -368,7 +367,7 @@ def manual_payment_process(request):
             buyer_tel=request.POST.get('phone_number', '')
         )
 
-        imp_client.foreign(**imp_params)
+        imp_client.pay_onetime(**imp_params)
         confirm = imp_client.find_by_merchant_uid(request.POST.get('merchant_uid'))
 
         if confirm['amount'] != mp.price:
