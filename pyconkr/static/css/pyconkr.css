@@ -435,6 +435,12 @@ input[type=file] {
     max-width: 360px;
 }
 
+.sponsors .sponsor-4 {
+    width: 35%;
+    max-width: 300px;
+}
+
+
 .banners {
     margin: 0 auto 15px auto;
     padding: 0;
