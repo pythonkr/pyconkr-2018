@@ -55,6 +55,13 @@ def status(request):
     return render(request, 'registration/status.html', context)
 
 
+def _redirect_registered(option):
+    if option.event_type == EVENT_CONFERENCE:
+        return redirect('registration_status')
+    else:
+        return redirect('profile')
+
+
 @login_required
 def payment(request, option_id):
     product = Option.objects.get(id=option_id)
@@ -62,13 +69,13 @@ def payment(request, option_id):
     if not product.is_opened:
         return redirect('registration_index')
 
-    is_registered = Registration.objects.active_conference().filter(
-        user=request.user,
+    is_registered = Registration.objects.filter(
+        user=request.user, option=product,
         payment_status__in=['paid', 'ready']
     ).exists()
 
     if is_registered:
-        return redirect('registration_status')
+        return _redirect_registered(product.option)
 
     uid = str(uuid4()).replace('-', '')
 
@@ -100,12 +107,18 @@ def payment_process(request):
     if request.method == 'GET':
         return redirect('registration_index')
 
-    # 이미 등록된 사용자로 등록 현황 페이지로 이동합니다.
-    if Registration.objects.active_conference().filter(user=request.user, payment_status__in=['paid', 'ready']).exists():
-        return redirect('registration_status')
-
     payment_logger.debug(request.POST)
     form = RegistrationAdditionalPriceForm(request.POST)
+    cleaned_form = form.cleaned_data
+
+    # FIXME: product 가 없는 경우 예외 처리
+    product = Option.objects.get(id=cleaned_form.get('option'))
+
+    # 이미 등록된 사용자로 등록 현황 페이지로 이동합니다.
+    registration = Registration.objects.filter(user=request.user, option=product,
+                                               payment_status__in=['paid', 'ready'])
+    if registration.exists():
+        return _redirect_registered(registration.option)
 
     # TODO : more form validation
     # eg) merchant_uid
