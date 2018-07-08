@@ -62,7 +62,7 @@ def payment(request, option_id):
     if not product.is_opened:
         return redirect('registration_index')
 
-    is_registered = Registration.objects.active_conference.filter(
+    is_registered = Registration.objects.active_conference().filter(
         user=request.user,
         payment_status__in=['paid', 'ready']
     ).exists()
@@ -113,7 +113,7 @@ def payment_process(request):
         })
 
     remain_ticket_count = (
-            config.TOTAL_TICKET - Registration.objects.active_conference.filter(payment_status__in=['paid', 'ready']).count())
+            config.TOTAL_TICKET - Registration.objects.active_conference().filter(payment_status__in=['paid', 'ready']).count())
 
     # 매진 상태
     if remain_ticket_count <= 0:
