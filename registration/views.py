@@ -29,8 +29,9 @@ def index(request):
     is_registered = False
 
     if request.user.is_authenticated():
-        is_registered = (Registration.objects.active_conference()
-                         .filter(user=request.user, payment_status__in=['paid', 'ready'])
+        is_registered = (Registration.objects
+                         .filter(user=request.user,
+                                 payment_status__in=['paid', 'ready'])
                          .exists())
 
     options = Option.objects.active_conference()
@@ -43,7 +44,7 @@ def index(request):
 
 @login_required
 def status(request):
-    registration = Registration.objects.active_conference().filter(user=request.user)
+    registration = Registration.objects.filter(user=request.user)
 
     if registration:
         registration = registration.latest('created')
@@ -62,7 +63,7 @@ def payment(request, option_id):
     if not product.is_opened:
         return redirect('registration_index')
 
-    is_registered = Registration.objects.active_conference.filter(
+    is_registered = Registration.objects.filter(
         user=request.user,
         payment_status__in=['paid', 'ready']
     ).exists()
@@ -97,7 +98,7 @@ def payment_process(request):
         return redirect('registration_index')
 
     # 이미 등록된 사용자로 등록 현황 페이지로 이동합니다.
-    if Registration.objects.active_conference().filter(user=request.user, payment_status__in=['paid', 'ready']).exists():
+    if Registration.objects.filter(user=request.user, payment_status__in=['paid', 'ready']).exists():
         return redirect('registration_status')
 
     payment_logger.debug(request.POST)
@@ -113,7 +114,7 @@ def payment_process(request):
         })
 
     remain_ticket_count = (
-            config.TOTAL_TICKET - Registration.objects.active_conference.filter(payment_status__in=['paid', 'ready']).count())
+            config.TOTAL_TICKET - Registration.objects.filter(payment_status__in=['paid', 'ready']).count())
 
     # 매진 상태
     if remain_ticket_count <= 0:
