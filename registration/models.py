@@ -66,7 +66,6 @@ class Option(models.Model):
     objects = OptionManager()
 
     class Meta:
-        unique_together = ('event_type', 'conference_type',)
         ordering = ['price']
 
     @property
