@@ -17,9 +17,9 @@ from iamport import Iamport
 
 from pyconkr.helper import render_io_error
 from .forms import (RegistrationForm, RegistrationAdditionalPriceForm,
-                    ManualPaymentForm, IssueSubmitForm)
+                    ManualPaymentForm, IssueSubmitForm, RegistrationNoneShirtForm)
 from .iamporter import get_access_token, Iamporter, IamporterError
-from .models import Option, Registration, ManualPayment, IssueTicket
+from .models import Option, Registration, ManualPayment, IssueTicket, EVENT_CONFERENCE
 
 logger = logging.getLogger(__name__)
 payment_logger = logging.getLogger('payment')
@@ -74,6 +74,10 @@ def payment(request, option_id):
 
     if product.has_additional_price:
         form = RegistrationAdditionalPriceForm(initial={'email': request.user.email,
+                                                        'option': product,
+                                                        'base_price': product.price})
+    elif product.event_type != EVENT_CONFERENCE:
+        form = RegistrationNoneShirtForm(initial={'email': request.user.email,
                                                         'option': product,
                                                         'base_price': product.price})
     else:
