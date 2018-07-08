@@ -199,3 +199,6 @@ msgstr ""
 #: registration/views.py:439
 msgid "Ticket Print"
 msgstr ""
+
+msgid "Cancelable Date"
+msgstr "환불 가능 기한"

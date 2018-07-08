@@ -68,6 +68,9 @@
     .titlebar h1 {
         font-size: 2rem;
     }
+    .sponsor img {
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 640px) {
@@ -108,6 +111,16 @@
     .jobfair dt img {
         width: auto;
         height: 32px;
+    }
+
+    .box-slick {
+        width: 100%;
+        padding: 30px 20px;
+    }
+
+    .box-section {
+        padding: 10px;
+        font-size: 14px;
     }
 }
 

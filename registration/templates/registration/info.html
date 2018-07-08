@@ -2,44 +2,50 @@
 {% load i18n humanize %}
 
 {% block content %}
+<div>
+  {% if is_registered %}
+  <div>
+    <p>이미 등록되었습니다.</p>
+    <p>
+      <a href="{% url 'registration_status' %}">등록 확인하기</a>
+    </p>
+  </div>
+  {% else %}
+  {% if not options %}
+  <div>등록 기간이 아닙니다</div>
+  {% else %}
+  <div>
+    {% for option in options %}
     <div>
-
-        {% if is_registered %}
-            <div>
-                <p>이미 등록되었습니다.</p>
-                <p>
-                    <a href='{% url 'registration_status' %}'>등록 확인하기</a>
-                </p>
-            </div>
+      <h3>{{ option.name }}</h3>
+      <p>{% autoescape off %}{{ option.description }}{% endautoescape %}</p>
+      <p>Price: {{ option.price|intcomma }} KRW</p>
+      <p>Cancelable Date :
+        {% if option.is_cancelable %}
+          {{ option.cancelable_date|date:"Y년 M d일 D a g시까지"}}
         {% else %}
-            {% if not options %}
-                <div>등록 기간이 아닙니다</div>
-            {% else %}
-                <div>
-                    {% for option in options %}
-                        <div>
-                            <h3>{{ option.name }}</h3>
-                            <p>{% autoescape off %}{{ option.description }}{% endautoescape %}</p>
-                            <p>Price: {{ option.price|intcomma }} KRW</p>
-                            <p>
-                            {% if option.is_sold_out %}
-                                <div class="btn btn-info">
-                                    {{ option.name }}-SOLD OUT
-                                </div>
-                            {% elif option.is_opened %}
-                                <a href='{% url "registration_payment" option.id %}' class="btn btn-primary">
-                                    {{ option.name }}
-                                </a>
-                            {% else %}
-                                <a href='#' class="btn btn-primary disabled">
-                                    {{ option.begin_at|date:"Y년 M d일 D a g" }}시 오픈 예정
-                                </a>
-                            {% endif %}
-                            </p>
-                        </div>
-                    {% endfor %}
-                </div>
-            {% endif %}
+          환불 불가(Not Refundable)
         {% endif %}
+      </p>
+      <p>
+        {% if option.is_sold_out %}
+      <div class="btn btn-info">
+        {{ option.name }}-SOLD OUT
+      </div>
+      {% elif option.is_opened %}
+      <a href='{% url "registration_payment" option.id %}' class="btn btn-primary">
+        {{ option.name }}
+      </a>
+      {% else %}
+      <a href='#' class="btn btn-primary disabled">
+        {{ option.begin_at|date:"Y년 M d일 D a g" }}시 오픈 예정
+      </a>
+      {% endif %}
+      </p>
     </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% endif %}
+</div>
 {% endblock %}

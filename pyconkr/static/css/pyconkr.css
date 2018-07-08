@@ -386,8 +386,9 @@ input[type=file] {
 
 .sponsor img {
     border: 0;
-    margin-bottom: 15px;
-    max-width: 100%;
+    margin: 40px auto;
+    max-width: 640px;
+    display: block;
 }
 
 .sponsors {
@@ -433,6 +434,12 @@ input[type=file] {
     width: 45%;
     max-width: 360px;
 }
+
+.sponsors .sponsor-4 {
+    width: 35%;
+    max-width: 300px;
+}
+
 
 .banners {
     margin: 0 auto 15px auto;
@@ -726,4 +733,30 @@ footer .hosting {
 
 .margin-top-40  {
     margin-top: 40px;
+}
+
+/** custom for slick **/
+
+.box-slick-wrap {
+    background-color: #eae9e94a;
+    border: 1px solid #e4e3e347;
+    border-radius: 16px;
+}
+
+.box-slick {
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.box-slick .title-text {
+    font-size: 17px;
+    font-weight: 500;
+    color: #5d1ca1;
+}
+
+.box-slick .desc-text {
+  margin: 15px 0;
+  text-align: left;
 }
