@@ -289,7 +289,7 @@ class ProfileDetail(DetailView):
         if self.request.user.is_authenticated():
             if self.request.user == self.object.user:
                 context['editable'] = True
-        is_registered = Registration.objects.filter(
+        is_registered = Registration.objects.active_conference().filter(
             user=self.request.user,
             payment_status__in=['paid', 'ready']
         ).exists()
