@@ -8,10 +8,10 @@
 
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
-    
+
     /* anti-aliasing for firefox */
     -moz-osx-font-smoothing: grayscale;
-    
+
     /* anti-aliasing for general */
     text-rendering: geometricPrecision;
 
@@ -141,7 +141,7 @@ input[type=file] {
 
 .navbar .navbar-logo {
     float: none;
-    padding: 5px 25px 5px 15px;
+    padding: 5px 25px 5px 0px;
 }
 
 .navbar .navbar-logo img {
@@ -674,7 +674,7 @@ footer .hosting {
     /* to remove bootstrap panel's 20px margin-bottom */
     margin-bottom: 0;
 }
- 
+
 @keyframes blink{
     0% { opacity:1; }
     50% { opacity:0; }
