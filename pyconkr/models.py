@@ -186,13 +186,16 @@ class Program(models.Model):
 
         return ', '.join([_.name for _ in self.rooms.all()])
 
+    def get_sort_times(self):
+        return self.times.order_by('begin', 'id')
+
     def get_slide_url_by_begin_time(self):
         from datetime import datetime
 
         if not config.SHOW_SLIDE_DATA:
             return None
 
-        time = self.times.first()
+        time = self.get_sort_times().first()
 
         if not time:
             return None
@@ -203,17 +206,17 @@ class Program(models.Model):
             return None
 
     def begin_time(self):
-        return self.times.all()[0].begin.strftime("%H:%M")
+        return self.get_sort_times().first().begin.strftime("%H:%M")
 
     def get_speakers(self):
         return ', '.join([u'{}({})'.format(_.name, _.email) for _ in self.speakers.all()])
     get_speakers.short_description = u'Speakers'
 
     def get_times(self):
-        times = self.times.all()
+        times = self.get_sort_times()
 
         if times:
-            return '%s - %s' % (times[0].begin.strftime("%H:%M"),
+            return '%s - %s' % (times.first().begin.strftime("%H:%M"),
                                 times[len(times) - 1].end.strftime("%H:%M"))
         else:
             return _("Not arranged yet")
