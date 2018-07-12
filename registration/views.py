@@ -28,10 +28,10 @@ payment_logger = logging.getLogger('payment')
 def index(request):
     is_registered = False
 
-    if request.user.is_authenticated():
-        is_registered = (Registration.objects.active_conference()
-                         .filter(user=request.user, payment_status__in=['paid', 'ready'])
-                         .exists())
+    # if request.user.is_authenticated():
+    #     is_registered = (Registration.objects.active_conference()
+    #                      .filter(user=request.user, payment_status__in=['paid', 'ready'])
+    #                      .exists())
 
     options = Option.objects.active_conference()
     ctx = {
@@ -108,17 +108,12 @@ def payment_process(request):
         return redirect('registration_index')
 
     payment_logger.debug(request.POST)
-    form = RegistrationAdditionalPriceForm(request.POST)
+    # form = RegistrationAdditionalPriceForm(request.POST)
+    form = RegistrationForm(request.POST)
     cleaned_form = form.cleaned_data
 
     # FIXME: product 가 없는 경우 예외 처리
     product = Option.objects.get(id=cleaned_form.get('option'))
-
-    # 이미 등록된 사용자로 등록 현황 페이지로 이동합니다.
-    registration = Registration.objects.filter(user=request.user, option=product,
-                                               payment_status__in=['paid', 'ready'])
-    if registration.exists():
-        return _redirect_registered(registration.option)
 
     # TODO : more form validation
     # eg) merchant_uid
@@ -129,22 +124,34 @@ def payment_process(request):
             'message': form_errors_string,
         })
 
-    # FIXME: 남은 티켓 확인이 컨퍼런스 기준으로 되어 있음
-    remain_ticket_count = (
-            config.TOTAL_TICKET - Registration.objects.active_conference().filter(payment_status__in=['paid', 'ready']).count())
+    if product.event_type == EVENT_CONFERENCE:
+        # 이미 등록된 사용자로 등록 현황 페이지로 이동합니다.
+        registration = Registration.objects.active_conference().filter(user=request.user, payment_status__in=['paid', 'ready'])
+        if registration.exists():
+            return _redirect_registered(registration.option)
+
+        # 후원 추가 금액이 0원 미만일 때
+        if form.cleaned_data.get('additional_price', 0) < 0:
+            return JsonResponse({
+                'success': False,
+                'message': u'후원 금액은 0원 이상이어야 합니다.',
+            })
+
+        remain_ticket_count = (
+                config.TOTAL_TICKET - Registration.objects.active_conference().filter(payment_status__in=['paid', 'ready']).count())
+    else:
+        registration_query = Registration.objects.filter(option=product ,payment_status__in=['paid', 'ready'])
+        registration = registration_query.filter(user=request.user)
+        if registration.exists():
+            return _redirect_registered(registration.option)
+
+        remain_ticket_count = (product.total - registration_query.filter(payment_status__in=['paid', 'ready']).count())
 
     # 매진 상태
     if remain_ticket_count <= 0:
         return JsonResponse({
             'success': False,
             'message': '티켓이 매진 되었습니다',
-        })
-
-    # 후원 추가 금액이 0원 미만일 때
-    if form.cleaned_data.get('additional_price', 0) < 0:
-        return JsonResponse({
-            'success': False,
-            'message': u'후원 금액은 0원 이상이어야 합니다.',
         })
 
     registration = Registration(
