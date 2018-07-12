@@ -28,10 +28,10 @@ payment_logger = logging.getLogger('payment')
 def index(request):
     is_registered = False
 
-    # if request.user.is_authenticated():
-    #     is_registered = (Registration.objects.active_conference()
-    #                      .filter(user=request.user, payment_status__in=['paid', 'ready'])
-    #                      .exists())
+    if request.user.is_authenticated():
+        is_registered = (Registration.objects.active_conference()
+                         .filter(user=request.user, payment_status__in=['paid', 'ready'])
+                         .exists())
 
     options = Option.objects.active_conference()
     ctx = {
@@ -75,7 +75,7 @@ def payment(request, option_id):
     ).exists()
 
     if is_registered:
-        return _redirect_registered(product.option)
+        return _redirect_registered(product)
 
     uid = str(uuid4()).replace('-', '')
 
@@ -108,12 +108,19 @@ def payment_process(request):
         return redirect('registration_index')
 
     payment_logger.debug(request.POST)
-    # form = RegistrationAdditionalPriceForm(request.POST)
-    form = RegistrationForm(request.POST)
-    cleaned_form = form.cleaned_data
 
     # FIXME: product 가 없는 경우 예외 처리
-    product = Option.objects.get(id=cleaned_form.get('option'))
+    try:
+        product = Option.objects.get(id=request.POST.get('option'))
+    except Option.DoesNotExist:
+        redirect('registration_index')
+
+    if product.has_additional_price:
+        form = RegistrationAdditionalPriceForm(request.POST)
+    elif product.event_type != EVENT_CONFERENCE:
+        form = RegistrationNoneShirtForm(request.POST)
+    else:
+        form = RegistrationForm(request.POST)
 
     # TODO : more form validation
     # eg) merchant_uid
@@ -123,6 +130,8 @@ def payment_process(request):
             'success': False,
             'message': form_errors_string,
         })
+
+    cleaned_form = form.cleaned_data
 
     if product.event_type == EVENT_CONFERENCE:
         # 이미 등록된 사용자로 등록 현황 페이지로 이동합니다.
