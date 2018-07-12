@@ -129,6 +129,7 @@ def payment_process(request):
             'message': form_errors_string,
         })
 
+    # FIXME: 남은 티켓 확인이 컨퍼런스 기준으로 되어 있음
     remain_ticket_count = (
             config.TOTAL_TICKET - Registration.objects.active_conference().filter(payment_status__in=['paid', 'ready']).count())
 
@@ -145,8 +146,6 @@ def payment_process(request):
             'success': False,
             'message': u'후원 금액은 0원 이상이어야 합니다.',
         })
-
-    cleaned_form = form.cleaned_data
 
     registration = Registration(
         user=request.user,
