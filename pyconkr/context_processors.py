@@ -72,6 +72,7 @@ def default(request):
                 ('information', {'title': _('Information')}),
                 ('purchase', {'title': _('Purchase a ticket')}),
                 ('finacial-aid', {'title': _('Financial Aid')}),
+                ('visa', {'title': _('Visa Sponsing')}),
             ]),
         }),
     ])
