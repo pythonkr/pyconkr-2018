@@ -129,6 +129,9 @@ msgstr "발표안 제안하기"
 msgid "Registration"
 msgstr "등록"
 
+msgid "My Tickets"
+msgstr "티켓 구매 현황"
+
 #: pyconkr/context_processors.py:72
 msgid "Information"
 msgstr "정보"

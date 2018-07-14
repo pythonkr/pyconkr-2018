@@ -760,3 +760,104 @@ footer .hosting {
   margin: 15px 0;
   text-align: left;
 }
+
+/*.ticket-box {*/
+  /*width: 580px;*/
+  /*border-radius: 10px;*/
+  /*border: 1px solid #d2d2d2;*/
+  /*padding: 25px 30px;*/
+  /*color: white;*/
+/*}*/
+
+/*.ticket-box .info-box p {*/
+  /*margin-bottom: 5px;*/
+/*}*/
+
+/*.ticket-box.conference-box {*/
+  /*background-color: #4b20ad;*/
+/*}*/
+
+/*.ticket-box.tutorial-box {*/
+  /*background-color: #5f1ca0;*/
+/*}*/
+
+/*.ticket-box.print-box {*/
+  /*background-color: #5f1ca0;*/
+/*}*/
+
+/*.ticket-box.youngcoder-box {*/
+  /*background-color: #741793;*/
+/*}*/
+
+/*.ticket-box.babycare-box {*/
+  /*background-color: #9d0c79;*/
+/*}*/
+
+.ticket-box .ticket-title {
+  font-weight: 600;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.ticket-box .ticket-header {
+  margin-bottom: 20px;
+}
+
+.ticket-box .info-title {
+  font-size: 14px;
+  color: #525252;
+  margin: 0;
+  font-weight: 600;
+}
+
+.ticket-box .info-text {
+  font-size: 12px;
+  color: #343535;
+}
+
+.ticket-wrap {
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.ticket-box {
+  width: 27em;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+.ticket {
+  height: 200px;
+  float: left;
+  position: relative;
+  padding: 10px;
+}
+
+.ticket.conference {
+  background: linear-gradient(to bottom, #4b20ad 0%, #4b20ad 23%, #f3f3f3 23%, #f3f3f3 100%);
+}
+
+.ticket.sprint, .ticket.tutorial {
+  background: linear-gradient(to bottom, #5f1ca0 0%, #5f1ca0 23%, #f3f3f3 23%, #f3f3f3 100%);
+}
+
+.ticket.youngcoder {
+  background: linear-gradient(to bottom, #741793 0%, #741793 23%, #f3f3f3 23%, #f3f3f3 100%);
+}
+
+.ticket.babycare {
+  background: linear-gradient(to bottom, #9d0c79 0%, #9d0c79 23%, #f3f3f3 23%, #f3f3f3 100%);
+}
+
+.ticket-left {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  width: 280px;
+}
+
+.ticket-right {
+  width: 125px;
+  border-left: .18em dashed #fff;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
