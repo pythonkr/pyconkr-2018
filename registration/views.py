@@ -17,7 +17,7 @@ from iamport import Iamport
 
 from pyconkr.helper import render_io_error
 from .forms import (RegistrationForm, RegistrationAdditionalPriceForm,
-                    ManualPaymentForm, IssueSubmitForm, RegistrationNoneShirtForm)
+                    ManualPaymentForm, IssueSubmitForm, RegistrationFormWithoutTopSize)
 from .iamporter import get_access_token, Iamporter, IamporterError
 from .models import Option, Registration, ManualPayment, IssueTicket, EVENT_CONFERENCE
 
@@ -84,7 +84,7 @@ def payment(request, option_id):
                                                         'option': product,
                                                         'base_price': product.price})
     elif product.event_type != EVENT_CONFERENCE:
-        form = RegistrationNoneShirtForm(initial={'email': request.user.email,
+        form = RegistrationFormWithoutTopSize(initial={'email': request.user.email,
                                                         'option': product,
                                                         'base_price': product.price})
     else:
@@ -109,16 +109,15 @@ def payment_process(request):
 
     payment_logger.debug(request.POST)
 
-    # FIXME: product 가 없는 경우 예외 처리
     try:
         product = Option.objects.get(id=request.POST.get('option'))
     except Option.DoesNotExist:
-        redirect('registration_index')
+        return redirect('registration_index')
 
     if product.has_additional_price:
         form = RegistrationAdditionalPriceForm(request.POST)
     elif product.event_type != EVENT_CONFERENCE:
-        form = RegistrationNoneShirtForm(request.POST)
+        form = RegistrationFormWithoutTopSize(request.POST)
     else:
         form = RegistrationForm(request.POST)
 
