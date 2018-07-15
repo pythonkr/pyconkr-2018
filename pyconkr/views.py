@@ -37,8 +37,8 @@ def index(request):
 
 def schedule(request):
     dates = ProgramDate.objects.all()
-    times = ProgramTime.objects.all().order_by('begin')
-    rooms = Room.objects.all()
+    times = ProgramTime.objects.order_by('begin')
+    rooms = Room.objects.order_by('name')
 
     wide = {}
     narrow = {}
@@ -55,7 +55,8 @@ def schedule(request):
                 s = Program.objects.filter(date=d, times=t, rooms=r)
 
                 if s:
-                    if s[0].times.all()[0] == t and s[0].id not in processed:
+                    s_times = s[0].get_sort_times()
+                    if s_times.first() == t and s[0].id not in processed:
                         wide[d][t][r] = s[0]
                         narrow[d][t].append(s[0])
                         processed.add(s[0].id)
@@ -289,7 +290,7 @@ class ProfileDetail(DetailView):
         if self.request.user.is_authenticated():
             if self.request.user == self.object.user:
                 context['editable'] = True
-        is_registered = Registration.objects.filter(
+        is_registered = Registration.objects.active_conference().filter(
             user=self.request.user,
             payment_status__in=['paid', 'ready']
         ).exists()
