@@ -12,6 +12,9 @@ from jsonfield import JSONField
 from uuid import uuid4
 from constance import config
 
+from registration.models import Option
+
+
 class Room(models.Model):
     name = models.CharField(max_length=100)
     location = models.CharField(max_length=255, null=True, blank=True)
@@ -321,6 +324,7 @@ class TutorialProposal(models.Model):
                                     ('L', _('100 people')),
                                 ))
     confirmed = models.BooleanField(default=False)
+    option = models.ForeignKey(Option, default=None, null=True, blank=True, verbose_name="구매 티켓 종류")
 
     def __str__(self):
         return self.title

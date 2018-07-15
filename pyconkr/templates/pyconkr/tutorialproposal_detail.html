@@ -15,6 +15,17 @@
         <i class="fa fa-pencil-square-o"></i> {% trans "Edit" %}
     </a>
     {% endif %}
+    {%  if option %}
+        {% if is_registered %}
+            <a href='#' class="btn btn-primary">
+                이미 등록하셨습니다.
+            </a>
+        {%  else %}
+            <a href='{% url "registration_payment" option.id %}' class="btn btn-primary">
+                {{ option.name }}
+            </a>
+        {% endif %}
+    {% endif %}
 </h1>
 {% endblock %}
 {% block content %}

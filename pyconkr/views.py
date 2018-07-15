@@ -472,6 +472,14 @@ class TutorialProposalDetail(DetailView):
         else:
             context['joined'] = False
 
+        if self.object.option:
+            context['option'] = self.object.option
+
+        registration = Registration.objects.active_tutorial()\
+            .filter(option=self.object.option, user=self.request.user, payment_status__in=['paid', 'ready'])
+        if registration.exists():
+            context['is_registered'] = True
+
         return context
 
 
