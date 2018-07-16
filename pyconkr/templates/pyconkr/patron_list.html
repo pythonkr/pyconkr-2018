@@ -12,14 +12,18 @@
       <li class="media">
         <div class="pull-left">
           {% thumbnail obj.user.profile.image "128x128" crop="center" as im %}
-          <img class="media-patron" src="{{ im.url }}" alt="photo of {{ obj.user.profile.name or obj.name }}">
+          <img class="media-patron" src="{{ im.url }}" alt="">
           {% empty %}
           <img class="media-patron" src="{% static 'image/anonymous.png' %}">
           {% endthumbnail %}
         </div>
         <div class="media-body">
           <h4 class="media-heading">
-            {{ obj.user.profile.name or obj.name }}
+            {% if obj.user.profile.name %}
+              {{ obj.user.profile.name }}
+            {% else %}
+              {{ obj.name }}
+            {% endif %}
             {% if obj.user.profile.organization %}
             / {{ obj.user.profile.organization }}
             {% elif obj.company %}
