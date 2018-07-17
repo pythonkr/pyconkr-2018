@@ -7,7 +7,7 @@ from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
 EVENT_CONFERENCE = 'conference'
-EVENT_TUTORIAL = 'tuturial'
+EVENT_TUTORIAL = 'tutorial'
 EVENT_YOUNG = 'young'
 EVENT_BABYCARE = 'babycare'
 EVENT_TYPES = (
