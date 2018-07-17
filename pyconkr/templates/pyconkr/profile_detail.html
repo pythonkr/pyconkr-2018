@@ -40,68 +40,71 @@
                     <div class="ticket {{ ticket.option.event_type }} ticket-left">
                         <div class="ticket-title ticket-header">{{ ticket.option.event_type|title }}</div>
                         <p class="info-title">NAME</p>
-                        <span class="info-text">{{ ticket.name }}</span>
+                            <span class="info-text">{{ ticket.name }}</span>
 
-                        <p class="info-title">TICKET OPTION</p>
-                        <span class="info-text">{{ ticket.option.name }}</span><br>
+                            <p class="info-title">TICKET OPTION</p>
+                            <span class="info-text">{{ ticket.option.name }}</span><br>
 
-                        <span class="info-text"><a href="{% url 'registration_status' %}">{% trans "Check Registration Status" %}</a></span>
+                            <p class="info-title">TICKET CREATED</p>
+                            <span class="info-text">
+                                {% if ticket.payment_status == 'paid' %}
+                                    {{ ticket.created }}
+                                {% else %}
+                                <span class="status-text">{% trans 'Ready For Paid' %}</span>
+                                {% endif %}
+                            </span><br>
+
+                            <span class="info-text"><a href="{% url 'registration_status' %}">{% trans "Check Registration Status" %}</a></span>
                     </div>
                     <div class="ticket {{ ticket.option.event_type }} ticket-right">
                         <div class="ticket-title ticket-header">PyCon.KR</div>
                         <p class="info-title">PERIOD</p>
-                        <span class="info-text">2018.08.18 - 19</span>
+                        <span class="info-text">
+                            {% if ticket.option.event_type == 'conference' %}
+                                2018.08.18 - 19
+                            {% else %}
+                                -
+                            {% endif %}
+                        </span>
                     </div>
                 </div>
             </div>
             {% endfor %}
-
-            <div class="ticket-wrap">
-                <div class="ticket-box">
-                    <div class="ticket youngcoder ticket-left">
-                        <div class="ticket-title ticket-header">YOUNG CODER</div>
-                        <p class="info-title">NAME</p>
-                        <span class="info-text">김애영</span>
-
-                        <p class="info-title">TICKET OPTION</p>
-                        <span class="info-text">-</span><br>
-
-                        <span class="info-text"><a href="{% url 'registration_status' %}">{% trans "Check Registration Status" %}</a></span>
-                    </div>
-                    <div class="ticket youngcoder ticket-right">
-                        <div class="ticket-title ticket-header">PyCon.KR</div>
-                        <p class="info-title">PERIOD</p>
-                        <span class="info-text">2018.08.18</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ticket-wrap">
-                <div class="ticket-box">
-                    <div class="ticket tutorial ticket-left">
-                        <div class="ticket-title ticket-header">TUTORIAL</div>
-                        <p class="info-title">NAME</p>
-                        <span class="info-text">김애영</span>
-
-                        <p class="info-title">TICKET OPTION</p>
-                        <span class="info-text">-</span><br>
-
-                        <span class="info-text"><a href="{% url 'registration_status' %}">{% trans "Check Registration Status" %}</a></span>
-                    </div>
-                    <div class="ticket tutorial ticket-right">
-                        <div class="ticket-title ticket-header">PyCon.KR</div>
-                        <p class="info-title">PERIOD</p>
-                        <span class="info-text">2018.08.18</span>
-                    </div>
-                </div>
-            </div>
-
-            <!--<h4>Tutorial/Sprint</h4>-->
-            <!--<p>{% trans "Please be a tutorial speaker at PyCon." %} <a href='https://docs.google.com/forms/d/e/1FAIpQLSeKEQ1Wmgd4YDig4nYXSHRwSBpFCJc5L5er3ndMHArdpmuESw/viewform'>{% trans "Submit a new proposal" %}</a></p>-->
-
-            <!--<h4>Sprint</h4>-->
-            <!--<p>{% trans "Please be a sprint leader at PyCon." %} <a href='https://docs.google.com/forms/d/e/1FAIpQLSeKEQ1Wmgd4YDig4nYXSHRwSBpFCJc5L5er3ndMHArdpmuESw/viewform'>{% trans "Submit a new proposal" %}</a></p>-->
         </div>
+
+        <hr>
+        <h3>{% trans 'Cancelled Tickets' %}</h3>
+        <div>
+            {% for ticket in cancelled_tickets %}
+            <div class="ticket-wrap">
+                <div class="ticket-box">
+                    <div class="ticket {{ ticket.payment_status }} {{ ticket.option.event_type }} ticket-left">
+                        <div class="ticket-title ticket-header">{{ ticket.option.event_type|title }}</div>
+                            <p class="info-title">NAME</p>
+                            <span class="info-text">{{ tㅔicket.name }}</span>
+
+                            <p class="info-title">TICKET OPTION</p>
+                            <span class="info-text">{{ ticket.option.name }}</span><br>
+
+                            <p class="info-title">TICKET STATUS</p>
+                            <span class="status-text">{{ ticket.payment_status }}</span><br>
+                      </div>
+                      <div class="ticket {{ ticket.payment_status }} {{ ticket.option.event_type }} ticket-right">
+                          <div class="ticket-title ticket-header">PyCon.KR</div>
+                          <p class="info-title">PERIOD</p>
+                          <span class="info-text">
+                            {% if ticket.option.event_type == 'conference' %}
+                                2018.08.18 - 19
+                            {% else %}
+                                -
+                            {% endif %}
+                          </span>
+                      </div>
+                  </div>
+              </div>
+              {% endfor %}
+        </div>
+
     {% endif %}
 </div>
 {% endblock %}

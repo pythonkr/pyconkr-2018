@@ -793,6 +793,7 @@ footer .hosting {
   /*background-color: #9d0c79;*/
 /*}*/
 
+
 .ticket-box .ticket-title {
   font-weight: 600;
   font-size: 20px;
@@ -815,49 +816,64 @@ footer .hosting {
   color: #343535;
 }
 
+.ticket-box .status-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: #f14646;
+  text-transform: uppercase;
+}
+
 .ticket-wrap {
   display: inline-block;
   margin-bottom: 15px;
+  vertical-align: top;
 }
 
 .ticket-box {
   width: 27em;
   color: #fff;
-  font-family: sans-serif;
 }
 
 .ticket {
-  height: 200px;
+  height: 16em;
   float: left;
   position: relative;
   padding: 10px;
 }
 
 .ticket.conference {
-  background: linear-gradient(to bottom, #4b20ad 0%, #4b20ad 23%, #f3f3f3 23%, #f3f3f3 100%);
+  background: linear-gradient(to bottom, #4b20ad 0%, #4b20ad 19%, #f3f3f3 19%, #f3f3f3 100%);
 }
 
 .ticket.sprint, .ticket.tutorial {
-  background: linear-gradient(to bottom, #5f1ca0 0%, #5f1ca0 23%, #f3f3f3 23%, #f3f3f3 100%);
+  background: linear-gradient(to bottom, #5f1ca0 0%, #5f1ca0 19%, #f3f3f3 19%, #f3f3f3 100%);
 }
 
 .ticket.youngcoder {
-  background: linear-gradient(to bottom, #741793 0%, #741793 23%, #f3f3f3 23%, #f3f3f3 100%);
+  background: linear-gradient(to bottom, #741793 0%, #741793 19%, #f3f3f3 19%, #f3f3f3 100%);
 }
 
 .ticket.babycare {
-  background: linear-gradient(to bottom, #9d0c79 0%, #9d0c79 23%, #f3f3f3 23%, #f3f3f3 100%);
+  background: linear-gradient(to bottom, #9d0c79 0%, #9d0c79 19%, #f3f3f3 19%, #f3f3f3 100%);
 }
 
 .ticket-left {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
-  width: 280px;
+  width: 18em;
+  box-shadow: 3px 3px 5px #d8d8d8;
 }
 
 .ticket-right {
-  width: 125px;
+  width: 8em;
   border-left: .18em dashed #fff;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+  box-shadow: 3px 3px 5px #d8d8d8;
+}
+
+.ticket.cancelled, .ticket.ready {
+  background: #f3f3f3;
+  color: #c3c3c3;
+  height: 14em;
 }
