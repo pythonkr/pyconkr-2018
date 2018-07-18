@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load thumbnail %}
+
+{% block head-include %}
+<link href="{% static 'css/young-coder.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="content">
+  <div class="board">
+    <div class="board-inner">
+      <ul class="nav nav-tabs" id="myTab">
+        <div class="liner"></div>
+        <li class="active">
+          <a href="#home" data-toggle="tab" title="welcome">
+            <span class="round-tabs one">
+              <i class="glyphicon glyphicon-home"></i>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="#profile" data-toggle="tab" title="profile">
+            <span class="round-tabs two" style="">
+              <span>10</span><i class="glyphicon glyphicon-arrow-up"></i>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="#messages" data-toggle="tab" title="bootsnipp goodies">
+            <span class="round-tabs three">
+              <span>14</span><i class="glyphicon glyphicon-arrow-up"></i>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="#settings" data-toggle="tab" title="blah blah">
+            <span class="round-tabs four">
+              <i class="glyphicon glyphicon-bullhorn"></i>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="tab-content">
+      <div class="tab-pane fade in active" id="home">
+        <h3 class="head text-center">영코더란?</h3>
+        <p class="narrow text-center">
+          영코더 좋아 영코더해 두번해 세번해<br>
+          영코더 좋아 영코더해 두번해 세번해<br>
+          영코더 좋아 영코더해 두번해 세번해<br>
+        </p>
+      </div>
+      <div class="tab-pane fade" id="profile">
+        <h3 class="head text-center">[10세 이상 권장] 구글 스마트 스피커 만들기</h3>
+        <p class="narrow text-center">
+          Google AIY Voice Kit를 활용해 직접 조립하여 설치&만들어보기
+        </p>
+
+        <p class="text-center">
+          <a href="" class="btn btn-success btn-outline-rounded green">
+            티켓 구매
+            <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span>
+          </a>
+        </p>
+
+      </div>
+      <div class="tab-pane fade" id="messages">
+        <h3 class="head text-center">[14세 이상 권장] 영코더 제목</h3>
+        <p class="narrow text-center">
+          영코더 내용
+        </p>
+
+         <p class="text-center">
+          <a href="" class="btn btn-success btn-outline-rounded green">
+            티켓 구매
+            <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span>
+          </a>
+        </p>
+      </div>
+      <div class="tab-pane fade" id="settings">
+        <h3 class="head text-center">FAQ</h3>
+        <p class="narrow text-center">
+          안내사항
+        </p>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -35,6 +35,11 @@ def index(request):
     })
 
 
+def young_coder(request):
+    contexts = {}
+    return render(request, 'young_coder.html', contexts)
+
+
 def schedule(request):
     dates = ProgramDate.objects.all()
     times = ProgramTime.objects.order_by('begin')
