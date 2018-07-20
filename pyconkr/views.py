@@ -455,7 +455,6 @@ class TutorialProposalDetail(DetailView):
         limit_bar_id = 65539
         if capacity < len(checkin_ids):
             limit_bar_id = checkin_ids[capacity-1]
-        attendees = TutorialCheckin.objects.filter(tutorial=self.object)
         attendees = [{'name': x.user.profile.name if x.user.profile.name != '' else
                       x.user.email.split('@')[0],
                       'picture': x.user.profile.image,
@@ -463,7 +462,7 @@ class TutorialProposalDetail(DetailView):
                       Registration.objects.filter(user=x.user,
                       payment_status='paid').exists(),
                       'waiting': True if x.id > limit_bar_id else False
-                     } for x in attendees]
+                     } for x in TutorialCheckin.objects.filter(tutorial=self.object)]
         context['attendees'] = attendees
 
         if self.request.user.is_authenticated():

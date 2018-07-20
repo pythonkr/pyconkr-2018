@@ -136,7 +136,8 @@ class TutorialProposalAdminForm(forms.ModelForm):
 
 class TutorialProposalAdmin(admin.ModelAdmin):
     form = TutorialProposalAdminForm
-    list_display = ('user', 'title', 'difficulty', 'duration', 'language', 'capacity')
+    list_display = ('user', 'title', 'difficulty', 'duration', 'language', 'capacity',
+                    'begin_date', 'begin_time', 'end_date', 'end_time', )
     actions = [convert_proposal_to_program]
 admin.site.register(TutorialProposal, TutorialProposalAdmin)
 
