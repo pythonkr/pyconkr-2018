@@ -5,6 +5,7 @@
 
 {% block head-include %}
 <link href="{% static 'css/young-coder.css' %}" rel="stylesheet">
+<script src="{% static 'js/young-coder.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -14,28 +15,28 @@
       <ul class="nav nav-tabs" id="myTab">
         <div class="liner"></div>
         <li class="active">
-          <a href="#home" data-toggle="tab" title="welcome">
+          <a href="#about_youngcoder" data-toggle="tab" title="welcome">
             <span class="round-tabs one">
               <i class="glyphicon glyphicon-home"></i>
             </span>
           </a>
         </li>
         <li>
-          <a href="#profile" data-toggle="tab" title="profile">
+          <a href="#1st_program" data-toggle="tab" title="profile">
             <span class="round-tabs two" style="">
               <span>10</span><i class="glyphicon glyphicon-arrow-up"></i>
             </span>
           </a>
         </li>
         <li>
-          <a href="#messages" data-toggle="tab" title="bootsnipp goodies">
+          <a href="#2nd_program" data-toggle="tab" title="bootsnipp goodies">
             <span class="round-tabs three">
               <span>14</span><i class="glyphicon glyphicon-arrow-up"></i>
             </span>
           </a>
         </li>
         <li>
-          <a href="#settings" data-toggle="tab" title="blah blah">
+          <a href="#faq" data-toggle="tab" title="blah blah">
             <span class="round-tabs four">
               <i class="glyphicon glyphicon-bullhorn"></i>
             </span>
@@ -45,7 +46,7 @@
     </div>
 
     <div class="tab-content">
-      <div class="tab-pane fade in active" id="home">
+      <div class="tab-pane fade in active" id="about_youngcoder">
         <h3 class="head text-center">영코더란?</h3>
         <p class="narrow text-center">
           영코더 좋아 영코더해 두번해 세번해<br>
@@ -53,38 +54,284 @@
           영코더 좋아 영코더해 두번해 세번해<br>
         </p>
       </div>
-      <div class="tab-pane fade" id="profile">
-        <h3 class="head text-center">[10세 이상 권장] 구글 스마트 스피커 만들기</h3>
-        <p class="narrow text-center">
-          Google AIY Voice Kit를 활용해 직접 조립하여 설치&만들어보기
-        </p>
 
-        <p class="text-center">
-          <a href="" class="btn btn-success btn-outline-rounded green">
-            티켓 구매
-            <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span>
-          </a>
-        </p>
+      <div class="tab-pane fade" id="1st_program">
+        <h3 class="head text-center">[10세 이상 권장] Google AIY Voice Kit 만들어보기</h3>
+        <ul>
+          <li>AIY kit의 LED를 켜고 꺼보기</li>
+          <ul>
+            <li>차근차근 따라서 코드를 입력하고, 실행해 보는 과정</li>
+          </ul>
+          <li>버튼을 눌렀을 때, LED가 깜빡거리도록 해보기</li>
+          <ul>
+            <li>버튼 눌렀을 때에 대한 과정</li>
+            <li>응용: 버튼을 눌렀을 때, 소리도 나도록 해보기</li>
+          </ul>
+          <li>버튼을 누를때 마다, 다른 소리가 나도록 하기</li>
+          <ul>
+            <li>if 문과 간단한 대입, 연산자 배움</li>
+            <li>동물소리들, 자동차 소리, 방구 소리 등등 개성있는 소리 출력</li>
+          </ul>
+          <li>음성으로 LED를 켜고 끄도록 해보기</li>
+          <ul>
+            <li>음성 API 활용</li>
+          </ul>
+          <li>음성으로 원하는 소리를 출력하도록 하기</li>
+          <ul>
+            <li>지금까지 배운 것 다시 활용</li>
+            <li> 예) car -> 자동차 소리 출력. dog -> 강아지 짖는 소리 출력</li>
+          </ul>
+          <!--음성으로 하는 가위바위보 게임 만들기-->
+          <!--if문, 대입, 연산자를 활용-->
+          <!--LED가 두번 켜졌다 꺼지고 세번째 켜질때, 가위/바위/보 중 하나를 외쳐서 컴퓨터와 겨루는 게임-->
+          <!--보너스: 음성으로 네이버 검색 하기.-->
+          <!--보너스: AIY kit으로 할 수 있는 것들과 사례 소개-->
+        </ul>
+        <hr>
 
+        <h3 class="head text-center">8월 18일 시간표</h3>
+        <div>
+          <table class="table table-bordered table-striped">
+            <thead>
+            <th>시간</th>
+            <th>내용</th>
+            </thead>
+            <tr>
+              <td>10:00</td>
+              <td rowspan="3">
+                오전반<br>
+                <a href="{% url 'registration_payment' 4 %}" class="btn btn-sm btn-primary btn-outline-rounded">
+                  8/18 오전반 등록
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>11:00</td>
+            </tr>
+            <tr>
+              <td>12:00</td>
+            </tr>
+            <tr>
+              <td>13:00</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>14:00</td>
+              <td rowspan="3">
+                오후반<br>
+                <a href="{% url 'registration_payment' 1 %}" class="btn btn-sm btn-primary btn-outline-rounded">
+                  8/18 오후반 등록
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>15:00</td>
+            </tr>
+            <tr>
+              <td>16:00</td>
+            </tr>
+            <tr>
+              <td>17:00</td>
+              <td>-</td>
+            </tr>
+          </table>
+        </div>
+
+        <h3 class="head text-center">8월 19일 시간표</h3>
+        <div>
+          <table class="table table-bordered table-striped">
+            <thead>
+            <th>시간</th>
+            <th>내용</th>
+            </thead>
+            <tr>
+              <td>10:00</td>
+              <td rowspan="3">
+                오전반<br>
+                <a href="{% url 'registration_payment' 1 %}" class="btn btn-sm btn-primary btn-outline-rounded">
+                  8/19 오전반 등록
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>11:00</td>
+            </tr>
+            <tr>
+              <td>12:00</td>
+            </tr>
+            <tr>
+              <td>13:00</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>14:00</td>
+              <td rowspan="3">
+                오후반<br>
+                <a href="{% url 'registration_payment' 1 %}" class="btn btn-sm btn-primary btn-outline-rounded">
+                  8/19 오후반 등록
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>15:00</td>
+            </tr>
+            <tr>
+              <td>16:00</td>
+            </tr>
+            <tr>
+              <td>17:00</td>
+              <td>-</td>
+            </tr>
+          </table>
+        </div>
       </div>
-      <div class="tab-pane fade" id="messages">
+
+      <div class="tab-pane fade" id="2nd_program">
         <h3 class="head text-center">[14세 이상 권장] 영코더 제목</h3>
-        <p class="narrow text-center">
-          영코더 내용
-        </p>
+        <ul>
+          <li>AIY kit의 LED를 켜고 꺼보기</li>
+          <ul>
+            <li>차근차근 따라서 코드를 입력하고, 실행해 보는 과정</li>
+          </ul>
+          <li>버튼을 눌렀을 때, LED가 깜빡거리도록 해보기</li>
+          <ul>
+            <li>버튼 눌렀을 때에 대한 과정</li>
+            <li>응용: 버튼을 눌렀을 때, 소리도 나도록 해보기</li>
+          </ul>
+          <li>버튼을 누를때 마다, 다른 소리가 나도록 하기</li>
+          <ul>
+            <li>if 문과 간단한 대입, 연산자 배움</li>
+            <li>동물소리들, 자동차 소리, 방구 소리 등등 개성있는 소리 출력</li>
+          </ul>
+          <li>음성으로 LED를 켜고 끄도록 해보기</li>
+          <ul>
+            <li>음성 API 활용</li>
+          </ul>
+          <li>음성으로 원하는 소리를 출력하도록 하기</li>
+          <ul>
+            <li>지금까지 배운 것 다시 활용</li>
+            <li> 예) car -> 자동차 소리 출력. dog -> 강아지 짖는 소리 출력</li>
+          </ul>
+          <!--음성으로 하는 가위바위보 게임 만들기-->
+          <!--if문, 대입, 연산자를 활용-->
+          <!--LED가 두번 켜졌다 꺼지고 세번째 켜질때, 가위/바위/보 중 하나를 외쳐서 컴퓨터와 겨루는 게임-->
+          <!--보너스: 음성으로 네이버 검색 하기.-->
+          <!--보너스: AIY kit으로 할 수 있는 것들과 사례 소개-->
+        </ul>
+        <hr>
 
-         <p class="text-center">
-          <a href="" class="btn btn-success btn-outline-rounded green">
-            티켓 구매
-            <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span>
-          </a>
-        </p>
+        <h3 class="head text-center">8월 18일 시간표</h3>
+        <div>
+          <table class="table table-bordered table-striped">
+            <thead>
+            <th>시간</th>
+            <th>내용</th>
+            </thead>
+            <tr>
+              <td>10:00</td>
+              <td rowspan="3">
+                오전반<br>
+                <a href="{% url 'registration_payment' 1 %}" class="btn btn-sm btn-primary btn-outline-rounded">
+                  8/18 등록
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>11:00</td>
+            </tr>
+            <tr>
+              <td>12:00</td>
+            </tr>
+            <tr>
+              <td>13:00</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>14:00</td>
+              <td rowspan="3">
+                오후반<br>
+                <a href="{% url 'registration_payment' 1 %}" class="btn btn-sm btn-primary btn-outline-rounded">
+                  8/18 등록
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>15:00</td>
+            </tr>
+            <tr>
+              <td>16:00</td>
+            </tr>
+            <tr>
+              <td>17:00</td>
+              <td>-</td>
+            </tr>
+          </table>
+        </div>
+
+        <h3 class="head text-center">8월 19일 시간표</h3>
+        <div>
+          <table class="table table-bordered table-striped">
+            <thead>
+            <th>시간</th>
+            <th>내용</th>
+            </thead>
+            <tr>
+              <td>10:00</td>
+              <td rowspan="3">
+                오전반<br>
+                <a href="" class="btn btn-sm btn-primary btn-outline-rounded">
+                  8/19 등록
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>11:00</td>
+            </tr>
+            <tr>
+              <td>12:00</td>
+            </tr>
+            <tr>
+              <td>13:00</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>14:00</td>
+              <td rowspan="3">
+                오후반<br>
+                <a href="" class="btn btn-sm btn-primary btn-outline-rounded">
+                  8/19 등록
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>15:00</td>
+            </tr>
+            <tr>
+              <td>16:00</td>
+            </tr>
+            <tr>
+              <td>17:00</td>
+              <td>-</td>
+            </tr>
+          </table>
+        </div>
       </div>
-      <div class="tab-pane fade" id="settings">
+
+      <div class="tab-pane fade" id="faq">
         <h3 class="head text-center">FAQ</h3>
-        <p class="narrow text-center">
-          안내사항
-        </p>
+        <ol>
+          <li>점심식사가 제공되나요?</li>
+          <p>제공되지않습니다.</p>
+
+          <li>주차권이 제공되나요?</li>
+          <p>제공되지않습니다.</p>
+
+          <li>[10세 이상 권장] Google AIY Voice Kit 의 키트는 반납해야 하나요?</li>
+          <p>실습 후 개인이 가져갈 수 있습니다.</p>
+
+          <li>[14세 이상 권장] 영코더 제목 참가를 위해 노트북 지참이 필수인가요?</li>
+          <p>필수입니다.</p>
+        </ol>
       </div>
       <div class="clearfix"></div>
     </div>
