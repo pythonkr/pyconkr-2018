@@ -1,17 +1,12 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
-/* written by riliwan balogun http://www.facebook.com/riliwan.rabo*/
 .board {
   width: 90%;
   margin: 60px auto;
-  height: 500px;
+  height: 1500px;
   background: #fff;
-  /*box-shadow: 10px 10px #ccc,-10px 20px #ddd;*/
 }
 
 .board .nav-tabs {
   position: relative;
-  /* border-bottom: 0; */
-  /* width: 80%; */
   margin: 40px auto;
   margin-bottom: 0;
   box-sizing: border-box;
@@ -42,7 +37,6 @@ p.narrow {
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   color: #555555;
   cursor: default;
-  /* background-color: #ffffff; */
   border: 0;
   border-bottom-color: transparent;
 }
@@ -124,18 +118,6 @@ li.active span.round-tabs.five {
   width: 25%;
 }
 
-/*li.active:before {
-    content: " ";
-    position: absolute;
-    left: 45%;
-    opacity:0;
-    margin: 0 auto;
-    bottom: -2px;
-    border: 10px solid transparent;
-    border-bottom-color: #fff;
-    z-index: 1;
-    transition:0.2s ease-in-out;
-}*/
 li:after {
   content: " ";
   position: absolute;
@@ -195,14 +177,7 @@ li.active:after {
   border-radius: 25px;
 }
 
-.btn.green {
-  background-color: #5cb85c;
-  /*border: 2px solid #5cb85c;*/
-  color: #ffffff;
-}
-
 @media ( max-width: 585px ) {
-
   .board {
     width: 90%;
     height: auto !important;
