@@ -17,9 +17,9 @@ from iamport import Iamport
 
 from pyconkr.helper import render_io_error
 from .forms import (RegistrationForm, RegistrationAdditionalPriceForm,
-                    ManualPaymentForm, IssueSubmitForm)
+                    ManualPaymentForm, IssueSubmitForm, RegistrationFormWithoutTopSize)
 from .iamporter import get_access_token, Iamporter, IamporterError
-from .models import Option, Registration, ManualPayment, IssueTicket
+from .models import Option, Registration, ManualPayment, IssueTicket, EVENT_CONFERENCE, EVENT_YOUNG, EVENT_BABYCARE
 
 logger = logging.getLogger(__name__)
 payment_logger = logging.getLogger('payment')
@@ -29,9 +29,8 @@ def index(request):
     is_registered = False
 
     if request.user.is_authenticated():
-        is_registered = (Registration.objects
-                         .filter(user=request.user,
-                                 payment_status__in=['paid', 'ready'])
+        is_registered = (Registration.objects.active_conference()
+                         .filter(user=request.user, payment_status__in=['paid', 'ready'])
                          .exists())
 
     options = Option.objects.active_conference()
@@ -44,7 +43,7 @@ def index(request):
 
 @login_required
 def status(request):
-    registration = Registration.objects.filter(user=request.user)
+    registration = Registration.objects.active_conference().filter(user=request.user)
 
     if registration:
         registration = registration.latest('created')
@@ -56,6 +55,13 @@ def status(request):
     return render(request, 'registration/status.html', context)
 
 
+def _redirect_registered(option):
+    if option.event_type == EVENT_CONFERENCE:
+        return redirect('registration_status')
+    else:
+        return redirect('profile')
+
+
 @login_required
 def payment(request, option_id):
     product = Option.objects.get(id=option_id)
@@ -64,12 +70,12 @@ def payment(request, option_id):
         return redirect('registration_index')
 
     is_registered = Registration.objects.filter(
-        user=request.user,
+        user=request.user, option=product,
         payment_status__in=['paid', 'ready']
     ).exists()
 
     if is_registered:
-        return redirect('registration_status')
+        return _redirect_registered(product)
 
     uid = str(uuid4()).replace('-', '')
 
@@ -77,16 +83,28 @@ def payment(request, option_id):
         form = RegistrationAdditionalPriceForm(initial={'email': request.user.email,
                                                         'option': product,
                                                         'base_price': product.price})
+    elif product.event_type != EVENT_CONFERENCE:
+        form = RegistrationFormWithoutTopSize(initial={'email': request.user.email,
+                                                        'option': product,
+                                                        'base_price': product.price})
     else:
         form = RegistrationForm(initial={'email': request.user.email,
                                          'option': product,
                                          'base_price': product.price})
 
-    return render(request, 'registration/payment.html', {
+    if product.event_type == EVENT_YOUNG:
+        render_page = 'registration/payment_youngcoder.html'
+    elif product.event_type == EVENT_BABYCARE:
+        render_page = 'registration/payment_babycare.html'
+    else:
+        render_page = 'registration/payment.html'
+
+    return render(request, render_page, {
         'title': _('Registration'),
         'form': form,
         'uid': uid,
         'product_name': product.name,
+        'option_id': option_id,
         'amount': product.price,
     })
 
@@ -97,12 +115,19 @@ def payment_process(request):
     if request.method == 'GET':
         return redirect('registration_index')
 
-    # 이미 등록된 사용자로 등록 현황 페이지로 이동합니다.
-    if Registration.objects.filter(user=request.user, payment_status__in=['paid', 'ready']).exists():
-        return redirect('registration_status')
-
     payment_logger.debug(request.POST)
-    form = RegistrationAdditionalPriceForm(request.POST)
+
+    try:
+        product = Option.objects.get(id=request.POST.get('option'))
+    except Option.DoesNotExist:
+        return redirect('registration_index')
+
+    if product.has_additional_price:
+        form = RegistrationAdditionalPriceForm(request.POST)
+    elif product.event_type != EVENT_CONFERENCE:
+        form = RegistrationFormWithoutTopSize(request.POST)
+    else:
+        form = RegistrationForm(request.POST)
 
     # TODO : more form validation
     # eg) merchant_uid
@@ -113,8 +138,30 @@ def payment_process(request):
             'message': form_errors_string,
         })
 
-    remain_ticket_count = (
-            config.TOTAL_TICKET - Registration.objects.filter(payment_status__in=['paid', 'ready']).count())
+    cleaned_form = form.cleaned_data
+
+    if product.event_type == EVENT_CONFERENCE:
+        # 이미 등록된 사용자로 등록 현황 페이지로 이동합니다.
+        registration = Registration.objects.active_conference().filter(user=request.user, payment_status__in=['paid', 'ready'])
+        if registration.exists():
+            return _redirect_registered(registration.option)
+
+        # 후원 추가 금액이 0원 미만일 때
+        if form.cleaned_data.get('additional_price', 0) < 0:
+            return JsonResponse({
+                'success': False,
+                'message': u'후원 금액은 0원 이상이어야 합니다.',
+            })
+
+        remain_ticket_count = (
+                config.TOTAL_TICKET - Registration.objects.active_conference().filter(payment_status__in=['paid', 'ready']).count())
+    else:
+        registration_query = Registration.objects.filter(option=product ,payment_status__in=['paid', 'ready'])
+        registration = registration_query.filter(user=request.user)
+        if registration.exists():
+            return _redirect_registered(registration.option)
+
+        remain_ticket_count = (product.total - registration_query.filter(payment_status__in=['paid', 'ready']).count())
 
     # 매진 상태
     if remain_ticket_count <= 0:
@@ -122,15 +169,6 @@ def payment_process(request):
             'success': False,
             'message': '티켓이 매진 되었습니다',
         })
-
-    # 후원 추가 금액이 0원 미만일 때
-    if form.cleaned_data.get('additional_price', 0) < 0:
-        return JsonResponse({
-            'success': False,
-            'message': u'후원 금액은 0원 이상이어야 합니다.',
-        })
-
-    cleaned_form = form.cleaned_data
 
     registration = Registration(
         user=request.user,
