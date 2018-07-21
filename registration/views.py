@@ -19,7 +19,7 @@ from pyconkr.helper import render_io_error
 from .forms import (RegistrationForm, RegistrationAdditionalPriceForm,
                     ManualPaymentForm, IssueSubmitForm)
 from .iamporter import get_access_token, Iamporter, IamporterError
-from .models import Option, Registration, ManualPayment, IssueTicket
+from .models import Option, Registration, ManualPayment, IssueTicket, EVENT_CONFERENCE, EVENT_YOUNG, EVENT_BABYCARE
 
 logger = logging.getLogger(__name__)
 payment_logger = logging.getLogger('payment')
@@ -82,11 +82,19 @@ def payment(request, option_id):
                                          'option': product,
                                          'base_price': product.price})
 
-    return render(request, 'registration/payment.html', {
+    if product.event_type == EVENT_YOUNG:
+        render_page = 'registration/payment_youngcoder.html'
+    elif product.event_type == EVENT_BABYCARE:
+        render_page = 'registration/payment_babycare.html'
+    else:
+        render_page = 'registration/payment.html'
+
+    return render(request, render_page, {
         'title': _('Registration'),
         'form': form,
         'uid': uid,
         'product_name': product.name,
+        'option_id': option_id,
         'amount': product.price,
     })
 
