@@ -34,6 +34,12 @@ class RegistrationForm(forms.ModelForm):
         }
 
 
+class RegistrationFormWithoutTopSize(RegistrationForm):
+    def __init__(self, *args, **kwargs):
+        super(RegistrationFormWithoutTopSize, self).__init__(*args, **kwargs)
+        self.fields.pop('top_size')
+
+
 class RegistrationAdditionalPriceForm(RegistrationForm):
     additional_price = forms.IntegerField(min_value=0)
 
