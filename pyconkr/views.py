@@ -302,6 +302,8 @@ class ProfileDetail(DetailView):
         has_proposal = Proposal.objects.filter(user=self.request.user).exists()
         has_sprint = SprintProposal.objects.filter(user=self.request.user).exists()
         has_tutorial = TutorialProposal.objects.filter(user=self.request.user).exists()
+        context['tickets'] = Registration.objects.filter(user=self.request.user, payment_status__in=['paid', 'ready'])
+        context['cancelled_tickets'] = Registration.objects.filter(user=self.request.user, payment_status='cancelled')
         context['is_registered'] = is_registered
         context['has_proposal'] = has_proposal
         context['has_tutorial'] = has_tutorial
