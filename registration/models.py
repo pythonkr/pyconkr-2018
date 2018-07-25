@@ -112,7 +112,7 @@ class Registration(models.Model):
         choices=(
             ('card-korean', _('Credit Card only for Korean')),
             ('card-foreign', _('Credit Card for Foreign')),
-            ('vbank', _('Virtual Bank Transfer')),
+            # ('vbank', _('Virtual Bank Transfer')),
             # ('bank', u'Bank Transfer'),
         )
     )
