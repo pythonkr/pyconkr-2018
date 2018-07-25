@@ -35,6 +35,11 @@ def index(request):
     })
 
 
+def young_coder(request):
+    contexts = {}
+    return render(request, 'young_coder.html', contexts)
+
+
 def schedule(request):
     dates = ProgramDate.objects.all()
     times = ProgramTime.objects.order_by('begin')
@@ -290,13 +295,15 @@ class ProfileDetail(DetailView):
         if self.request.user.is_authenticated():
             if self.request.user == self.object.user:
                 context['editable'] = True
-        is_registered = Registration.objects.filter(
+        is_registered = Registration.objects.active_conference().filter(
             user=self.request.user,
             payment_status__in=['paid', 'ready']
         ).exists()
         has_proposal = Proposal.objects.filter(user=self.request.user).exists()
         has_sprint = SprintProposal.objects.filter(user=self.request.user).exists()
         has_tutorial = TutorialProposal.objects.filter(user=self.request.user).exists()
+        context['tickets'] = Registration.objects.filter(user=self.request.user, payment_status__in=['paid', 'ready'])
+        context['cancelled_tickets'] = Registration.objects.filter(user=self.request.user, payment_status='cancelled')
         context['is_registered'] = is_registered
         context['has_proposal'] = has_proposal
         context['has_tutorial'] = has_tutorial
@@ -455,7 +462,6 @@ class TutorialProposalDetail(DetailView):
         limit_bar_id = 65539
         if capacity < len(checkin_ids):
             limit_bar_id = checkin_ids[capacity-1]
-        attendees = TutorialCheckin.objects.filter(tutorial=self.object)
         attendees = [{'name': x.user.profile.name if x.user.profile.name != '' else
                       x.user.email.split('@')[0],
                       'picture': x.user.profile.image,
@@ -463,7 +469,7 @@ class TutorialProposalDetail(DetailView):
                       Registration.objects.filter(user=x.user,
                       payment_status='paid').exists(),
                       'waiting': True if x.id > limit_bar_id else False
-                     } for x in attendees]
+                     } for x in TutorialCheckin.objects.filter(tutorial=self.object)]
         context['attendees'] = attendees
 
         if self.request.user.is_authenticated():
@@ -471,6 +477,15 @@ class TutorialProposalDetail(DetailView):
                 TutorialCheckin.objects.filter(user=self.request.user, tutorial=self.object).exists()
         else:
             context['joined'] = False
+
+        if self.object.option:
+            context['option'] = self.object.option
+
+        if not self.request.user.is_anonymous:
+            registration = Registration.objects.active_tutorial()\
+                .filter(option=self.object.option, user=self.request.user, payment_status__in=['paid', 'ready'])
+            if registration.exists():
+                context['is_registered'] = True
 
         return context
 

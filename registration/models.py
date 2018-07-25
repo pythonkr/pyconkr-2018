@@ -7,7 +7,7 @@ from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
 EVENT_CONFERENCE = 'conference'
-EVENT_TUTORIAL = 'tuturial'
+EVENT_TUTORIAL = 'tutorial'
 EVENT_YOUNG = 'young'
 EVENT_BABYCARE = 'babycare'
 EVENT_TYPES = (
@@ -66,7 +66,6 @@ class Option(models.Model):
     objects = OptionManager()
 
     class Meta:
-        unique_together = ('event_type', 'conference_type',)
         ordering = ['price']
 
     @property
@@ -79,6 +78,31 @@ class Option(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class RegistrationManager(models.Manager):
+    def get_queryset(self):
+        return super(RegistrationManager, self).get_queryset()
+
+    def active(self):
+        option_active = Option.objects.active()
+        return self.get_queryset().filter(option__in=option_active)
+
+    def active_conference(self):
+        option_conference = Option.objects.active_conference()
+        return self.active().filter(option__in=option_conference)
+
+    def active_tutorial(self):
+        option_tutorial = Option.objects.active_tutorial()
+        return self.active().filter(option__in=option_tutorial)
+
+    def active_young(self):
+        option_young = Option.objects.active_young()
+        return self.active().filter(option__in=option_young)
+
+    def active_babycare(self):
+        option_babycare = Option.objects.active_babycare()
+        return self.active().filter(option__in=option_babycare)
 
 
 class Registration(models.Model):
@@ -135,6 +159,8 @@ class Registration(models.Model):
     modified = models.DateTimeField(auto_now=True)
     confirmed = models.DateTimeField(null=True, blank=True)
     canceled = models.DateTimeField(null=True, blank=True)
+
+    objects = RegistrationManager()
 
     def __str__(self):
         return "{} {} {}".format(self.name, self.email, self.option.name)

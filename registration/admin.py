@@ -130,7 +130,7 @@ cancel_registration.short_description = 'Cancel registration'
 
 @admin.register(Option)
 class OptionAdmin(admin.ModelAdmin):
-    list_display = ('name', 'is_active',
+    list_display = ('name', 'event_type', 'conference_type', 'is_active',
                     'begin_at', 'closed_at',
                     'price', 'is_cancelable', 'cancelable_date',)
     list_editable = ('is_active',)
