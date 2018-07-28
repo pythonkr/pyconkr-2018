@@ -17,12 +17,12 @@
     {% endif %}
     {%  if option %}
         {% if is_registered %}
-            <a href='#' class="btn btn-primary">
+            <a href='#' class="btn btn-info">
                 이미 등록하셨습니다.
             </a>
         {%  else %}
             <a href='{% url "registration_payment" option.id %}' class="btn btn-primary">
-                {{ option.name }}
+                참가신청하기
             </a>
         {% endif %}
     {% endif %}
@@ -35,7 +35,7 @@
         <span class="label label-info">{{ tutorial.get_difficulty_display }}</span>
         <span class="label label-info">{{ tutorial.get_duration_display }}</span>
         <span class="label label-info">{{ tutorial.get_language_display }}</span>
-        <span class="label label-info">{{ tutorial.get_capacity_display }}</span>
+        <span class="label label-info">{{ tutorial.capacity }}</span>
     </p>
     <h3>
         {{ tutorial.user.profile.name }}
