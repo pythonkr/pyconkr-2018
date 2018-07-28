@@ -20,7 +20,11 @@
             <a href='#' class="btn btn-info">
                 이미 등록하셨습니다.
             </a>
-        {%  else %}
+        {% elif option.is_sold_out %}
+            <a href='#' class="btn btn-info">
+                등록 마감
+            </a>
+        {% else %}
             <a href='{% url "registration_payment" option.id %}' class="btn btn-primary">
                 참가신청하기
             </a>
