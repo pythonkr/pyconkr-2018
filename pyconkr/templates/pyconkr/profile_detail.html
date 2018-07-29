@@ -58,11 +58,12 @@
                     </div>
                     <div class="ticket {{ ticket.option.event_type }} ticket-right">
                         <div class="ticket-title ticket-header">PyCon.KR</div>
-                        <p class="info-title">DETAIL</p>
                         <span class="info-text">
                             {% if ticket.option.event_type == 'conference' %}
+                                <p class="info-title">PERIOD</p>
                                 2018.08.18 - 19
                             {% else %}
+                                <p class="info-title">DETAIL</p>
                                 <a href="{% url ticket.option.event_type %}">show more</a>
                             {% endif %}
                         </span>
