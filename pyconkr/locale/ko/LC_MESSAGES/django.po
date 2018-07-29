@@ -711,17 +711,17 @@ msgstr "스프린트 갱신"
 #~ msgid "Please be a session speaker at PyCon."
 #~ msgstr "파이콘의 발표자가 되어주세요."
 
-#~ msgid "Leave this event"
-#~ msgstr "참석 취소"
+msgid "Leave this event"
+msgstr "참석 취소"
 
-#~ msgid "Join this event"
-#~ msgstr "참석하기"
+msgid "Join this event"
+msgstr "참석하기"
 
-#~ msgid "Attendees"
-#~ msgstr "참석자"
+msgid "Attendees"
+msgstr "참석자"
 
-#~ msgid "No attendees, yet."
-#~ msgstr "아직 참석자가 없습니다."
+msgid "No attendees, yet."
+msgstr "아직 참석자가 없습니다."
 
 #~ msgid "Not registered user"
 #~ msgstr "미등록"
@@ -729,8 +729,8 @@ msgstr "스프린트 갱신"
 #~ msgid "Waiting"
 #~ msgstr "대기자"
 
-#~ msgid "Checked in"
-#~ msgstr "참석자"
+msgid "Checked in"
+msgstr "참석자"
 
 #~ msgid "Propose a sprint"
 #~ msgstr "스프린트 제안하기"
