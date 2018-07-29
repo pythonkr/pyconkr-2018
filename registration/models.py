@@ -8,7 +8,7 @@ from django.utils.translation import ugettext_lazy as _
 
 EVENT_CONFERENCE = 'conference'
 EVENT_TUTORIAL = 'tutorial'
-EVENT_YOUNG = 'young'
+EVENT_YOUNG = 'youngcoder'
 EVENT_BABYCARE = 'babycare'
 EVENT_TYPES = (
     (EVENT_CONFERENCE, '컨퍼런스',),
