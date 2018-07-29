@@ -54,7 +54,7 @@
                                 {% endif %}
                             </span><br>
 
-                            <span class="info-text"><a href="{% url 'registration_status' %}">{% trans "Check Registration Status" %}</a></span>
+                            <span class="info-text"><a href="{% url 'registration_status' ticket.option.id %}">{% trans "Check Registration Status" %}</a></span>
                     </div>
                     <div class="ticket {{ ticket.option.event_type }} ticket-right">
                         <div class="ticket-title ticket-header">PyCon.KR</div>

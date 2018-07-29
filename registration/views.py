@@ -42,14 +42,16 @@ def index(request):
 
 
 @login_required
-def status(request):
-    registration = Registration.objects.active_conference().filter(user=request.user)
+def status(request, option_id):
+    option = Option.objects.get(id=option_id)
+    registration = Registration.objects.filter(user=request.user, option = option)
 
     if registration:
         registration = registration.latest('created')
 
     context = {
         'registration': registration,
+        'option': option,
         'title': _("Registration Status"),
     }
     return render(request, 'registration/status.html', context)
