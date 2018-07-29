@@ -457,14 +457,6 @@ class TutorialProposalDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(TutorialProposalDetail, self).get_context_data(**kwargs)
         capacity = self.object.capacity
-        if capacity == 'S':
-            capacity = 10
-        elif capacity == 'M':
-            capacity = 45
-        elif capacity == 'L':
-            capacity = 100
-        else:
-            raise Exception('invalid TutorialProposal model')
         checkin_ids = \
         TutorialCheckin.objects.filter(tutorial=self.object).\
                                 order_by('id').values_list('id', flat=True)
