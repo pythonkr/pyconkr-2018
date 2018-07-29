@@ -389,11 +389,18 @@ class TutorialProposalList(ListView):
     def get_context_data(self, **kwargs):
         context = super(TutorialProposalList, self).get_context_data(**kwargs)
         context['tutorials'] = TutorialProposal.objects.filter(confirmed=True).all()
+        return context
+
+
+class SprintProposalList(ListView):
+    model = SprintProposal
+
+    def get_context_data(self, **kwargs):
+        context = super(SprintProposalList, self).get_context_data(**kwargs)
         context['sprints'] = SprintProposal.objects.filter(confirmed=True).all()
         if self.request.user.is_authenticated():
-            proposal = TutorialProposal.objects.filter(user=self.request.user)
-            sprint = SprintProposal.objects.filter(user=self.request.user)
-            context['joined_tutorials'] = TutorialCheckin.objects.filter(user=self.request.user).values_list('tutorial_id', flat=True)
+            context['joined_tutorials'] = TutorialCheckin.objects.filter(user=self.request.user).values_list(
+                'tutorial_id', flat=True)
         return context
 
 
@@ -458,7 +465,7 @@ class TutorialProposalDetail(DetailView):
             raise Exception('invalid TutorialProposal model')
         checkin_ids = \
         TutorialCheckin.objects.filter(tutorial=self.object).\
-                                order_by('id').values_list('id',flat=True)
+                                order_by('id').values_list('id', flat=True)
         limit_bar_id = 65539
         if capacity < len(checkin_ids):
             limit_bar_id = checkin_ids[capacity-1]

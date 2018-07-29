@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h2>Sprints</h2>
+<ul>
+  {% for sprint in sprints %}
+  <li>
+    <span class="label label-info">{{ sprint.get_type_display }}</span>
+    <a href="{{ sprint.get_absolute_url }}">{{ sprint.title }}</a>
+    {% if sprint.id in joined_sprints %}
+    <span class="badge">{% trans "Joined" %}</span>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
