@@ -319,12 +319,7 @@ class TutorialProposal(models.Model):
                                 ),
                                 default='E')
 
-    capacity = models.CharField(max_length=1,
-                                choices=(
-                                    ('S', _('10 people')),
-                                    ('M', _('45 people')),
-                                    ('L', _('100 people')),
-                                ))
+    capacity = models.IntegerField(null=False)
     confirmed = models.BooleanField(default=False)
     option = models.ForeignKey(Option, default=None, null=True, blank=True, verbose_name="구매 티켓 종류")
     begin_date = models.DateField(null=True, blank=True)
