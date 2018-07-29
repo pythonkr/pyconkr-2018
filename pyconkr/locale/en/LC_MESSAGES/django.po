@@ -128,6 +128,18 @@ msgstr "How to propose"
 msgid "Registration"
 msgstr "Registration"
 
+msgid "Ready For Paid"
+msgstr "Ready For Paid"
+
+msgid "My Tickets"
+msgstr "My Tickets"
+
+msgid "My Sprint"
+msgstr "My Sprint"
+
+msgid "Cancelled Tickets"
+msgstr "Cancelled Tickets"
+
 #: pyconkr/context_processors.py:72
 msgid "Information"
 msgstr "Information"

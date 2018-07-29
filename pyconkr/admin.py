@@ -11,7 +11,7 @@ from sorl.thumbnail.admin import AdminImageMixin
 from .models import (Room, Program, ProgramTime, ProgramDate, ProgramCategory,
                      Speaker, Sponsor, SponsorLevel, Preference,
                      Profile, Announcement, EmailToken, Proposal, Banner,
-                     TutorialProposal, TutorialCheckin, SprintProposal)
+                     TutorialProposal, TutorialCheckin, SprintProposal, SprintCheckin)
 from .actions import convert_proposal_to_program
 
 
@@ -136,7 +136,8 @@ class TutorialProposalAdminForm(forms.ModelForm):
 
 class TutorialProposalAdmin(admin.ModelAdmin):
     form = TutorialProposalAdminForm
-    list_display = ('user', 'title', 'difficulty', 'duration', 'language', 'capacity')
+    list_display = ('user', 'title', 'difficulty', 'duration', 'language', 'capacity',
+                    'begin_date', 'begin_time', 'end_date', 'end_time', )
     actions = [convert_proposal_to_program]
 admin.site.register(TutorialProposal, TutorialProposalAdmin)
 
@@ -180,3 +181,7 @@ admin.site.register(Preference, PreferenceAdmin)
 class TutorialCheckinAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'tutorial',)
 admin.site.register(TutorialCheckin, TutorialCheckinAdmin)
+
+class SprintCheckinAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', 'sprint',)
+admin.site.register(SprintCheckin, SprintCheckinAdmin)

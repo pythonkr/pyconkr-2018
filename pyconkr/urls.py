@@ -7,10 +7,10 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib.auth.decorators import login_required
 from django.views.generic.base import TemplateView
 from pyconkr.views import TutorialProposalCreate, TutorialProposalDetail, \
-    TutorialProposalUpdate, TutorialProposalList, tutorial_join,\
+    TutorialProposalUpdate, TutorialProposalList, SprintProposalList, tutorial_join,\
     SprintProposalCreate, SprintProposalDetail, sprint_join, SprintProposalUpdate
 
-from .views import index, schedule, robots
+from .views import index, schedule, robots, youngcoder
 from .views import RoomDetail
 from .views import AnnouncementList, AnnouncementDetail
 from .views import SpeakerList, SpeakerDetail, SpeakerUpdate
@@ -64,8 +64,12 @@ urlpatterns += i18n_patterns(
         SpeakerUpdate.as_view(), name='speaker_edit'),
     url(r'^programs?/schedule/$',
         schedule, name='schedule'),
-    url(r'^programs?/tutorials/$',
-        TutorialProposalList.as_view(), name='tutorials'),
+    url(r'^programs?/youngcoder/$',
+        youngcoder, name='youngcoder'),
+    url(r'^programs?/tutorial/$',
+        TutorialProposalList.as_view(), name='tutorial'),
+    url(r'^programs?/sprint/$',
+        SprintProposalList.as_view(), name='sprint'),
     url(r'^programs?/tutorial/(?P<pk>\d+)$',
         TutorialProposalDetail.as_view(), name='tutorial'),
     url(r'^programs?/tutorial/(?P<pk>\d+)/join/$',

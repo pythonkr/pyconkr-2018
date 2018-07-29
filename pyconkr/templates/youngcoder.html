@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load thumbnail %}
+
+{% block head-include %}
+<link href="{% static 'css/young-coder.css' %}" rel="stylesheet">
+<script src="{% static 'js/young-coder.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="content">
+  <div class="board">
+    <div class="board-inner">
+      <ul class="nav nav-tabs" id="myTab">
+        <div class="liner"></div>
+        <li class="active">
+          <a href="#about_youngcoder" data-toggle="tab" title="welcome">
+            <span class="round-tabs one">
+              <i class="glyphicon glyphicon-home"></i>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="#1st_program" data-toggle="tab" title="profile">
+            <span class="round-tabs two" style="">
+              <span>10</span><i class="glyphicon glyphicon-arrow-up"></i>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="#2nd_program" data-toggle="tab" title="bootsnipp goodies">
+            <span class="round-tabs three">
+              <span>14</span><i class="glyphicon glyphicon-arrow-up"></i>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="#faq" data-toggle="tab" title="blah blah">
+            <span class="round-tabs four">
+              <i class="glyphicon glyphicon-bullhorn"></i>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="tab-content">
+      <div class="tab-pane fade in active" id="about_youngcoder">
+        <h3 class="head text-center">영코더란?</h3>
+        <p class="narrow text-center">
+          <div><div><b style="background-color: inherit;">여러분, 안녕하세요!</b></div><div>여러분의 부모님, 삼촌, 이모께서 오랜 시간 동안 컴퓨터 앞에 앉아있으시는 이유가 궁금했던 적이 있나요?&nbsp;</div><div>혹은 즐겨하는 게임이나 자주 방문하는 웹사이트, 스마트폰의 애플리케이션이 어떻게 동작하는 지 궁금하지 않으세요?</div><div><br></div><div>초등학교 5학년부터 고등학생까지 소프트웨어란 무엇이고, 어떻게 동작하는 지, 모두가 사랑하는 "파이썬"이라는 언어를 통해 함께 알아봅시다!</div><div><br></div><div><b style="background-color: inherit;">왜 프로그래밍을 배우나요?</b></div><div>여러분들이 모두 개발자가 될 필요는 없어요. 하지만 오늘날 프로그래밍 언어를 이해하는 것은&nbsp;<span class="il">영</span>어를 잘하는 것만큼 여러분들을 더 훌륭한 사람으로 만들어줄 수 있답니다.</div><div>또한 프로그래밍을 배운다는 것은 컴퓨터가 어떻게 동작하는지, 그리고 IT가 세상을 어떻게 변화시켜나가는 지 이해하게 만들어줍니다.</div><div><span class="il">영</span>어를 쓰는 사람들의 문화와 삶의 방식을 이해할 수 있게 되는 것 처럼요!</div><div><br></div><div>게다가 프로그래밍이라는 것은 상당히 합리적이고 논리적이어서, 이것을 배우면 여러분들에게 어떠한 문제가 닥쳐도 가장 알맞은 해결방법을 더욱 정확하고 빠르게 찾을 수 있는 사고력을 길러준답니다.</div><div><br></div><div><b>무엇을 배울까요?</b><br></div><div>마치&nbsp;<span class="il">영</span>어를 배우듯 쉽게 배울 수 있는 "파이썬"은 굉장히 강력한 프로그래밍 언어입니다.&nbsp;</div><div>컴퓨터 프로그램 작성, 웹 사이트 및 게임 제작, 과학 및 수학 컴퓨팅 등의 작업에 사용되고 있고, 구글이나 카카오 등의 훌륭한 서비스들이 파이썬으로 만들어지고 있습니다.</div><div><br></div><div>우리가 만나는 몇 시간 동안 이 파이썬을 활용하여 컴퓨터와 대화하는 방법을 배우게 될 것입니다.&nbsp;</div><div>프로그래밍을 전혀 몰라도 상관없어요~ 숫자, 문자, 문자열, 목록 등 파이썬의 간단한 데이터 유형을 배우는 것으로 시작할 것이거든요.</div><div>그래도 긴장은 하셔야 해요. 조건문, 반복문 등 약간 더 어려운 것도 살펴볼 예정이거든요.&nbsp;</div><div>마지막으로, 우리는 웹 사이트 및 간단한 게임을 만들어 보면서 이 세상을 이해할 수 있는 더 넓은 시야를 갖게 될 것입니다.</div><div><b><br></b></div></div>
+        </p>
+      </div>
+      <div class="tab-pane fade" id="faq">
+        <h3 class="head text-center">FAQ</h3>
+        <ol>
+          <li>점심식사가 제공되나요?</li>
+          <p>제공되지않습니다.</p>
+
+          <li>주차권이 제공되나요?</li>
+          <p>제공되지않습니다.</p>
+
+          <li>[10세 이상 권장] Google AIY Voice Kit 의 키트는 반납해야 하나요?</li>
+          <p>실습 후 개인이 가져갈 수 있습니다.</p>
+
+          <li>[14세 이상 권장] 영코더 제목 참가를 위해 노트북 지참이 필수인가요?</li>
+          <p>필수입니다.</p>
+        </ol>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+{% endblock %}

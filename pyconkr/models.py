@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime
+
 from django.contrib.auth.models import User
 from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.core.urlresolvers import reverse
@@ -11,6 +13,9 @@ from sorl.thumbnail import ImageField as SorlImageField
 from jsonfield import JSONField
 from uuid import uuid4
 from constance import config
+
+from registration.models import Option
+
 
 class Room(models.Model):
     name = models.CharField(max_length=100)
@@ -314,19 +319,31 @@ class TutorialProposal(models.Model):
                                 ),
                                 default='E')
 
-    capacity = models.CharField(max_length=1,
-                                choices=(
-                                    ('S', _('10 people')),
-                                    ('M', _('45 people')),
-                                    ('L', _('100 people')),
-                                ))
+    capacity = models.IntegerField(null=False)
     confirmed = models.BooleanField(default=False)
+    option = models.ForeignKey(Option, default=None, null=True, blank=True, verbose_name="구매 티켓 종류")
+    begin_date = models.DateField(null=True, blank=True)
+    begin_time = models.TimeField(null=True, blank=True)
+    end_date = models.DateField(null=True, blank=True)
+    end_time = models.TimeField(null=True, blank=True)
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
         return reverse('tutorial', args=[self.id])
+
+    @property
+    def begin_at(self):
+        if not self.begin_date or not self.begin_time:
+            return None
+        return datetime.combine(self.begin_date, self.begin_time)
+
+    @property
+    def end_at(self):
+        if not self.end_date or not self.end_time:
+            return None
+        return datetime.combine(self.end_date, self.end_time)
 
 
 class SprintProposal(models.Model):

@@ -122,6 +122,10 @@
         padding: 10px;
         font-size: 14px;
     }
+
+    .ticket-left {
+        width: 10em;
+    }
 }
 
 @media (min-width: 768px) {

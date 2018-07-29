@@ -162,7 +162,7 @@ class TutorialProposalForm(forms.ModelForm):
 
     class Meta:
         model = TutorialProposal
-        fields = ('title', 'brief', 'desc', 'difficulty', 'duration', 'language', 'capacity', )
+        fields = ('title', 'brief', 'desc', 'difficulty', )
         widgets = {
             'desc': SummernoteInplaceWidget(),
             'comment': SummernoteInplaceWidget(),
@@ -174,9 +174,6 @@ class TutorialProposalForm(forms.ModelForm):
             'desc': _('Detailed description'),
 
             'difficulty': _('Session difficulty'),
-            'duration': _('Session duration'),
-            'language': _('Language'),
-            'capacity': _('Capacity'),
         }
 
 
