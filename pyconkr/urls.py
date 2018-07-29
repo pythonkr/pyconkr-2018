@@ -7,7 +7,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib.auth.decorators import login_required
 from django.views.generic.base import TemplateView
 from pyconkr.views import TutorialProposalCreate, TutorialProposalDetail, \
-    TutorialProposalUpdate, TutorialProposalList, tutorial_join,\
+    TutorialProposalUpdate, TutorialProposalList, SprintProposalList, tutorial_join,\
     SprintProposalCreate, SprintProposalDetail, sprint_join, SprintProposalUpdate
 
 from .views import index, schedule, robots, young_coder
@@ -68,6 +68,8 @@ urlpatterns += i18n_patterns(
         young_coder, name='young_coder'),
     url(r'^programs?/tutorials/$',
         TutorialProposalList.as_view(), name='tutorials'),
+    url(r'^programs?/sprint/$',
+        SprintProposalList.as_view(), name='sprint'),
     url(r'^programs?/tutorial/(?P<pk>\d+)$',
         TutorialProposalDetail.as_view(), name='tutorial'),
     url(r'^programs?/tutorial/(?P<pk>\d+)/join/$',

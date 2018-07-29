@@ -84,6 +84,12 @@ msgstr "발표자"
 msgid "Sprint and Tutorial"
 msgstr "스프린트와 튜토리얼"
 
+msgid "Sprint"
+msgstr "스프린트"
+
+msgid "Tutorial"
+msgstr "튜토리얼"
+
 #: pyconkr/context_processors.py:46
 msgid "Young Coder"
 msgstr "영코더"
