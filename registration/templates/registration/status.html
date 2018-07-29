@@ -4,12 +4,13 @@
 
 {% block content %}
     <div>
-        <h3>{% trans "Registration status" %}</h3>
+        <h3>{{ option.event_type }} {% trans "Registration status" %}</h3>
         {% if registration.payment_status == 'paid' %}
             <div>{% trans "Registration is completed" %}</div>
             <div>
                 <p>{% trans "Your registration is completed without any problems" %}</p>
             </div>
+
             <table class="table table-striped table-bordered">
                 <tr>
                     <th>{% trans "Name" %}</th>
@@ -20,18 +21,20 @@
                     <td>{{ registration.email }}</td>
                 </tr>
 
-                {% if registration.top_size %}
-                     <tr>
-                        <th>{% trans "Top Size" %}</th>
-                        <td>{{ registration.get_top_size_display }}</td>
-                    </tr>
-                {% else %}
-                    <tr>
-                        <th>{% trans "Top Size" %}</th>
-                        <td>
-                            <!-- TODO: 상의 사이즈 입력 받는 기능 -->
-                        </td>
-                    </tr>
+                {% if option.event_type == 'conference' %}
+                    {% if registration.top_size %}
+                         <tr>
+                            <th>{% trans "Top Size" %}</th>
+                            <td>{{ registration.get_top_size_display }}</td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <th>{% trans "Top Size" %}</th>
+                            <td>
+                                <!-- TODO: 상의 사이즈 입력 받는 기능 -->
+                            </td>
+                        </tr>
+                    {% endif %}
                 {% endif %}
 
                 <tr>
@@ -76,7 +79,9 @@
                 </tr>
             </table>
 
-            <p><a href="{% url 'registration_receipt' %}">{% trans "Check Registration Receipt" %}</a></p>
+            {% if option.event_type == 'conference' %}
+                <p><a href="{% url 'registration_receipt' %}">{% trans "Check Registration Receipt" %}</a></p>
+            {% endif %}
         {% elif registration.payment_status == 'ready' %}
             <div>
                 <h3>{% trans "Payment Information" %}</h3>
