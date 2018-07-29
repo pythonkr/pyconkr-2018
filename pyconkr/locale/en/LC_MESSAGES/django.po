@@ -83,13 +83,6 @@ msgstr "Speakers"
 msgid "Sprint and Tutorial"
 msgstr "Sprint and Tutorial"
 
-msgid "Sprint"
-msgstr "Sprint"
-
-msgid "Tutorial"
-msgstr "Tutorial"
-
-
 #: pyconkr/context_processors.py:46
 msgid "Young Coder"
 msgstr "Young Coder"
@@ -140,6 +133,9 @@ msgstr "Ready For Paid"
 
 msgid "My Tickets"
 msgstr "My Tickets"
+
+msgid "My Sprint"
+msgstr "My Sprint"
 
 msgid "Cancelled Tickets"
 msgstr "Cancelled Tickets"

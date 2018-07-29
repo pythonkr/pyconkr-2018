@@ -35,9 +35,9 @@ def index(request):
     })
 
 
-def young_coder(request):
+def youngcoder(request):
     contexts = {}
-    return render(request, 'young_coder.html', contexts)
+    return render(request, 'youngcoder.html', contexts)
 
 
 def schedule(request):
@@ -303,12 +303,14 @@ class ProfileDetail(DetailView):
         has_sprint = SprintProposal.objects.filter(user=self.request.user).exists()
         has_tutorial = TutorialProposal.objects.filter(user=self.request.user).exists()
         context['tickets'] = Registration.objects.filter(user=self.request.user, payment_status__in=['paid', 'ready'])
+        context['joined_sprint'] = SprintCheckin.objects.filter(user=self.request.user)
         context['cancelled_tickets'] = Registration.objects.filter(user=self.request.user, payment_status='cancelled')
         context['is_registered'] = is_registered
         context['has_proposal'] = has_proposal
         context['has_tutorial'] = has_tutorial
         context['has_sprint'] = has_sprint
         context['title'] = _("Profile")
+
         return context
 
 

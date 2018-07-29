@@ -58,18 +58,30 @@
                     </div>
                     <div class="ticket {{ ticket.option.event_type }} ticket-right">
                         <div class="ticket-title ticket-header">PyCon.KR</div>
-                        <p class="info-title">PERIOD</p>
+                        <p class="info-title">DETAIL</p>
                         <span class="info-text">
                             {% if ticket.option.event_type == 'conference' %}
                                 2018.08.18 - 19
                             {% else %}
-                                -
+                                <a href="{% url ticket.option.event_type %}">show more</a>
                             {% endif %}
                         </span>
                     </div>
                 </div>
             </div>
             {% endfor %}
+        </div>
+
+        <h3>{% trans 'My Sprint' %}</h3>
+        <div>
+          <ul>
+             {% for join in joined_sprint %}
+            <li>
+              <a href="{% url 'sprint' join.sprint.id %}">{{ join.sprint }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+
         </div>
 
         <hr>
