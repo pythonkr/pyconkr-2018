@@ -35,10 +35,20 @@
 <section class="box-section">
   <h3>행사 상세</h3>
   <p>
-    파이콘 한국은 한국의 파이썬 개발자들이 지식을 공유하고 만남을 갖기 위한 장입니다.<br>
-    스프린트, 튜토리얼 티켓은 추후 오픈 예정이며 컨퍼런스 티켓은 <a href="{% url 'registration_index' %}">등록 > 정보</a> 에서 구매 가능합니다.<br>
-    <b>스프린트, 튜토리얼 행사</b>의 시간표는 티켓과 함께 오픈될 예정입니다.<br>
-    <b>컨퍼런스</b>는 양일 오전 10:00 ~ 오후 6:00 간 진행될 예정입니다. (변동될 수 있으며 자세한 시간표는 추후 공개됩니다)<br>
+    파이콘 한국은 한국의 파이썬 개발자들이 지식을 공유하고 만남을 갖기 위한 장입니다.<br><br>
+
+    <h4>스프린트 (8/15, 8/17)</h4>
+    <span>관심있는 오픈소스 프로젝트를 같은 장소에 모여 집중적으로 개발하는 자리입니다</span><br>
+    <a class="btn btn-info" href="{% url 'sprint' %}" tabindex="0">스프린트 참가하기</a><br><br>
+
+    <h4>튜토리얼 (8/17)</h4>
+    <span>초보자들을 위해, 또는 새로운 것을 접하는 사람들을 위해 진행하는 교육 프로그램입니다.</span><br>
+    <a class="btn btn-info" href="{% url 'tutorial' %}" tabindex="0">튜토리얼 참가하기</a><br><br>
+
+    <h4>컨퍼런스 (8/18 - 8/19)</h4>
+    <span>파이썬 사용 사례, 지식 공유를 위한 행사입니다.<br> 컨퍼런스의 자세한 시간표는 <a href="{% url 'schedule' %}">프로그램 > 세부일정</a> 에서 확인하실 수 있습니다.</span><br>
+    <a class="btn btn-info" href="{% url 'registration_index' %}" tabindex="0">컨퍼런스 티켓 구매하기</a><br><br>
+
     이 외의 모든 공지사항은 <a href="https://www.facebook.com/pyconkorea/">공식 페이스북</a> 과 이곳을 통해 공지될 예정입니다.
   </p>
 </section>
