@@ -6,9 +6,7 @@
 {% endblock %}
 
 {% block content %}
-{% if request.user.profile.is_empty %}
-<div><a href="{% url 'profile_edit' %}">{% trans "Please make your profile first" %}</a></div>
-{% else %}
+
 {% crispy form %}
-{% endif %}
+
 {% endblock %}
