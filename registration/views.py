@@ -432,7 +432,8 @@ def manual_payment_process(request):
 
 class RegistrationReceiptDetail(DetailView):
     def get_object(self, queryset=None):
-        return get_object_or_404(Registration, payment_status='paid', user_id=self.request.user.pk)
+        option_conference = Option.objects.active_conference()
+        return get_object_or_404(Registration, option__in=option_conference, payment_status='paid', user_id=self.request.user.pk)
 
     def get_context_data(self, **kwargs):
         context = super(RegistrationReceiptDetail, self).get_context_data(**kwargs)
