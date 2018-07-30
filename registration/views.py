@@ -44,7 +44,7 @@ def index(request):
 @login_required
 def status(request, option_id):
     option = Option.objects.get(id=option_id)
-    registration = Registration.objects.filter(user=request.user, option = option)
+    registration = Registration.objects.filter(user=request.user, option=option)
 
     if registration:
         registration = registration.latest('created')
@@ -58,10 +58,7 @@ def status(request, option_id):
 
 
 def _redirect_registered(option):
-    if option.event_type == EVENT_CONFERENCE:
-        return redirect('registration_status')
-    else:
-        return redirect('profile')
+    return redirect('registration_status', option.id)
 
 
 @login_required

@@ -16,7 +16,7 @@
                 uid: '{{ uid }}',
                 amount: '{{ amount }}',
                 payment_url: '{% url "registration_payment" %}',
-                status_url: '{% url "registration_status" %}',
+                status_url: '{% url "registration_status" option_id %}',
                 csrf_token: '{{ csrf_token }}'
             }
         );
