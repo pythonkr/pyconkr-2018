@@ -532,14 +532,24 @@ class SprintProposalDetail(DetailView):
                                      order_by('id').values_list('id',flat=True)
         limit_bar_id = 65539
         attendees = SprintCheckin.objects.filter(sprint=self.object)
-        attendees = [{'name': x.user.profile.name if x.user.profile.name != '' else
-                      x.user.email.split('@')[0],
-                      'picture': x.user.profile.image,
-                      'registered':
-                      Registration.objects.filter(user=x.user,
+        attendees = []
+        for x in attendees:
+            if x.user.profile is None:
+                attendees.append([{'name': x.user.email.split('@')[0],
+                      'picture': None,
+                      'registered': Registration.objects.filter(user=x.user,
                       payment_status='paid').exists(),
                       'waiting': True if x.id > limit_bar_id else False
-                     } for x in attendees]
+                     }])
+            else:
+                attendees.append([{'name': x.user.profile.name if x.user.profile.name != '' else
+                          x.user.email.split('@')[0],
+                          'picture': x.user.profile.image,
+                          'registered':
+                          Registration.objects.filter(user=x.user,
+                          payment_status='paid').exists(),
+                          'waiting': True if x.id > limit_bar_id else False
+                         }])
         context['attendees'] = attendees
 
         if self.request.user.is_authenticated():
