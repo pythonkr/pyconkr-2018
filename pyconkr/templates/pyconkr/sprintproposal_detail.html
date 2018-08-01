@@ -39,7 +39,7 @@
         <h3>{% trans "Sprint Language" %}</h3>
         <div>{{ sprint.language|linebreaks }}</div>
         <h3>{% trans "Project brief" %}</h3>
-        <div>{{ sprint.project_brief|linebreaks }}</div>
+        <div>{{ sprint.project_brief|urlize|linebreaks }}</div>
         <h3>{% trans "Detailed description" %}</h3>
         <div>{{ sprint.contribution_desc|safe }}</div>
     </div>
@@ -47,7 +47,7 @@
     <hr>
     <div>
         <h3>{% trans "Project URL" %}</h3>
-        <div>{{ sprint.project_url|linebreaks }}</div>
+        <div>{{ sprint.project_url|urlize|linebreaks }}</div>
     </div>
     <hr>
 </div>
