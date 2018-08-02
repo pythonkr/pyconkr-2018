@@ -177,6 +177,11 @@ li.active:after {
   border-radius: 25px;
 }
 
+.youngcoder-logo {
+  height: 75px;
+  width: 300px
+}
+
 @media ( max-width: 585px ) {
   .board {
     width: 90%;
