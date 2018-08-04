@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load thumbnail %}
+
+{% block head-include %}
+<link href="{% static 'css/young-coder.css' %}" rel="stylesheet">
+<script src="{% static 'js/young-coder.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="content">
+  <h3>티켓 구입</h3>
+  <p>양일 간 돌봄을 원하시면 양일 모두 등록해 주셔야 합니다.</p><br>
+  <h4>8/18(토) 아이돌봄 티켓 구입</h4>
+  {% if 18th_option.is_sold_out %}
+    <a class="btn btn-sm btn-info btn-outline-rounded"> 8/18 1일차 매진 </a>
+  {% else %}
+    <a href="{% url 'registration_payment' 18th_option.id %}" class="btn btn-sm btn-primary btn-outline-rounded"> 8/18 1일차 등록 </a>
+  {% endif %}
+
+  <h4>8/19(일) 아이돌봄 티켓 구입</h4>
+  {% if 19th_option.is_sold_out %}
+    <a class="btn btn-sm btn-info btn-outline-rounded"> 8/19 2일차 매진 </a>
+  {% else %}
+    <a href="{% url 'registration_payment' 19th_option.id %}" class="btn btn-sm btn-primary btn-outline-rounded"> 8/19 2일차 등록 </a>
+  {% endif %}
+</div>
+{% endblock %}
