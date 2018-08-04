@@ -1,7 +1,7 @@
 .board {
   width: 90%;
   margin: 60px auto;
-  height: 1500px;
+  height: 2500px;
   background: #fff;
 }
 
@@ -178,8 +178,7 @@ li.active:after {
 }
 
 .youngcoder-logo {
-  height: 75px;
-  width: 300px
+  height: 100px;
 }
 
 @media ( max-width: 585px ) {
