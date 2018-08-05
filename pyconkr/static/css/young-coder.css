@@ -1,7 +1,7 @@
 .board {
   width: 90%;
   margin: 60px auto;
-  height: 1500px;
+  height: 2500px;
   background: #fff;
 }
 
@@ -175,6 +175,10 @@ li.active:after {
   margin: 20px 0;
   border: 2px solid transparent;
   border-radius: 25px;
+}
+
+.youngcoder-logo {
+  height: 100px;
 }
 
 @media ( max-width: 585px ) {
