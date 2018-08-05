@@ -91,8 +91,17 @@ def payment(request, option_id):
                                          'option': product,
                                          'base_price': product.price})
 
+    options = Option.objects.filter(event_type=EVENT_CONFERENCE)
+    has_conference_ticket = Registration.objects.filter(user=request.user,
+                                                        option__in=options,
+                                                        payment_status__in=['paid']).exists()
     if product.event_type == EVENT_YOUNG:
         render_page = 'registration/payment_youngcoder.html'
+        options = Option.objects.filter(event_type=EVENT_YOUNG)
+        has_another_youngcoder = Registration.objects.filter(user=request.user,
+                                                             option__in=options,
+                                                             payment_status__in=['paid']).exists()
+        sold_out = product.is_sold_out
     elif product.event_type == EVENT_BABYCARE:
         render_page = 'registration/payment_babycare.html'
     else:
@@ -104,6 +113,9 @@ def payment(request, option_id):
         'uid': uid,
         'product_name': product.name,
         'option_id': option_id,
+        'has_conference_ticket': has_conference_ticket,
+        'has_another_youngcoder': has_another_youngcoder,
+        'sold_out': sold_out,
         'amount': product.price,
     })
 
