@@ -95,6 +95,7 @@ def payment(request, option_id):
     has_conference_ticket = Registration.objects.filter(user=request.user,
                                                         option__in=options,
                                                         payment_status__in=['paid']).exists()
+    has_another_youngcoder = False
     if product.event_type == EVENT_YOUNG:
         render_page = 'registration/payment_youngcoder.html'
         options = Option.objects.filter(event_type=EVENT_YOUNG)
