@@ -298,7 +298,7 @@ def payment_process(request):
         else:
             raise Exception('Unknown payment method')
 
-    except IamporterError as e:
+    except Exception as e:
         # TODO : other status code
         return JsonResponse({
             'success': False,
