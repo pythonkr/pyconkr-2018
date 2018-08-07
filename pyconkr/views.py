@@ -41,10 +41,9 @@ def youngcoder(request):
 
 
 def child_care(request):
-    # todo : 올바른 아이돌봄 option id로 교체
     contexts = {
-        '18th_option': Option.objects.get(id=1),
-        '19th_option': Option.objects.get(id=1)
+        '18th_option': Option.objects.get(id=24),
+        '19th_option': Option.objects.get(id=25)
     }
     return render(request, 'child_care.html', contexts)
 
