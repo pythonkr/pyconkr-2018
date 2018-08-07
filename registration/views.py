@@ -106,6 +106,7 @@ def payment(request, option_id):
         sold_out = product.is_sold_out
     elif product.event_type == EVENT_BABYCARE:
         render_page = 'registration/payment_babycare.html'
+        sold_out = product.is_sold_out
     else:
         render_page = 'registration/payment.html'
 
