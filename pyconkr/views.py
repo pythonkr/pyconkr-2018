@@ -41,10 +41,7 @@ def youngcoder(request):
 
 
 def child_care(request):
-    contexts = {
-        '18th_option': Option.objects.get(id=24),
-        '19th_option': Option.objects.get(id=25)
-    }
+    contexts = {}
     return render(request, 'child_care.html', contexts)
 
 
