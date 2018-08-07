@@ -40,6 +40,14 @@ def youngcoder(request):
     return render(request, 'youngcoder.html', contexts)
 
 
+def child_care(request):
+    contexts = {
+        '18th_option': Option.objects.get(id=24),
+        '19th_option': Option.objects.get(id=25)
+    }
+    return render(request, 'child_care.html', contexts)
+
+
 def schedule(request):
     dates = ProgramDate.objects.all()
     times = ProgramTime.objects.order_by('begin')

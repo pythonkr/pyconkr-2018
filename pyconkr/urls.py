@@ -10,7 +10,7 @@ from pyconkr.views import TutorialProposalCreate, TutorialProposalDetail, \
     TutorialProposalUpdate, TutorialProposalList, SprintProposalList, tutorial_join,\
     SprintProposalCreate, SprintProposalDetail, sprint_join, SprintProposalUpdate
 
-from .views import index, schedule, robots, youngcoder
+from .views import index, schedule, robots, youngcoder, child_care
 from .views import RoomDetail
 from .views import AnnouncementList, AnnouncementDetail
 from .views import SpeakerList, SpeakerDetail, SpeakerUpdate
@@ -66,6 +66,8 @@ urlpatterns += i18n_patterns(
         schedule, name='schedule'),
     url(r'^programs?/youngcoder/$',
         youngcoder, name='youngcoder'),
+    url(r'^programs?/child_care/$',
+        child_care, name='child_care'),
     url(r'^programs?/tutorial/$',
         TutorialProposalList.as_view(), name='tutorial'),
     url(r'^programs?/sprint/$',
