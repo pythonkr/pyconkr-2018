@@ -16,7 +16,7 @@
                 uid: '{{ uid }}',
                 amount: '{{ amount }}',
                 payment_url: '{% url "registration_payment" %}',
-                status_url: '{% url "registration_status" %}',
+                status_url: '{% url "registration_status" option_id%}',
                 csrf_token: '{{ csrf_token }}'
             }
         );
@@ -27,6 +27,10 @@
 {% block content %}
 <h3>아이돌봄 신청</h3>
 <div>
+  {% if sold_out %}
+      <div class="alert alert-danger">아이돌봄 프로그램이 모두 판매되었습니다.</div>
+  {% else %}
+  {% if has_conference_ticket %}
   <div class="alert alert-info">아래의 모든 항목을 채워주세요. <br/>구글 설문을 응해주시지 않으면 참여가 어려울 수 있습니다.</div>
   <div>
    <iframe
@@ -36,6 +40,11 @@
   </div>
   <div class="alert alert-info margin-top-40">아래의 폼 입력 후 결제를 완료하시면 신청이 됩니다.<br/>(<b>*</b>) 는 필수 입력 항목입니다.</div>
   <div>{% crispy form %}</div>
+
+  {% else %}
+      <div class="alert alert-danger">아이돌봄은 파이콘 한국 2018 컨퍼런스 티켓 구매자에 한해 구매가 가능합니다.</div>
+  {% endif %}
+  {% endif %}
 </div>
 {% endblock %}
 

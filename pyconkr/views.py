@@ -41,10 +41,7 @@ def youngcoder(request):
 
 
 def child_care(request):
-    contexts = {
-        '18th_option': Option.objects.get(id=24),
-        '19th_option': Option.objects.get(id=25)
-    }
+    contexts = {}
     return render(request, 'child_care.html', contexts)
 
 
@@ -214,6 +211,9 @@ class AnnouncementDetail(DetailView):
 
 
 def robots(request):
+    http_host = request.get_host()
+    if http_host is not None and http_host.startswith("dev.pycon.kr"):
+        return render(request, 'dev-robots.txt', content_type='text/plain')
     return render(request, 'robots.txt', content_type='text/plain')
 
 
@@ -290,7 +290,10 @@ class ProfileDetail(DetailView):
     model = Profile
 
     def dispatch(self, request, *args, **kwargs):
-        if not self.request.user.profile.name:
+        try:
+            if not self.request.user.profile.name:
+                return redirect('profile_edit')
+        except Exception:
             return redirect('profile_edit')
         return super(ProfileDetail, self).dispatch(request, *args, **kwargs)
 
