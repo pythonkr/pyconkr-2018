@@ -287,7 +287,10 @@ class ProfileDetail(DetailView):
     model = Profile
 
     def dispatch(self, request, *args, **kwargs):
-        if not self.request.user.profile.name:
+        try:
+            if not self.request.user.profile.name:
+                return redirect('profile_edit')
+        except Exception:
             return redirect('profile_edit')
         return super(ProfileDetail, self).dispatch(request, *args, **kwargs)
 
