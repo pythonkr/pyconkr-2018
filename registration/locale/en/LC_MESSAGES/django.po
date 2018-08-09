@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-03 19:40+0900\n"
+"POT-Creation-Date: 2018-08-09 17:29+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,79 +17,75 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: registration/forms.py:11 registration/forms.py:58
+#: registration/forms.py:11 registration/forms.py:64
 msgid "Base Price KRW"
 msgstr ""
 
-#: registration/forms.py:21 registration/forms.py:69
+#: registration/forms.py:21 registration/forms.py:75
 msgid "Submit"
 msgstr ""
 
-#: registration/forms.py:27 registration/forms.py:45
-#: registration/templates/registration/status.html:15
-#: registration/templates/registration/status.html:75
+#: registration/forms.py:27 registration/forms.py:51
+#: registration/templates/registration/status.html:16
+#: registration/templates/registration/status.html:90
 msgid "Name"
 msgstr ""
 
-#: registration/forms.py:28 registration/forms.py:46
-#: registration/templates/registration/status.html:46
+#: registration/forms.py:28 registration/forms.py:52
+#: registration/templates/registration/status.html:49
 msgid "Option"
 msgstr ""
 
-#: registration/forms.py:29 registration/forms.py:47
-#: registration/templates/registration/status.html:25
-#: registration/templates/registration/status.html:30
+#: registration/forms.py:29 registration/forms.py:53
+#: registration/templates/registration/status.html:27
+#: registration/templates/registration/status.html:32
 msgid "Top Size"
 msgstr ""
 
-#: registration/forms.py:30 registration/forms.py:49
+#: registration/forms.py:30 registration/forms.py:55
 msgid "E-Mail"
 msgstr ""
 
-#: registration/forms.py:31 registration/forms.py:50
-#: registration/templates/registration/status.html:38
+#: registration/forms.py:31 registration/forms.py:56
+#: registration/templates/registration/status.html:41
 msgid "Company or Organization"
 msgstr ""
 
-#: registration/forms.py:32 registration/forms.py:51
+#: registration/forms.py:32 registration/forms.py:57
 msgid "Phone Number"
 msgstr ""
 
-#: registration/forms.py:33 registration/forms.py:52 registration/forms.py:77
+#: registration/forms.py:33 registration/forms.py:58 registration/forms.py:83
 msgid "Payment Method"
 msgstr ""
 
-#: registration/forms.py:48
+#: registration/forms.py:54
 msgid "Additional Funding KRW"
 msgstr ""
 
-#: registration/forms.py:75
+#: registration/forms.py:81
 msgid "Title"
 msgstr ""
 
-#: registration/forms.py:76
+#: registration/forms.py:82
 msgid "Email"
 msgstr ""
 
-#: registration/models.py:113
+#: registration/models.py:137
 msgid "Credit Card only for Korean"
 msgstr ""
 
-#: registration/models.py:114
+#: registration/models.py:138
 msgid "Credit Card for Foreign"
-msgstr ""
-
-#: registration/models.py:115
-msgid "Virtual Bank Transfer"
 msgstr ""
 
 #: registration/templates/registration/manual_payment.html:6
 msgid "Manual Payment"
 msgstr ""
 
-#: registration/templates/registration/payment.html:6
-#: registration/templates/registration/status.html:128 registration/views.py:86
-#: registration/views.py:312
+#: registration/templates/registration/payment.html:28
+#: registration/templates/registration/status.html:143
+#: registration/views.py:110 registration/views.py:359
 msgid "Registration"
 msgstr ""
 
@@ -109,89 +105,90 @@ msgstr ""
 msgid "Your registration is completed without any problems"
 msgstr ""
 
-#: registration/templates/registration/status.html:19
-#: registration/templates/registration/status.html:79
+#: registration/templates/registration/status.html:20
+#: registration/templates/registration/status.html:94
 msgid "E-mail"
 msgstr ""
 
-#: registration/templates/registration/status.html:42
+#: registration/templates/registration/status.html:45
 msgid "Phone number"
 msgstr ""
 
-#: registration/templates/registration/status.html:50
-#: registration/templates/registration/status.html:83
+#: registration/templates/registration/status.html:53
+#: registration/templates/registration/status.html:98
 msgid "Price"
 msgstr ""
 
-#: registration/templates/registration/status.html:55
-#: registration/templates/registration/status.html:88
+#: registration/templates/registration/status.html:58
+#: registration/templates/registration/status.html:103
 msgid "Additional Funding"
 msgstr ""
 
-#: registration/templates/registration/status.html:60
-#: registration/templates/registration/status.html:93
+#: registration/templates/registration/status.html:63
+#: registration/templates/registration/status.html:108
 msgid "Transaction ID"
 msgstr ""
 
-#: registration/templates/registration/status.html:64
+#: registration/templates/registration/status.html:67
 msgid "Registration datetime"
 msgstr ""
 
-#: registration/templates/registration/status.html:69
+#: registration/templates/registration/status.html:71
+msgid "Cancelable Date"
+msgstr ""
+
+#: registration/templates/registration/status.html:83
 msgid "Check Registration Receipt"
 msgstr ""
 
-#: registration/templates/registration/status.html:72
+#: registration/templates/registration/status.html:87
 msgid "Payment Information"
 msgstr ""
 
-#: registration/templates/registration/status.html:97
+#: registration/templates/registration/status.html:112
 msgid "Bank to transfer"
 msgstr ""
 
-#: registration/templates/registration/status.html:101
+#: registration/templates/registration/status.html:116
 msgid "Account number to transafer"
 msgstr ""
 
-#: registration/templates/registration/status.html:105
+#: registration/templates/registration/status.html:120
 msgid "Account owner name"
 msgstr ""
 
-#: registration/templates/registration/status.html:109
+#: registration/templates/registration/status.html:124
 msgid "Payment deadline"
 msgstr ""
 
-#: registration/templates/registration/status.html:113
+#: registration/templates/registration/status.html:128
 msgid "Payment check"
 msgstr ""
 
-#: registration/templates/registration/status.html:116
+#: registration/templates/registration/status.html:131
 msgid "Not checked yet"
 msgstr ""
 
-#: registration/templates/registration/status.html:118
+#: registration/templates/registration/status.html:133
 msgid "Payment checked"
 msgstr ""
 
-#: registration/templates/registration/status.html:125
+#: registration/templates/registration/status.html:140
 msgid "There is no registration record"
 msgstr ""
 
-#: registration/views.py:54
+#: registration/views.py:55
 msgid "Registration Status"
 msgstr ""
 
-#: registration/views.py:403
+#: registration/views.py:450
 msgid "Registration Receipt"
 msgstr ""
 
-#: registration/views.py:422
+#: registration/views.py:469
 msgid "Issue Ticket System"
 msgstr ""
 
-#: registration/views.py:439
+#: registration/views.py:486
 msgid "Ticket Print"
-msgstr ""
-
-msgid "Cancelable Date"
 msgstr ""
