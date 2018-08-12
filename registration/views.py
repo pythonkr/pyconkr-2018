@@ -98,7 +98,6 @@ def payment(request, option_id):
     sold_out = False
     if product.event_type == EVENT_YOUNG:
         render_page = 'registration/payment_youngcoder.html'
-        options = Option.objects.filter(event_type=EVENT_YOUNG)
         sold_out = product.is_sold_out
     elif product.event_type == EVENT_BABYCARE:
         render_page = 'registration/payment_babycare.html'
@@ -111,7 +110,7 @@ def payment(request, option_id):
         'form': form,
         'uid': uid,
         'product_name': product.name,
-        'option_id': option_id,
+        'option_id': int(option_id),
         'has_conference_ticket': has_conference_ticket,
         'sold_out': sold_out,
         'amount': product.price,
