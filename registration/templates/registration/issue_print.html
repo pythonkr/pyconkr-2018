@@ -95,13 +95,19 @@
           <div class='name' style="text-align: center;">{{ name }}</div>
           <div class='org' style="text-align: center;">{{ company }}</div>
         </div>
-        {% if personal_patron or speaker %}
+        {% if additional_ticket is not None %}
         <div class='preview-border'>
-          {% if personal_partron %}
-            <div class=''>개인후원 기념품을 챙겨주세요</div>
+          {% if additional_ticket.patron %}
+            <div class=''>개인후원 기념품을 수령해가세요.</div>
           {% endif %}
-          {% if speaker %}
-            <div class=''>발표자 기념품을 챙겨주세요</div>
+          {% if additional_ticket.speaker %}
+            <div class=''>발표자 기념품을 수령해가세요.</div>
+          {% endif %}
+          {% if additional_ticket.baby_care %}
+            <div class=''>아이돌봄 명찰을 수령해주세요.</div>
+          {% endif %}
+          {% if additional_ticket.young_coder %}
+            <div class=''>영코더 추가 등록 절차를 진행해주세요.</div>
           {% endif %}
         </div>
         {% endif %}

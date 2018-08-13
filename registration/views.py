@@ -527,18 +527,34 @@ def issue_print(request, registration_id):
     company = registration.user.profile.organization if \
         registration.user.profile.organization != '' else registration.company
     company = '' if company is None else company
+
+    # 개인후원
     personal_patron = True if registration.option.id == 1 else False
+    # 발표자
     speaker = True if Speaker.objects.filter(email=registration.user.email).exists() else False
-    # 아이돌봄 추가 필요
-    # 영코더 추가 필요
+    # 아이돌봄
+    options = Option.objects.filter(event_type=EVENT_BABYCARE)
+    baby_care = True if Registration.objects.filter(user=registration.user).filter(option__in=options).exists() else False
+    # 영코더
+    options = Option.objects.filter(event_type=EVENT_YOUNG)
+    young_coder = True if Registration.objects.filter(user=registration.user).filter(option__in=options).exists() else False
+
+    if personal_patron or speaker or baby_care or young_coder:
+        additional_ticket = {
+            'patron': personal_patron,
+            'speaker': speaker,
+            'baby_care': baby_care,
+            'young_coder': young_coder,
+        }
+    else:
+        additional_ticket = None
 
     context = {
         'name': name,
         'company': company,
         'registration': registration,
         'title': _("Ticket Print"),
-        'personal_patron': personal_patron,
-        'speak': speaker,
+        'additional_ticket': additional_ticket,
     }
     return render(request, 'registration/issue_print.html', context)
 
