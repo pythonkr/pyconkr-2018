@@ -4,6 +4,7 @@ import logging
 from uuid import uuid4
 
 from constance import config
+from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import user_passes_test
 from django.http import HttpResponse, JsonResponse, HttpResponseBadRequest
@@ -116,7 +117,7 @@ def payment(request, option_id):
     })
 
 
-@permission_required('user.is_staff')
+@staff_member_required
 def registrations(request, option_id):
     option = Option.objects.get(id=option_id)
     registrations = Registration.objects.filter(option=option, payment_status__in=['paid'])
@@ -128,7 +129,7 @@ def registrations(request, option_id):
     })
 
 
-@permission_required('user.is_staff')
+@staff_member_required
 def checkins(request, proposal_id):
     sprint = SprintProposal.objects.get(id=proposal_id)
     checkins = SprintCheckin.objects.filter(sprint=sprint)
