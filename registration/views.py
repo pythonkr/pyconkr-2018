@@ -133,7 +133,7 @@ def checkins(request, proposal_id):
     sprint = SprintProposal.objects.get(id=proposal_id)
     checkins = SprintCheckin.objects.filter(sprint=sprint)
 
-    return render(request, 'registration/registration_list.html', {
+    return render(request, 'registration/checkin_list.html', {
         'title': '참가자 명단',
         'sprint': sprint,
         'checkins': checkins
