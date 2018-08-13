@@ -16,4 +16,6 @@ urlpatterns = [
     url(r'^issue/$', views.issue, name='registration_issue'),
     url(r'^issue/submit/$', views.issue_submit, name='registration_issue_submit'),
     url(r'^issue/print/(?P<registration_id>\d+)/$', views.issue_print, name='registration_issue_print'),
+    url(r'^sprint/$', views.sprint, name='sprint_checkin'),
+    url(r'^sprint/print/(?P<checkin_id>\d+)/$', views.sprint_print, name='sprint_checkin_print'),
 ]

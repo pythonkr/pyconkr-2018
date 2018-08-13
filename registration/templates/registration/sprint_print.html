@@ -1,0 +1,102 @@
+{% load staticfiles %}
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding|Nanum+Gothic:700|Nanum+Myeongjo" rel="stylesheet">
+<style>
+@page {
+  size: 88mm 36mm;
+  margin: 0mm;
+}
+
+.name-tag {
+  position:relative;
+}
+
+.name-tag .name {
+  font-family: 'Nanum Gothic', sans-serif;
+  position:relative;
+  font-size: 10mm;
+  text-align: center;
+}
+.name-tag .org {
+  font-family: 'Nanum Myeongjo', serif;
+  color: gray;
+  font-size: 5mm;
+  position:relative;
+  top: 2mm;
+  text-align: center;
+}
+
+.name-tag .sprint {
+  font-family: 'Nanum Gothic Coding', monospace;
+  color: gray;
+  font-size: 5mm;
+  position:relative;
+  top: 4mm;
+  text-align: center;
+}
+
+.preview-border {
+  width: 88mm;
+  height: 36mm;
+  border: 1px solid red;
+}
+
+.btn {
+  background: #3498db;
+  border-radius: 28px;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+}
+
+@media print {
+  .no-print {display:none}
+  .preview-border {
+    width: 84mm;
+    height: 30mm;
+    border: 1px solid white;
+  }
+  .next-page {
+    page-break-before: always;
+  }
+}
+
+</style>
+  </head>
+  <body>
+    <div class='no-print'>
+      <div>
+        <ul>
+          <li>출력이름 이름: {{ name }}</li>
+          <li>출력이름 회사: {{ company }}</li>
+          <li>참여 스프린트: {{ sprint_title }}</li>
+        </ul>
+      </div>
+      <button id='ticket_issue' class='btn'>발권</button>
+    </div>
+    <div class="aera-print">
+        <div class='preview-border name-tag'>
+          <div class='name' style="text-align: center;">{{ name }}</div>
+          <div class='org' style="text-align: center;">{{ company }}</div>
+          <div class='sprint' style="text-align: center;">{{ sprint_title }}</div>
+        </div>
+    </div>
+<script src="{% static "components/jquery/dist/jquery.min.js" %}"></script>
+<script src="{% static "components/js-cookie/src/js.cookie.js" %}" charset="utf-8"></script>
+<script type="text/javascript">
+$(document).ready( function () {
+  $('#ticket_issue').click(function(){
+    window.print();
+    issueTicketConfirm({{ registration.id }});
+  });
+});
+</script>
+  </body>
+</html>

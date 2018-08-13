@@ -16,10 +16,12 @@ from django.views.generic import DetailView
 from iamport import Iamport
 
 from pyconkr.helper import render_io_error
+from pyconkr.models import SprintCheckin, Speaker
 from .forms import (RegistrationForm, RegistrationAdditionalPriceForm,
                     ManualPaymentForm, IssueSubmitForm, RegistrationFormWithoutTopSize)
-from .iamporter import get_access_token, Iamporter, IamporterError
-from .models import Option, Registration, ManualPayment, IssueTicket, EVENT_CONFERENCE, EVENT_YOUNG, EVENT_BABYCARE
+from .iamporter import IamporterError
+from .models import Option, Registration, ManualPayment, IssueTicket, EVENT_CONFERENCE, EVENT_YOUNG, EVENT_BABYCARE, \
+    EVENT_TUTORIAL
 
 logger = logging.getLogger(__name__)
 payment_logger = logging.getLogger('payment')
@@ -464,11 +466,33 @@ def group_required(*group_names):
 @group_required('admin', 'organizer', 'volunteer')
 def issue(request):
     registration = Registration.objects.filter(payment_status='paid')
+
+    options = None
+    if request.GET.get('type', None) == 'tutorial':
+        options = Option.objects.filter(event_type=EVENT_TUTORIAL)
+
+    if request.GET.get('type', None) == 'sponsor':
+        options = Option.objects.filter(event_type=EVENT_TUTORIAL)
+
+    if options is not None:
+        registration = registration.filter(option__in=options)
+
     context = {
         'registration': registration,
         'title': _("Issue Ticket System"),
     }
     return render(request, 'registration/issue_ticket.html', context)
+
+
+@group_required('admin', 'organizer', 'volunteer')
+def sprint(request):
+    checkins = SprintCheckin.objects.all()
+
+    context = {
+        'checkins': checkins,
+        'title': _("Issue Ticket System"),
+    }
+    return render(request, 'registration/sprint_checkin.html', context)
 
 
 @group_required('admin', 'organizer', 'volunteer')
@@ -479,13 +503,38 @@ def issue_print(request, registration_id):
     company = registration.user.profile.organization if \
         registration.user.profile.organization != '' else registration.company
     company = '' if company is None else company
+    personal_patron = True if registration.option.id == 1 else False
+    speaker = True if Speaker.objects.filter(email=registration.user.email).exists() else False
+    # 아이돌봄 추가 필요
+    # 영코더 추가 필요
+
     context = {
         'name': name,
         'company': company,
         'registration': registration,
         'title': _("Ticket Print"),
+        'personal_patron': personal_patron,
+        'speak': speaker,
     }
     return render(request, 'registration/issue_print.html', context)
+
+
+@group_required('admin', 'organizer', 'volunteer')
+def sprint_print(request, checkin_id):
+    checkin = get_object_or_404(SprintCheckin, id=checkin_id)
+    name = checkin.user.profile.name
+    # 수정 필요
+    company = checkin.user.profile.organization if checkin.user.profile is not None else '.'
+    company = checkin.user.profile.organization if checkin.user.profile.organization is not None else '.'
+    dict_map = {1: 'Nekoyume', 2: '니름', 3: 'Hearthstone++', 4: 'pandas', 6: 'Backend.Al'}
+
+    context = {
+        'name': name,
+        'company': company,
+        'sprint_title': dict_map[checkin.sprint.id],
+        'title': _("Sprint Print"),
+    }
+    return render(request, 'registration/sprint_print.html', context)
 
 
 @group_required('admin', 'organizer', 'volunteer')

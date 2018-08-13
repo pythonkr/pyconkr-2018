@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<table id="issue-ticket" class="table table-hover">
+<thead>
+    <tr>
+    <th>이름</th>
+    <th>이메일</th>
+    <th>관리</th>
+    </tr>
+</thead>
+<tbody>
+    {% for checkin in checkins %}
+    <tr>
+        <td>{{ checkin.user.profile.name }}</td>
+        <td>{{ checkin.user.email }}</td>
+    <td>
+        <div class="btn-group">
+          <a class="btn btn-success btn-filter"
+             target='_blank' role="button"
+             href='{% url "sprint_checkin_print" checkin.id %}'>발권</a>
+          <a class="btn btn-default btn-filter"
+            href='/admin/auth/user/{{ checkin.user.id }}/change/'
+            target='_blank' role="button">관리</a>
+        </div>
+    </td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+
+{% endblock %}
+
+{% block head-include %}
+<link href="{% static "components/datatables.net-bs/css/dataTables.bootstrap.min.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block script %}
+<script src="{% static "components/datatables.net/js/jquery.dataTables.min.js" %}" charset="utf-8"></script>
+<script src="{% static "components/datatables.net-bs/js/dataTables.bootstrap.min.js" %}" charset="utf-8"></script>
+
+<script type="text/javascript">
+$(document).ready( function () {
+  $('#issue-ticket').DataTable({
+    bInfo: true,
+    bLengthChange: true,
+    lengthMenu: [[50, 100, 200], [50, 100, 200]],
+    order: [[ 0, 'asc' ]],
+    paging: true,
+    searching: true,
+  });
+});
+</script>
+
+{% endblock %}
