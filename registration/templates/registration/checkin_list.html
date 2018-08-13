@@ -14,9 +14,7 @@
 
 {% block content %}
 <div class="margin-top-40">
-  <b>티켓 타입 : </b> {{ option.event_type }}<br>
-  <b>티켓 옵션 : </b> {{ option.name }}<br>
-  <b>티켓 가격 : </b> {{ option.price }}<br>
+  <b>스프린트명 : </b> {{ sprint.title }}<br>
 </div>
 
 <div class="margin-top-40">
@@ -29,11 +27,11 @@
     </tr>
     </thead>
     <tbody>
-    {% for regi in registrations %}
+    {% for checkin in checkins %}
     <tr>
-      <td>{{ regi.email }}</td>
-      <td>{{ regi.name }}</td>
-      <td>{{ regi.created }}</td>
+      <td>{{ checkin.user.email }}</td>
+      <td>{{ checkin.user.profile.name }}</td>
+      <td>{{ checkin.created }}</td>
     </tr>
     {% endfor %}
     </tbody>

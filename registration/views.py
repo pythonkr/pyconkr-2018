@@ -17,6 +17,7 @@ from iamport import Iamport
 from django.contrib.auth.decorators import permission_required
 
 from pyconkr.helper import render_io_error
+from pyconkr.models import SprintProposal, SprintCheckin
 from .forms import (RegistrationForm, RegistrationAdditionalPriceForm,
                     ManualPaymentForm, IssueSubmitForm, RegistrationFormWithoutTopSize)
 from .iamporter import get_access_token, Iamporter, IamporterError
@@ -124,6 +125,18 @@ def registrations(request, option_id):
         'title': '티켓 구매자 명단',
         'option': option,
         'registrations': registrations
+    })
+
+
+@permission_required('user.is_staff')
+def checkins(request, proposal_id):
+    sprint = SprintProposal.objects.get(id=proposal_id)
+    checkins = SprintCheckin.objects.filter(sprint=sprint)
+
+    return render(request, 'registration/registration_list.html', {
+        'title': '참가자 명단',
+        'sprint': sprint,
+        'checkins': checkins
     })
 
 
