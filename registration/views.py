@@ -44,13 +44,10 @@ def index(request):
 @login_required
 def status(request, option_id):
     option = Option.objects.get(id=option_id)
-    registration = Registration.objects.filter(user=request.user, option=option)
-
-    if registration:
-        registration = registration.latest('created')
+    registrations = Registration.objects.filter(user=request.user, option=option)
 
     context = {
-        'registration': registration,
+        'registrations': registrations,
         'option': option,
         'title': _("Registration Status"),
     }
@@ -73,7 +70,7 @@ def payment(request, option_id):
         payment_status__in=['paid', 'ready']
     ).exists()
 
-    if is_registered:
+    if is_registered and product.event_type != EVENT_YOUNG:
         return _redirect_registered(product)
 
     uid = str(uuid4()).replace('-', '')
