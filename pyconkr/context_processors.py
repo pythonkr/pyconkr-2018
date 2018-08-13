@@ -48,6 +48,7 @@ def default(request):
                 ('child_care', {'title': _('Child Care')}),
                 ('lightning_talk', {'title': _('Lightning talk')}),
                 ('ost', {'title': _('Open Spaces')}),
+                ('health', {'title': _('Health')}),
             ]),
         }),
         ('venue', {

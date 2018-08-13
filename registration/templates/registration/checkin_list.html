@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+
+{% block head-include %}
+<script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+<script></script>
+<script>
+  $(document).ready(function () {
+    $('#myTable').DataTable();
+  });
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="margin-top-40">
+  <b>스프린트명 : </b> {{ sprint.title }}<br>
+</div>
+
+<div class="margin-top-40">
+  <table id="myTable" class="table table-hover">
+    <thead>
+    <tr>
+      <th>email</th>
+      <th>name</th>
+      <th>created_at</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for checkin in checkins %}
+    <tr>
+      <td>{{ checkin.user.email }}</td>
+      <td>{{ checkin.user.profile.name }}</td>
+      <td>{{ checkin.created }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

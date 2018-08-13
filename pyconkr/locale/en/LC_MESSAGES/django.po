@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-03 19:40+0900\n"
+"POT-Creation-Date: 2018-08-09 17:29+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -79,110 +79,108 @@ msgstr "Keynotes"
 msgid "Speakers"
 msgstr "Speakers"
 
-#: pyconkr/context_processors.py:45
-msgid "Sprint and Tutorial"
-msgstr "Sprint and Tutorial"
+#: pyconkr/context_processors.py:45 pyconkr/templates/base.html:61
+msgid "Tutorial"
+msgstr "Tutorial"
 
-#: pyconkr/context_processors.py:46
+#: pyconkr/context_processors.py:46 pyconkr/templates/base.html:60
+msgid "Sprint"
+msgstr "Sprint"
+
+#: pyconkr/context_processors.py:47
 msgid "Young Coder"
 msgstr "Young Coder"
 
-#: pyconkr/context_processors.py:47
+#: pyconkr/context_processors.py:48
 msgid "Child Care"
 msgstr "Child Care"
 
-#: pyconkr/context_processors.py:48
+#: pyconkr/context_processors.py:49
 msgid "Lightning talk"
 msgstr "Lightning talk"
 
-#: pyconkr/context_processors.py:49
+#: pyconkr/context_processors.py:50
 msgid "Open Spaces"
 msgstr "Open Spaces"
 
-#: pyconkr/context_processors.py:53
+#: pyconkr/context_processors.py:51
+msgid "Health"
+msgstr ""
+
+#: pyconkr/context_processors.py:55
 msgid "Venue"
 msgstr "Venue"
 
-#: pyconkr/context_processors.py:56
+#: pyconkr/context_processors.py:58
 msgid "Venue Map"
 msgstr "Venue Map"
 
-#: pyconkr/context_processors.py:57
+#: pyconkr/context_processors.py:59
 msgid "Transportation"
 msgstr "Transportation"
 
-#: pyconkr/context_processors.py:61 pyconkr/views.py:336 pyconkr/views.py:350
+#: pyconkr/context_processors.py:63 pyconkr/views.py:354 pyconkr/views.py:368
 msgid "Proposal"
 msgstr "Proposal"
 
-#: pyconkr/context_processors.py:64
+#: pyconkr/context_processors.py:66
 msgid "Call for proposals"
 msgstr "Call for proposals"
 
-#: pyconkr/context_processors.py:65
+#: pyconkr/context_processors.py:67
 msgid "How to propose"
 msgstr "How to propose"
 
-#: pyconkr/context_processors.py:69
-#: pyconkr/templates/pyconkr/profile_detail.html:35
+#: pyconkr/context_processors.py:71
 msgid "Registration"
 msgstr "Registration"
 
-msgid "Ready For Paid"
-msgstr "Ready For Paid"
-
-msgid "My Tickets"
-msgstr "My Tickets"
-
-msgid "My Sprint"
-msgstr "My Sprint"
-
-msgid "Cancelled Tickets"
-msgstr "Cancelled Tickets"
-
-#: pyconkr/context_processors.py:72
+#: pyconkr/context_processors.py:74
 msgid "Information"
 msgstr "Information"
 
-#: pyconkr/context_processors.py:73
-#: pyconkr/templates/pyconkr/profile_detail.html:41
+#: pyconkr/context_processors.py:75
 msgid "Purchase a ticket"
 msgstr "Purchase a ticket"
 
-#: pyconkr/context_processors.py:74
+#: pyconkr/context_processors.py:76
 msgid "Financial Aid"
 msgstr "Financial Aid"
 
+#: pyconkr/context_processors.py:77
+msgid "Visa Sponsing"
+msgstr ""
+
 #: pyconkr/forms.py:27 pyconkr/templates/login_notvalidtoken.html:7
-#: pyconkr/templates/nav.html:68 pyconkr/views.py:228
+#: pyconkr/templates/nav.html:68 pyconkr/views.py:239
 msgid "Login"
 msgstr "Login"
 
 #: pyconkr/forms.py:39 pyconkr/forms.py:88 pyconkr/forms.py:110
-#: pyconkr/forms.py:137 pyconkr/forms.py:161 pyconkr/forms.py:188
+#: pyconkr/forms.py:137 pyconkr/forms.py:161 pyconkr/forms.py:185
 msgid "Submit"
 msgstr "Submit"
 
-#: pyconkr/forms.py:40 pyconkr/forms.py:65 pyconkr/forms.py:189
-#: pyconkr/forms.py:212
+#: pyconkr/forms.py:40 pyconkr/forms.py:65 pyconkr/forms.py:186
+#: pyconkr/forms.py:209
 #, python-format
 msgid "Maximum size is %(size)d MB"
 msgstr "Maximum size is %(size)d MB"
 
-#: pyconkr/forms.py:43 pyconkr/forms.py:75 pyconkr/forms.py:192
-#: pyconkr/forms.py:222
+#: pyconkr/forms.py:43 pyconkr/forms.py:75 pyconkr/forms.py:189
+#: pyconkr/forms.py:219
 #, fuzzy, python-format
 #| msgid "Minimum dimension is %(dim)d x %(dim)d"
 msgid "Minimum dimension is %(width)d x %(height)d"
 msgstr "Minimum dimension is %(dim)d x %(dim)d"
 
-#: pyconkr/forms.py:54 pyconkr/forms.py:203
+#: pyconkr/forms.py:54 pyconkr/forms.py:200
 msgid "Photo"
 msgstr "Photo"
 
 #: pyconkr/forms.py:55 pyconkr/templates/nav.html:50
 #: pyconkr/templates/nav.html:62 pyconkr/templates/pyconkr/profile_form.html:5
-#: pyconkr/templates/pyconkr/speaker_detail.html:17 pyconkr/views.py:303
+#: pyconkr/templates/pyconkr/speaker_detail.html:17 pyconkr/views.py:320
 msgid "Profile"
 msgstr "Profile"
 
@@ -230,16 +228,15 @@ msgstr "Comment to reviewers (optional)"
 msgid "Session difficulty"
 msgstr "Session difficulty"
 
-#: pyconkr/forms.py:127 pyconkr/forms.py:177
+#: pyconkr/forms.py:127
 msgid "Session duration"
 msgstr "Session duration"
 
-#: pyconkr/forms.py:128 pyconkr/forms.py:149 pyconkr/forms.py:178
-#: pyconkr/templates/nav.html:74
+#: pyconkr/forms.py:128 pyconkr/forms.py:149 pyconkr/templates/nav.html:74
 msgid "Language"
 msgstr "Language"
 
-#: pyconkr/forms.py:150 pyconkr/templates/pyconkr/sprintproposal_detail.html:47
+#: pyconkr/forms.py:150 pyconkr/templates/pyconkr/sprintproposal_detail.html:49
 msgid "Project URL"
 msgstr "Official URL for project"
 
@@ -252,18 +249,15 @@ msgid "Contribution description"
 msgstr "Describe about your contribution activity in this project"
 
 #: pyconkr/forms.py:173
-#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:45
+#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:63
 msgid "Brief"
 msgstr "Brief"
 
 #: pyconkr/forms.py:174 pyconkr/templates/pyconkr/proposal_detail.html:21
-#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:50
+#: pyconkr/templates/pyconkr/sprintproposal_detail.html:43
+#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:68
 msgid "Detailed description"
 msgstr "Detailed description (required)"
-
-#: pyconkr/forms.py:179
-msgid "Capacity"
-msgstr "Capacity"
 
 #: pyconkr/helper.py:11
 msgid "PyCon Korea 2018 one-time login token"
@@ -276,7 +270,7 @@ msgstr "PyCon Korea 2018 one-time login token"
 msgid "PyCon Korea 2018"
 msgstr "PyCon Korea 2018"
 
-#: pyconkr/models.py:101
+#: pyconkr/models.py:107
 msgid "help-text-for-speaker-info"
 msgstr ""
 "<p>Add your personal pages in JSON format.</p>\n"
@@ -291,71 +285,55 @@ msgstr ""
 "social/\" target=\"_blank\">http://lipis.github.io/bootstrap-social/</a></p>"
 "\""
 
-#: pyconkr/models.py:152 pyconkr/models.py:262 pyconkr/models.py:294
+#: pyconkr/models.py:158 pyconkr/models.py:271 pyconkr/models.py:303
 msgid "Beginner"
 msgstr "Beginner"
 
-#: pyconkr/models.py:153 pyconkr/models.py:263 pyconkr/models.py:295
+#: pyconkr/models.py:159 pyconkr/models.py:272 pyconkr/models.py:304
 msgid "Intermediate"
 msgstr "Intermediate"
 
-#: pyconkr/models.py:154 pyconkr/models.py:264 pyconkr/models.py:296
+#: pyconkr/models.py:160 pyconkr/models.py:273 pyconkr/models.py:305
 msgid "Experienced"
 msgstr "Experienced"
 
-#: pyconkr/models.py:159 pyconkr/models.py:269
+#: pyconkr/models.py:165 pyconkr/models.py:278
 msgid "25 mins"
 msgstr "25 mins"
 
-#: pyconkr/models.py:160 pyconkr/models.py:270
+#: pyconkr/models.py:166 pyconkr/models.py:279
 msgid "40 mins"
 msgstr "40 mins"
 
-#: pyconkr/models.py:165 pyconkr/models.py:275 pyconkr/models.py:308
+#: pyconkr/models.py:171 pyconkr/models.py:284 pyconkr/models.py:317
 #: pyconkr/settings.py:147
 msgid "English"
 msgstr "English"
 
-#: pyconkr/models.py:166 pyconkr/models.py:276 pyconkr/models.py:309
+#: pyconkr/models.py:172 pyconkr/models.py:285 pyconkr/models.py:318
 #: pyconkr/settings.py:146
 msgid "Korean"
 msgstr "Korean"
 
-#: pyconkr/models.py:218
+#: pyconkr/models.py:227
 msgid "Not arranged yet"
 msgstr "Not arranged yet"
 
-#: pyconkr/models.py:301
+#: pyconkr/models.py:310
 msgid "1 hour"
 msgstr "1 hour"
 
-#: pyconkr/models.py:302
+#: pyconkr/models.py:311
 msgid "2 hours"
 msgstr "2 hours"
 
-#: pyconkr/models.py:303
+#: pyconkr/models.py:312
 msgid "4 hours"
 msgstr "4 hours"
-
-#: pyconkr/models.py:315
-msgid "10 people"
-msgstr "10 people"
-
-#: pyconkr/models.py:316
-msgid "45 people"
-msgstr "45 people"
-
-#: pyconkr/models.py:317
-msgid "100 people"
-msgstr "100 people"
 
 #: pyconkr/templates/base.html:16
 msgid "base-og-description"
 msgstr "PyCon Korea 2018: 15th, 17th-19th August. Coex Seoul."
-
-#: pyconkr/templates/base.html:60
-msgid "Sprint"
-msgstr "Sprint"
 
 #: pyconkr/templates/base.html:60
 msgid "Wed"
@@ -364,10 +342,6 @@ msgstr ""
 #: pyconkr/templates/base.html:60 pyconkr/templates/base.html:61
 msgid "Fri"
 msgstr ""
-
-#: pyconkr/templates/base.html:61
-msgid "Tutorial"
-msgstr "Tutorial"
 
 #: pyconkr/templates/base.html:62
 msgid "Conference"
@@ -487,39 +461,41 @@ msgid "Logout"
 msgstr "Logout"
 
 #: pyconkr/templates/pyconkr/announcement_detail.html:13
-#: pyconkr/templates/pyconkr/sprintproposal_detail.html:54
-#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:56
+#: pyconkr/templates/pyconkr/sprintproposal_detail.html:57
+#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:74
 msgid "Back to list"
 msgstr "Back to list"
+
+#: pyconkr/templates/pyconkr/announcement_list.html:6
+#: pyconkr/templates/pyconkr/program_list.html:6
+#: pyconkr/templates/pyconkr/speaker_list.html:9
+#: pyconkr/templates/schedule.html:10 pyconkr/templates/sponsors.html:22
+msgid "Ready for content"
+msgstr "Ready for content"
 
 #: pyconkr/templates/pyconkr/announcement_list.html:20
 msgid "Read more"
 msgstr "Read more"
 
-#: pyconkr/templates/pyconkr/profile_detail.html:39
-msgid "Thank you for registration."
-msgstr "Thank you for registration."
+#: pyconkr/templates/pyconkr/profile_detail.html:35
+msgid "My Tickets"
+msgstr "My Tickets"
 
-#: pyconkr/templates/pyconkr/profile_detail.html:39
+#: pyconkr/templates/pyconkr/profile_detail.html:53
+msgid "Ready For Paid"
+msgstr "Ready For Paid"
+
+#: pyconkr/templates/pyconkr/profile_detail.html:57
 msgid "Check Registration Status"
 msgstr "Check Registration Status"
 
-#: pyconkr/templates/pyconkr/profile_detail.html:41
-msgid "You didn't have a ticket."
-msgstr "You didn't have a ticket."
+#: pyconkr/templates/pyconkr/profile_detail.html:76
+msgid "My Sprint"
+msgstr "My Sprint"
 
-#: pyconkr/templates/pyconkr/profile_detail.html:45
-msgid "Please be a tutorial speaker at PyCon."
-msgstr "Please be a tutorial speaker at PyCon."
-
-#: pyconkr/templates/pyconkr/profile_detail.html:45
-#: pyconkr/templates/pyconkr/profile_detail.html:48
-msgid "Submit a new proposal"
-msgstr "Submit a new proposal"
-
-#: pyconkr/templates/pyconkr/profile_detail.html:48
-msgid "Please be a sprint leader at PyCon."
-msgstr "Please be a sprint leader at PyCon."
+#: pyconkr/templates/pyconkr/profile_detail.html:89
+msgid "Cancelled Tickets"
+msgstr "Cancelled Tickets"
 
 #: pyconkr/templates/pyconkr/program_detail.html:4
 #: pyconkr/templates/pyconkr/speaker_detail.html:22
@@ -597,10 +573,6 @@ msgstr "Up to 5 items can be selected."
 msgid "Comment to reviewers"
 msgstr "Comment to reviewers (optional)"
 
-#: pyconkr/templates/pyconkr/proposal_form.html:10
-msgid "Please make your profile first"
-msgstr "Please make your profile first"
-
 #: pyconkr/templates/pyconkr/speaker_detail.html:4
 msgid "Speaker"
 msgstr "Speaker"
@@ -615,7 +587,7 @@ msgid "Sprinter"
 msgstr "Sprint Leader"
 
 #: pyconkr/templates/pyconkr/sprintproposal_detail.html:34
-#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:40
+#: pyconkr/templates/pyconkr/tutorialproposal_detail.html:57
 msgid "Tutorial Information"
 msgstr "Date and Venue"
 
@@ -623,8 +595,32 @@ msgstr "Date and Venue"
 msgid "Sprint Language"
 msgstr "Language"
 
+#: pyconkr/templates/pyconkr/sprintproposal_detail.html:61
+msgid "Leave this event"
+msgstr "Leave this event"
+
+#: pyconkr/templates/pyconkr/sprintproposal_detail.html:65
+msgid "Join this event"
+msgstr "Join this event"
+
+#: pyconkr/templates/pyconkr/sprintproposal_detail.html:70
+msgid "Attendees"
+msgstr "Attendees"
+
+#: pyconkr/templates/pyconkr/sprintproposal_detail.html:72
+msgid "No attendees, yet."
+msgstr "No attendees, yet."
+
+#: pyconkr/templates/pyconkr/sprintproposal_detail.html:85
+msgid "Waiting"
+msgstr ""
+
+#: pyconkr/templates/pyconkr/sprintproposal_detail.html:87
+msgid "Checked in"
+msgstr ""
+
+#: pyconkr/templates/pyconkr/sprintproposal_list.html:12
 #: pyconkr/templates/pyconkr/tutorialproposal_list.html:12
-#: pyconkr/templates/pyconkr/tutorialproposal_list.html:24
 msgid "Joined"
 msgstr "Joined"
 
@@ -633,57 +629,90 @@ msgstr "Joined"
 msgid "Schedule English Label"
 msgstr "English"
 
-#: pyconkr/views.py:174
+#: pyconkr/views.py:185
 msgid "Preferences are successfully updated."
 msgstr "Preferences are successfully updated."
 
-#: pyconkr/views.py:241
+#: pyconkr/views.py:252
 msgid "Not valid token"
 msgstr "Not valid token"
 
-#: pyconkr/views.py:266
+#: pyconkr/views.py:277
 msgid "Mail sent"
 msgstr "Mail sent"
 
-#: pyconkr/views.py:310
+#: pyconkr/views.py:328
 msgid "Profile successfully updated."
 msgstr "Profile successfully updated."
 
-#: pyconkr/views.py:321
+#: pyconkr/views.py:339
 msgid "Update profile"
 msgstr "Update profile"
 
-#: pyconkr/views.py:343
+#: pyconkr/views.py:361
 msgid "Proposal successfully updated."
 msgstr "Proposal successfully updated."
 
-#: pyconkr/views.py:360
+#: pyconkr/views.py:378
 msgid "Proposal successfully created."
 msgstr "Proposal successfully created."
 
-#: pyconkr/views.py:395
+#: pyconkr/views.py:420
 msgid "Tutorial proposal successfully created."
 msgstr "Tutorial proposal successfully created."
 
-#: pyconkr/views.py:417
+#: pyconkr/views.py:442
 msgid "Sprint proposal successfully created."
 msgstr "Sprint proposal successfully created."
 
-#: pyconkr/views.py:481
+#: pyconkr/views.py:506
 msgid "Tutorial proposal successfully updated."
 msgstr "Tutorial proposal successfully updated."
 
-#: pyconkr/views.py:488
+#: pyconkr/views.py:513
 msgid "Update tutorial"
 msgstr "Update tutorial"
 
-#: pyconkr/views.py:541
+#: pyconkr/views.py:576
 msgid "Sprint proposal successfully updated."
 msgstr "Sprint proposal successfully updated."
 
-#: pyconkr/views.py:548
+#: pyconkr/views.py:583
 msgid "Update sprint"
 msgstr "Update sprint"
+
+#~ msgid "Sprint and Tutorial"
+#~ msgstr "Sprint and Tutorial"
+
+#~ msgid "Capacity"
+#~ msgstr "Capacity"
+
+#~ msgid "10 people"
+#~ msgstr "10 people"
+
+#~ msgid "45 people"
+#~ msgstr "45 people"
+
+#~ msgid "100 people"
+#~ msgstr "100 people"
+
+#~ msgid "Thank you for registration."
+#~ msgstr "Thank you for registration."
+
+#~ msgid "You didn't have a ticket."
+#~ msgstr "You didn't have a ticket."
+
+#~ msgid "Please be a tutorial speaker at PyCon."
+#~ msgstr "Please be a tutorial speaker at PyCon."
+
+#~ msgid "Submit a new proposal"
+#~ msgstr "Submit a new proposal"
+
+#~ msgid "Please be a sprint leader at PyCon."
+#~ msgstr "Please be a sprint leader at PyCon."
+
+#~ msgid "Please make your profile first"
+#~ msgstr "Please make your profile first"
 
 #~ msgid "Preference survey"
 #~ msgstr "Preference survey"
@@ -711,18 +740,6 @@ msgstr "Update sprint"
 
 #~ msgid "Please be a session speaker at PyCon."
 #~ msgstr "Please be a session speaker at PyCon."
-
-#~ msgid "Leave this event"
-#~ msgstr "Leave this event"
-
-#~ msgid "Join this event"
-#~ msgstr "Join this event"
-
-#~ msgid "Attendees"
-#~ msgstr "Attendees"
-
-#~ msgid "No attendees, yet."
-#~ msgstr "No attendees, yet."
 
 #~ msgid "Propose a tutorial"
 #~ msgstr "Proposal a tutorial"
@@ -762,6 +779,3 @@ msgstr "Update sprint"
 
 #~ msgid "Virtual Bank Transfer"
 #~ msgstr "Virtual Bank Transfer"
-
-#~ msgid "Ready for content"
-#~ msgstr "Ready for content"
