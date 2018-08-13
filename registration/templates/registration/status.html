@@ -3,6 +3,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+    {% for registration in registrations %}
     <div>
         <h3>{{ option.event_type }} {% trans "Registration status" %}</h3>
         {% if registration.payment_status == 'paid' %}
@@ -144,4 +145,5 @@
             </div>
         {% endif %}
     </div>
+    {% endfor %}
 {% endblock %}

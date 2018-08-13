@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+
+{% block head-include %}
+<script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+<script></script>
+<script>
+  $(document).ready(function () {
+    $('#myTable').DataTable();
+  });
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="margin-top-40">
+  <b>티켓 타입 : </b> {{ option.event_type }}<br>
+  <b>티켓 옵션 : </b> {{ option.name }}<br>
+  <b>티켓 가격 : </b> {{ option.price }}<br>
+</div>
+
+<div class="margin-top-40">
+  <table id="myTable" class="table table-hover">
+    <thead>
+    <tr>
+      <th>email</th>
+      <th>name</th>
+      <th>created_at</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for regi in registrations %}
+    <tr>
+      <td>{{ regi.email }}</td>
+      <td>{{ regi.name }}</td>
+      <td>{{ regi.created }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
