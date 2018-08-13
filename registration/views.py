@@ -14,6 +14,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 from django.views.generic import DetailView
 from iamport import Iamport
+from django.contrib.auth.decorators import permission_required
 
 from pyconkr.helper import render_io_error
 from .forms import (RegistrationForm, RegistrationAdditionalPriceForm,
@@ -81,8 +82,8 @@ def payment(request, option_id):
                                                         'base_price': product.price})
     elif product.event_type != EVENT_CONFERENCE:
         form = RegistrationFormWithoutTopSize(initial={'email': request.user.email,
-                                                        'option': product,
-                                                        'base_price': product.price})
+                                                       'option': product,
+                                                       'base_price': product.price})
     else:
         form = RegistrationForm(initial={'email': request.user.email,
                                          'option': product,
@@ -111,6 +112,18 @@ def payment(request, option_id):
         'has_conference_ticket': has_conference_ticket,
         'sold_out': sold_out,
         'amount': product.price,
+    })
+
+
+@permission_required('user.is_staff')
+def registrations(request, option_id):
+    option = Option.objects.get(id=option_id)
+    registrations = Registration.objects.filter(option=option, payment_status__in=['paid'])
+
+    return render(request, 'registration/registration_list.html', {
+        'title': '티켓 구매자 명단',
+        'option': option,
+        'registrations': registrations
     })
 
 
@@ -147,7 +160,8 @@ def payment_process(request):
 
     if product.event_type == EVENT_CONFERENCE:
         # 이미 등록된 사용자로 등록 현황 페이지로 이동합니다.
-        registration = Registration.objects.active_conference().filter(user=request.user, payment_status__in=['paid', 'ready'])
+        registration = Registration.objects.active_conference().filter(user=request.user,
+                                                                       payment_status__in=['paid', 'ready'])
         if registration.exists():
             return _redirect_registered(registration.option)
 
@@ -159,9 +173,10 @@ def payment_process(request):
             })
 
         remain_ticket_count = (
-                config.TOTAL_TICKET - Registration.objects.active_conference().filter(payment_status__in=['paid', 'ready']).count())
+                config.TOTAL_TICKET - Registration.objects.active_conference().filter(
+            payment_status__in=['paid', 'ready']).count())
     else:
-        registration_query = Registration.objects.filter(option=product ,payment_status__in=['paid', 'ready'])
+        registration_query = Registration.objects.filter(option=product, payment_status__in=['paid', 'ready'])
         registration = registration_query.filter(user=request.user)
         if registration.exists():
             return _redirect_registered(registration.option)
@@ -439,7 +454,8 @@ def manual_payment_process(request):
 class RegistrationReceiptDetail(DetailView):
     def get_object(self, queryset=None):
         option_conference = Option.objects.active_conference()
-        return get_object_or_404(Registration, option__in=option_conference, payment_status='paid', user_id=self.request.user.pk)
+        return get_object_or_404(Registration, option__in=option_conference, payment_status='paid',
+                                 user_id=self.request.user.pk)
 
     def get_context_data(self, **kwargs):
         context = super(RegistrationReceiptDetail, self).get_context_data(**kwargs)
