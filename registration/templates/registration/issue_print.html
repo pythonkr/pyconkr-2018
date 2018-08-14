@@ -9,11 +9,9 @@
 @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 
 .name-tag {
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%, -50%);
+  position:relative;
 }
+
 .name-tag .name {
   font-family: 'Jeju Gothic', serif;
   position:relative;
@@ -66,9 +64,12 @@
   .no-print {display:none}
   .preview-border {
     width: 90mm;
-    height: 28mm;
+    height: 26mm;
     border: 1px solid white;
     line-height:10mm;
+  }
+  .next-page {
+    page-break-before: always;
   }
 }
 
@@ -87,9 +88,27 @@
       </div>
       <button id='ticket_issue' class='btn'>발권</button>
     </div>
-    <div class='print name-tag preview-border'>
-      <div class='name'>{{ name }}</div>
-      <div class='org'>{{ company }}</div>
+    <div class="aera-print">
+        <div class='preview-border name-tag'>
+          <div class='name' style="text-align: center;">{{ name }}</div>
+          <div class='org' style="text-align: center;">{{ company }}</div>
+        </div>
+        {% if additional_ticket is not None %}
+        <div class='preview-border'>
+          {% if additional_ticket.patron %}
+            <div class=''>개인후원 기념품을 수령해가세요.</div>
+          {% endif %}
+          {% if additional_ticket.speaker %}
+            <div class=''>발표자 기념품을 수령해가세요.</div>
+          {% endif %}
+          {% if additional_ticket.baby_care %}
+            <div class=''>아이돌봄 명찰을 수령해주세요.</div>
+          {% endif %}
+          {% if additional_ticket.young_coder %}
+            <div class=''>영코더 추가 등록 절차를 진행해주세요.</div>
+          {% endif %}
+        </div>
+        {% endif %}
     </div>
 <script src="{% static "components/jquery/dist/jquery.min.js" %}"></script>
 <script src="{% static "components/js-cookie/src/js.cookie.js" %}" charset="utf-8"></script>
