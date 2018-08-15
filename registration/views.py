@@ -91,10 +91,6 @@ def payment(request, option_id):
                                          'option': product,
                                          'base_price': product.price})
 
-    options = Option.objects.filter(event_type=EVENT_CONFERENCE)
-    has_conference_ticket = Registration.objects.filter(user=request.user,
-                                                        option__in=options,
-                                                        payment_status__in=['paid']).exists()
     sold_out = False
     if product.event_type == EVENT_YOUNG:
         render_page = 'registration/payment_youngcoder.html'
@@ -111,7 +107,6 @@ def payment(request, option_id):
         'uid': uid,
         'product_name': product.name,
         'option_id': int(option_id),
-        'has_conference_ticket': has_conference_ticket,
         'sold_out': sold_out,
         'amount': product.price,
     })
