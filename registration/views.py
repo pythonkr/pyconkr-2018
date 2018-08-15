@@ -184,6 +184,9 @@ def payment_process(request):
         remain_ticket_count = (
                 config.TOTAL_TICKET - Registration.objects.active_conference().filter(
             payment_status__in=['paid', 'ready']).count())
+    elif product.event_type == EVENT_YOUNG:
+        registration_query = Registration.objects.filter(option=product, payment_status__in=['paid', 'ready'])
+        remain_ticket_count = (product.total - registration_query.filter(payment_status__in=['paid', 'ready']).count())
     else:
         registration_query = Registration.objects.filter(option=product, payment_status__in=['paid', 'ready'])
         registration = registration_query.filter(user=request.user)
