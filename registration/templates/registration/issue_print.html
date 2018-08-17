@@ -3,7 +3,7 @@
   <head>
 <style>
 @page {
-  size: 90mm 29mm;
+  size: 88mm 36mm;
   margin: 0cm;
 }
 @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
@@ -15,21 +15,22 @@
 .name-tag .name {
   font-family: 'Jeju Gothic', serif;
   position:relative;
-  top: 5mm;
+  font-size: 15mm;
+  top: 2mm;
   text-align: center;
 }
 .name-tag .org {
   font-family: 'Jeju Gothic', serif;
   color: gray;
-  font-size: 6mm;
+  font-size: 5mm;
   position:relative;
-  top: 3mm;
+  top: 2mm;
   text-align: center;
 }
 
 .preview-border {
-  width: 90mm;
-  height: 28mm;
+  width: 88mm;
+  height: 36mm;
   border: 1px solid red;
 }
 
@@ -63,8 +64,8 @@
 @media print {
   .no-print {display:none}
   .preview-border {
-    width: 90mm;
-    height: 26mm;
+    width: 84mm;
+    height: 30mm;
     border: 1px solid white;
     line-height:10mm;
   }
@@ -124,8 +125,8 @@ $(document).ready( function () {
     issueTicketConfirm({{ registration.id }});
   });
   $('.name').quickfit({
-    min: 5,
-    max: 30
+    min: 25,
+    max: 40
   });
 });
 
