@@ -95,7 +95,7 @@
           <div class='org' style="text-align: center;">{{ company }}</div>
         </div>
         {% if additional_ticket is not None %}
-        <div class='preview-border'>
+        <div class='preview-border' style="padding: 2mm">
           {% if additional_ticket.patron %}
             <div class=''>개인후원 기념품을 수령해가세요.</div>
           {% endif %}
@@ -126,7 +126,7 @@ $(document).ready( function () {
   });
   $('.name').quickfit({
     min: 25,
-    max: 40
+    max: 60
   });
 });
 
