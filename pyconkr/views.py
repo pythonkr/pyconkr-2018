@@ -265,8 +265,6 @@ def login_req(request, token):
             user.is_superuser = True
         user.save()
 
-    token.delete()
-
     # Set backend manually
     user.backend = 'django.contrib.auth.backends.ModelBackend'
     user_login(request, user)
