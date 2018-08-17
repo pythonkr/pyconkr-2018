@@ -73,7 +73,7 @@ admin.site.register(Speaker, SpeakerAdmin)
 
 
 class ProgramAdmin(SummernoteModelAdmin, TranslationAdmin):
-    list_display = ('id', 'name', 'date', 'room', 'get_speakers', 'category', 'is_recordable',)
+    list_display = ('id', 'name', 'date', 'room', 'slide_url', 'pdf_url', 'get_speakers', 'category', 'is_recordable',)
     list_editable = ('name', 'category', 'is_recordable',)
     ordering = ('id',)
     filter_horizontal = ('times', )
