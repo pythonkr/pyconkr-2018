@@ -503,6 +503,9 @@ def issue(request):
     if request.GET.get('type', None) == 'sponsor':
         options = Option.objects.filter(event_type=EVENT_TUTORIAL)
 
+    if request.GET.get('type', None) is None:
+        options = Option.objects.filter(event_type=EVENT_CONFERENCE)
+
     if options is not None:
         registration = registration.filter(option__in=options)
 
