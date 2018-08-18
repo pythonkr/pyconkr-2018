@@ -59,19 +59,19 @@
 </ul>
 {% if program.get_slide_url_by_begin_time %}
 <h3>{% trans "Slide" %}</h3>
-{{ program.get_slide_url_by_begin_time|urlize }}
+{{ program.get_slide_url_by_begin_time|urlize }}<br>
 {% endif %}
 {% if program.video_url %}
-<h3>{% trans "Video" %}</h3>
+<h3>{% trans "Video" %}</h3><br>
 {{ program.video_url|urlize }}
 {% endif %}
 {% if program.pdf_url %}
-<h3>{% trans "PDF" %}</h3>
+<h3>{% trans "PDF" %}</h3><br>
 {{ program.pdf_url|urlize }}
 {% endif %}
 {% if program.desc %}
-<h3>{% trans "Description" %}</h3>
-{{ program.desc|safe }}
+<h3>{% trans "Description" %}</h3><br>
+{{ program.desc|safe }}<br>
 {% endif %}
 {% if editable %}
 <hr>
