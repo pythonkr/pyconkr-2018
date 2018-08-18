@@ -2,7 +2,7 @@ from datetime import datetime
 
 from django.core.management.base import BaseCommand
 
-from registration.models import IssueTicket, Option
+from registration.models import IssueTicket, Registration
 
 
 class Command(BaseCommand):
@@ -19,8 +19,10 @@ class Command(BaseCommand):
             else:
                 categorized_tickets[ticket.registration.option.name] = [ticket.registration]
 
-        all_option = Option.objects.all()
+        all_registration = Registration.objects.all()
 
         print(datetime.now())
+
         for key in categorized_tickets.keys():
-            print('{} - {}/{}'.format(key, len(categorized_tickets[key]), all_option.get(name=key).total))
+            print('{} - {}/{}'.format(key, len(categorized_tickets[key]),
+                                      all_registration.filter(option__name=key).count()))
