@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime
+from uuid import uuid4
 
+from constance import config
 from django.contrib.auth.models import User
 from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.core.urlresolvers import reverse
@@ -9,10 +11,8 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.template.defaultfilters import date as _date
 from django.utils.translation import ugettext_lazy as _
-from sorl.thumbnail import ImageField as SorlImageField
 from jsonfield import JSONField
-from uuid import uuid4
-from constance import config
+from sorl.thumbnail import ImageField as SorlImageField
 
 from registration.models import Option
 
@@ -120,7 +120,7 @@ class Speaker(models.Model):
         result = []
         if type(self.info) == str:
             return '<div class="badges">{}</div>'.format(' '.join(result))
-        
+
         for site, url in self.info.items():
             result.append(badge.format(
                 size_class,
@@ -205,7 +205,8 @@ class Program(models.Model):
         if not time:
             return None
 
-        if datetime.now().date() >= time.day.day and datetime.now().time() >= time.begin:
+        if datetime.now().date() > time.day.day or (
+                datetime.now().date() >= time.day.day and datetime.now().time() >= time.begin):
             return self.slide_url
         else:
             return None
@@ -215,6 +216,7 @@ class Program(models.Model):
 
     def get_speakers(self):
         return ', '.join([u'{}({})'.format(_.name, _.email) for _ in self.speakers.all()])
+
     get_speakers.short_description = u'Speakers'
 
     def get_times(self):
