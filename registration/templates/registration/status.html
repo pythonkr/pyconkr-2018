@@ -81,7 +81,14 @@
             </table>
 
             {% if option.event_type == 'conference' %}
-                <p><a href="{% url 'registration_receipt' %}">{% trans "Check Registration Receipt" %}</a></p>
+                <p>
+                    <a href="{% url 'registration_receipt' %}">{% trans "Check Registration Receipt" %}</a><br>
+                    <a href="{% url 'certificates' %}">참석 확인증 출력</a>
+                </p>
+            {% elif option.event_type == 'tutorial' %}
+                <p>
+                    <a href="{% url 'certificates_tutorial' %}">참석 확인증 출력</a>
+                </p>
             {% endif %}
         {% elif registration.payment_status == 'ready' %}
             <div>

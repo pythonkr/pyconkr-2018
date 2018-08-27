@@ -78,7 +78,12 @@
           <ul>
              {% for join in joined_sprint %}
             <li>
-              <a href="{% url 'sprint' join.sprint.id %}">{{ join.sprint }}</a>
+                <a href="{% url 'sprint' join.sprint.id %}">{{ join.sprint }}</a>
+                <ul>
+                    <li>
+                        <a href="{% url 'certificates_sprint' %}">스프린트 참가증 발급</a>
+                    </li>
+                </ul>
             </li>
             {% endfor %}
           </ul>
